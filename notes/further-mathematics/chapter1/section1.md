@@ -17,7 +17,7 @@
 函数的两要素：**定义域**、**对应法则**
 
 :::
-- 例1：已知$f(e^x) = xe^{-x}$，则$f(x)$等于\_\_\_\_\_.
+- **例1**：已知$f(e^x) = xe^{-x}$，则$f(x)$等于\_\_\_\_\_.
 
     ::: details Answer
     
@@ -36,7 +36,7 @@
     
     :::
     
-- 例2：设$f(x^2 - 1) = \ln \frac{x^2}{x^2 - 2}$，且$f[\varphi(x)] = \ln x$，求$\varphi(x)$.
+- **例2**：设$f(x^2 - 1) = \ln \frac{x^2}{x^2 - 2}$，且$f[\varphi(x)] = \ln x$，求$\varphi(x)$.
 
     ::: details Answer
 
@@ -58,7 +58,7 @@
     $$
     :::
     
-- 例3：设函数$f(x)$的定义域为$(0, +\infty)$，且满足$2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}}$，求$f(x)$.
+- **例3**：设函数$f(x)$的定义域为$(0, +\infty)$，且满足$2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}}$，求$f(x)$.
 
     ::: details Answer
 
@@ -104,7 +104,7 @@
 
 :::
 
-- 例4：已知$y = \sin x$，则其反函数为\_\_\_\_\_.
+- **例4**：已知$y = \sin x$，则其反函数为\_\_\_\_\_.
 
     ::: details Answer
 
@@ -167,7 +167,7 @@ $$
 
 :::
 
-- 例5：判定函数$f(x) = \ln (x + \sqrt{x^2 +1})$的奇偶性.
+- **例5**：判定函数$f(x) = \ln (x + \sqrt{x^2 +1})$的奇偶性.
 
     ::: details Answer
 
@@ -188,7 +188,7 @@ $$
 
     :::
 
-- 例6：判定函数$f(x) = \frac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性.
+- **例6**：判定函数$f(x) = \frac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性.
 
     ::: details Answer
 
@@ -224,7 +224,7 @@ $$
 
 :::
 
-- 例7：判断函数$f(x) = |x \sin x| e^{\cos x} (-\infty \lt x \lt \infty)$是\_\_\_\_\_.
+- **例7**：判断函数$f(x) = |x \sin x| e^{\cos x} (-\infty \lt x \lt \infty)$是\_\_\_\_\_.
 
     （A）有界函数
     
@@ -290,6 +290,344 @@ $$
 | **奇偶性** |                            奇函数                            |                   偶函数                    |                         奇函数                          |             奇函数              |                     偶函数                     |              奇函数               |
 | **周期性** |                          $T = 2\pi$                          |                 $T = 2\pi$                  |                        $T = \pi$                        |            $T = \pi$            |                   $T = 2\pi$                   |               $T = 2\pi$          |
 
+#### 3.4.1 常见公式
+
+| $\sin^2 x + \cos^2 x = 1$ | $\tan x = \sin x / \cos x$ | $\cot x = \cos x / \sin x$ |
+| :-----------------------: | :------------------------: | :------------------------: |
+| $\sec^2 x = 1 + \tan^2 x$ |  $\csc^2 = 1 + \cot^2 x$   |                            |
+
+#### 3.4.2 角度的和差公式
+$$
+\sin (\alpha \pm \beta) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta
+$$
+
+$$
+\cos (\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta
+$$
+
+#### 3.4.3 积化和差公式
+$$
+\sin \alpha \cos \beta = \frac{1}{2} [\sin (\alpha + \beta) + \sin (\alpha - \beta)]
+$$
+
+$$
+\cos \alpha \sin \beta = \frac{1}{2} [\sin (\alpha + \beta) - \sin (\alpha - \beta)]
+$$
+
+$$
+\cos \alpha \cos \beta = \frac{1}{2} [\cos (\alpha + \beta) + \cos (\alpha - \beta)]
+$$
+
+$$
+\sin \alpha \sin \beta = -\frac{1}{2} [\cos (\alpha + \beta) - \cos (\alpha - \beta)]
+$$
+
+#### 3.4.4 和差化积公式
+
+> 设：$x = \alpha + \beta$、$y = \alpha - \beta$，则：$\alpha = \frac{x + y}{2}$、$\beta = \frac{x - y}{2}$
+
+$$
+\sin x + \sin y 
+= \sin (\alpha + \beta) + \sin (\alpha - \beta) 
+= 2 \sin \alpha \cos \beta
+= 2 \sin \frac{x + y}{2} \cos \frac{x - y}{2}
+$$
+
+$$
+\sin x - \sin y 
+= \sin (\alpha + \beta) - \sin (\alpha - \beta) 
+= 2 \cos \alpha \sin \beta
+= 2 \cos \frac{x + y}{2} \sin \frac{x - y}{2}
+$$
+
+$$
+\cos x + \cos y
+= \cos (\alpha + \beta) + \cos (\alpha - \beta)
+= 2 \cos \alpha \cos \beta
+= 2 \cos \frac{x + y}{2} \cos \frac{x - y}{2}
+$$
+
+$$
+\cos x - \cos y
+= \cos (\alpha + \beta) - \cos (\alpha - \beta)
+= -2 \sin \alpha \sin \beta
+= -2 \sin \frac{x + y}{2} \sin \frac{x - y}{2}
+$$
+
+#### 3.4.5 万能公式及归一化公式
+$$
+\sin x = \sin (\frac{x}{2} + \frac{x}{2}) 
+= 2 \sin \frac{x}{2} \cos \frac{\pi}{2}
+= 2 \frac{\sin \frac{x}{2}}{\cos \frac{x}{2}} \cdot \cos^2 \frac{x}{2}
+= 2 \tan \frac{x}{2} \cdot \frac{1}{\sec^2 \frac{x}{2}}
+= \frac{2 \tan \frac{x}{2}}{1 + \tan^2 \frac{x}{2}}
+$$
+
+$$
+\begin{aligned}
+\cos x = \cos (\frac{x}{2} + \frac{x}{2}) 
+= \cos^2 \frac{x}{2} - \sin^2 \frac{x}{2}
+= \cos^2 \frac{x}{2} (1 - \tan^2 \frac{x}{2}) \\ \\
+= (1 - \tan^2 \frac{x}{2}) / (1 + \tan^2 \frac{x}{2})
+= 2 \cos^2 \frac{x}{2} - 1
+= 1 - 2 \sin^2 \frac{x}{2}
+\end{aligned}
+$$
+
+$$
+1 + \cos x = 2 \cos^2 \frac{x}{2}, 1 - \cos x = 2 \sin^2 \frac{x}{2}
+$$
+
+$$
+1 \pm \sin x = 1 \pm 2 \sin \frac{x}{2} \cos \frac{x}{2} 
+= \sin^2 \frac{x}{2} + \cos^2 \frac{x}{2}
+= \pm 2 \sin \frac{x}{2} \cos \frac{x}{2} 
+= (\sin \frac{x}{2} \pm \cos \frac{x}{2})^2
+$$
+
 ### 3.5 反三角函数
 
-## IV. 常见的函数类型
+|            |            $\arcsin x$            |     $\arccos x$      |            $\arctan x$            |       $\text{arccot } x$        |
+| :--------: | :-------------------------------: | :------------------: | :-------------------------------: | :-----------------------------: |
+| **定义域** |             $[-1, 1]$             |      $[-1, 1]$       |       $(-\infty, +\infty)$        |      $(-\infty, +\infty)$       |
+|  **值域**  | $[-\frac{\pi}{2}, \frac{\pi}{2}]$ |      $[0, \pi]$      | $(-\frac{\pi}{2}, \frac{\pi}{2})$ |           $(0, \pi)$            |
+| **单调性** |        $[-1, 1] \uparrow$         | $[-1, 1] \downarrow$ |   $(-\infty, +\infty) \uparrow$   | $(-\infty, +\infty) \downarrow$ |
+| **奇偶性** |              奇函数               |                      |              奇函数               |                                 |
+| **周期性** |                                   |                      |                                   |                                 |
+
+## IV. 其他函数类型
+
+### 4.1 复合函数
+
+若$y = f(u)$、$u = \varphi(x)$，当$\varphi(x)$的值域落在$f(u)$的定义域内时，称$y = f[\varphi(x)]$是由中间变量$u$复合成的复合函数
+
+### 4.2 分段函数
+
+如下所示，在不同情况下应用不同的法则的函数：
+$$
+y = f(x) =
+\begin{cases}
+f_1(x), & x \in I_1 \\
+f_2(x), & x \in I_2 \\
+\vdots & \vdots \\
+f_n(x), & x \in I_n
+\end{cases}
+$$
+
+::: tip Tip
+
+1. 绝对值函数：
+    $$
+    f(x) = |x| =
+    \begin{cases}
+    x, & x \geq 0 \\
+    -x, & x \lt 0
+    \end{cases}
+    $$
+
+2. 符号函数：
+    $$
+    f(x) = \text{sgn } x =
+    \begin{cases}
+    1, & x \gt 0 \\
+    0, & x = 0 \\
+    -1, & x \lt 0
+    \end{cases}
+    $$
+
+3. 取整函数：
+    $$
+    f(x) = [x]
+    $$
+
+4. 最值函数：
+    $$
+    \varphi_1(x) = \max \{ f(x), g(x) \}
+    $$
+
+    $$
+    \varphi_2(x) = \min \{ f(x), g(x) \}
+    $$
+
+    
+
+:::
+
+- **例8**：设：
+    $$
+    g(x) =
+    \begin{cases}
+    2 - x, & x \leq 0 \\
+    x + 2, & x \gt 0
+    \end{cases}
+    $$
+
+    $$
+    f(x) =
+    \begin{cases}
+    x^2, & x \lt 0 \\
+    -x, & x \geq 0
+    \end{cases}
+    $$
+
+    求复合函数$g \circ f$、$f \circ g$
+
+    ::: details Answer
+    $$
+    g \circ f =
+    \begin{cases}
+    x^2 + 2, & x \lt 0 \\
+    x + 2, & x \geq 0 
+    \end{cases}
+    $$
+
+    $$
+    f \circ g =
+    \begin{cases}
+    x - 2, & x \leq 0 \\
+    -x - 2, & x \gt 0
+    \end{cases}
+    $$
+
+    :::
+
+### 4.3 由参数方程确立的函数
+
+一般形式：
+$$
+\begin{cases}
+x = f(t) \\
+y = g(t)
+\end{cases}
+$$
+
+### 4.4 隐函数
+
+一般形式：
+$$
+F(x, y) = 0
+$$
+
+## 课后习题
+
+1. 已知$f(x) = \sin x$，$f[\varphi(x)] = 1 - x^2$，则$\varphi(x) =$\_\_\_\_\_；其定义域为\_\_\_\_\_.
+
+    ::: details Answer
+
+    由题可得：
+    $$
+    \sin \varphi(x) = 1 - x^2
+    $$
+    则：
+    $$
+    \varphi(x) = \arcsin (1 - x^2)
+    $$
+    其定义域为：
+    $$
+    -\sqrt{2} \leq x \leq \sqrt{2}
+    $$
+    ::: 
+
+2. 函数$f(x + \frac{1}{x}) = \frac{x + x^3}{1 + x^4}$，求$f(x)$.
+
+    ::: details Answer
+    $$
+    f(x) = \frac{x}{x^2 - 2}
+    $$
+    :::
+
+3. 判断函数$f(x) = \ln (\frac{1 - x}{1 + x})$的奇偶性。
+
+    ::: details Answer
+
+    计算$f(-x) + f(x)$：
+    $$
+    \ln \frac{1 + x}{1 - x} + \ln \frac{1 - x}{1 + x} 
+    = \ln \frac{(1 + x)(1 - x)}{(1 - x)(1 + x)} 
+    = \ln 1 = 0
+    $$
+    由此可证函数$f(x)$为奇函数
+
+    :::
+
+4. 判断函数$f(x) = \frac{1}{2} (a^x + a^{-x})$的奇偶性。
+
+    ::: details Answer
+
+    计算$f(-x) - f(x)$：
+    $$
+    \frac{a^{-x} + a^x}{2} - \frac{a^x + a^{-x}}{2} = 0
+    $$
+    由此可证函数$f(x)$为偶函数
+
+    :::
+
+5. 判断函数$f(x) = x (\frac{1}{2^x - 1} + \frac{1}{2})$的奇偶性。
+
+    ::: details Answer
+
+    计算$f(-x)$可得：
+    $$
+    f(-x) = -x (-\frac{2^x}{2^x - 1} + \frac{1}{2})
+    = -x (-\frac{1}{2^x - 1} - \frac{1}{2}) 
+    = x (\frac{1}{2^x - 1} + \frac{1}{2})
+    $$
+
+    可见$f(-x) = f(x)$，则此函数为偶函数
+
+    :::
+
+6. 设$f(x)$的定义域为$R$，存在常数$c \neq 0$，使$f(x + c) = -f(x)$，试证明$f(x)$为周期函数。
+
+    ::: details Answer
+    $$
+    f(x + c) = -f(x)
+    $$
+
+    $$
+    f(x + 2c) = -f(x + c) = f(x)
+    $$
+
+    $$
+    f(x + 3c) = -f(x + 2c) = f(x + c) = -f(x)
+    $$
+
+    $$
+    f(x + 4c) = -f(x + 3c) = f(x + 2c) = -f(x + c) = f(x)
+    $$
+
+    $$
+    \dots
+    $$
+
+    显然可见，$f(x)$的周期$T = 2c$，$f(x + 2kc) = f(x), k \in \mathbb{Z}$，$f(x + (2k - 1)c) = -f(x), k \in \mathbb{Z}$
+
+    :::
+
+7. 函数$y = \ln (x + \sqrt{x^2 - 1}), (x \geq 1)$的反函数是\_\_\_\_\_.
+
+    ::: details Answer
+
+    将此函数转换成用$x = f(y)$的形式：
+    $$
+    e^y = x + \sqrt{x^2 - 1}
+    $$
+
+    $$
+    e^y - x = \sqrt{x^2 - 1}
+    $$
+
+    $$
+    e^{2y} + x^2 - 2e^yx = x^2 - 1
+    $$
+
+    $$
+    e^{2y} - 2e^yx = -1
+    $$
+
+    $$
+    x = \frac{e^{2y} + 1}{2e^y}
+    $$
+
+    :::
+
