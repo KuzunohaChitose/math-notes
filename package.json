@@ -1,0 +1,37 @@
+{
+  "name": "math-notes",
+  "repository": {
+    "url": "https://github.com/KuzunohaChitose/math-notes"
+  },
+  "author": {
+    "name": "KuzunohaChitose",
+    "email": "rluo9281@gmail.com",
+    "url": "https://github.com/KuzunohaChitose"
+  },
+  "description": "For learning further mathematics.",
+  "homepage": "https://kuzunohachitose.github.io/math-notes/",
+  "version": "1.0.0",
+  "readme": "README.md",
+  "license": "MIT",
+  "keywords": [
+    "VitePress"
+  ],
+  "packageManager": "pnpm@9.11.0",
+  "scripts": {
+    "dev": "vitepress dev notes",
+    "build": "vitepress build notes && python script.py move",
+    "preview": "vitepress preview notes",
+    "server": "python ./script.py server"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-rc.25"
+  },
+  "dependencies": {
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-katex": "^2.0.3",
+    "ant-design-vue": "^4.0.7",
+    "echarts": "^5.4.3",
+    "mermaid": "^10.6.1",
+    "vue": "^3.3.8"
+  }
+}
