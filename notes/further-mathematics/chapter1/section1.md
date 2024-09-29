@@ -23,7 +23,7 @@
     
     设 $u = e^x$，则有：
     $$
-    x = \ln u \text{ and } e^{-x} = \frac{1}{u}
+    x = \ln u \text{ 且 } e^{-x} = \frac{1}{u}
     $$
     所以：
     $$
@@ -42,7 +42,7 @@
 
     设 $u  = x^2 - 1$，则有：
     $$
-    x^2 = u + 1 \text{ and } x^2 - 2 = u - 1
+    x^2 = u + 1 \text{ 且 } x^2 - 2 = u - 1
     $$
     所以：
     $$
@@ -72,11 +72,11 @@
     $$
     将$u$用$x$表示后，得到式一：
     $$
-    4x^2f(\frac{1}{x}) + 2f(x) = \frac{2x (1 + 2x)}{\sqrt{x^2 + 1}}
+    4x^2f(\frac{1}{x}) + 2f(x) = \frac{2x (1 + 2x)}{\sqrt{x^2 + 1}} \tag{1}
     $$
     式二：
     $$
-    2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}}
+    2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}} \tag{2}
     $$
     将式一减式二可得：
     $$
@@ -167,7 +167,7 @@ $$
 
 :::
 
-- **例5**：判定函数$f(x) = \ln (x + \sqrt{x^2 +1})$的奇偶性.
+- **例5**：判定函数$f(x) = \ln (x + \sqrt{x^2 +1})$的奇偶性，并求其反函数。
 
     ::: details Answer
 
@@ -186,9 +186,30 @@ $$
 
     由此可证$f(-x) = -f(x)$，所以函数$f(x)$为奇函数
 
+    <br>
+
+    设$y = f(x)$，则求$x = f^{-1}(y)$：
+    $$
+    e^y = x + \sqrt{x^2 + 1}
+    $$
+
+    $$
+    e^{2y} + x^2 - 2xe^y = x^2 + 1
+    $$
+
+    $$
+    2xe^y = 1 - e^{2y}
+    $$
+
+    $$
+    x = \frac{1 - e^{2y}}{2e^y} = \frac{1}{2} (e^x - e^{-x})
+    $$
+
+    故函数$f(x)$的反函数为$y = \frac{1}{2} (e^x - e^{-x})$
+
     :::
 
-- **例6**：判定函数$f(x) = \frac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性.
+- **例6**：判定函数$f(x) = \frac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性。
 
     ::: details Answer
 
@@ -401,6 +422,28 @@ $$
 
 若$y = f(u)$、$u = \varphi(x)$，当$\varphi(x)$的值域落在$f(u)$的定义域内时，称$y = f[\varphi(x)]$是由中间变量$u$复合成的复合函数
 
+::: tip Example
+
+编程语言中的函数组合：
+
+```haskell
+compose :: (a -> b) -> (t -> a) -> t -> b
+compose = (.)
+
+f :: (Fractional a) => a -> a
+f x = x * 2
+
+g :: (Fractional a) => a -> a
+g x = x / 2
+
+h :: (Fractional a) => a -> a
+h = f `compose` g
+```
+
+由$f$与$g$组合得到的函数$h(x) = x$
+
+:::
+
 ### 4.2 分段函数
 
 如下所示，在不同情况下应用不同的法则的函数：
@@ -596,11 +639,11 @@ $$
     f(x + 4c) = -f(x + 3c) = f(x + 2c) = -f(x + c) = f(x)
     $$
 
-    $$
-    \dots
-    $$
+    显然可见，$f(x)$的周期$T = 2c$，
+    
+    $f(x + 2kc) = f(x), k \in \mathbb{Z}$，
 
-    显然可见，$f(x)$的周期$T = 2c$，$f(x + 2kc) = f(x), k \in \mathbb{Z}$，$f(x + (2k - 1)c) = -f(x), k \in \mathbb{Z}$
+    $f(x + (2k - 1)c) = -f(x), k \in \mathbb{Z}$
 
     :::
 

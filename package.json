@@ -27,10 +27,14 @@
     "vitepress": "1.0.0-rc.25"
   },
   "dependencies": {
-    "markdown-it-footnote": "^3.0.3",
-    "markdown-it-katex": "^2.0.3",
     "ant-design-vue": "^4.0.7",
     "echarts": "^5.4.3",
+    "juice": "^11.0.0",
+    "katex": "^0.16.11",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-mathjax3": "^4.3.2",
+    "mathjax-full": "^3.2.2",
     "mermaid": "^10.6.1",
     "vue": "^3.3.8"
   }

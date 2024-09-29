@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
-import mdItKatex from "markdown-it-katex";
-import mdItFootnote from "markdown-it-footnote";
+import mdFootnote from "markdown-it-footnote";
+import mdMathJax3 from "markdown-it-mathjax3";
+import mdkatex from "markdown-it-katex";
 
 const tags = [
     "math",
@@ -117,10 +118,43 @@ export default defineConfig({
     title: "Math Notes",
     description: "Some knowledge of advanced mathematics...",
     markdown: {
+        math: false,
         lineNumbers: false,
         config: (it) => {
-            it.use(mdItKatex);
-            it.use(mdItFootnote);
+            const fakeMd = {
+                inline: {
+                    ruler: {
+                        after(a, b, c) {
+                            it.inline.ruler.after(a, b, c);
+                        },
+                    },
+                },
+                block: {
+                    ruler: {
+                        after(...args) {},
+                    },
+                },
+                renderer: {
+                    rules: new Proxy(
+                        {},
+                        {
+                            get(target, p) {
+                                return it[p];
+                            },
+                            set(target, p: string, newValue) {
+                                if (p !== "math_block") {
+                                    it.renderer.rules[p] = newValue;
+                                }
+                                return true;
+                            },
+                        }
+                    ),
+                },
+            };
+
+            it.use(mdMathJax3 as any);
+            mdkatex(fakeMd);
+            it.use(mdFootnote);
         },
     },
     vue: {
@@ -237,7 +271,7 @@ export default defineConfig({
                 text: "第九章 二重积分",
                 collapsed: true,
                 items: [],
-            }
+            },
         ],
         socialLinks: [
             { icon: "github", link: "https://github.com/KuzunohaChitose" },
