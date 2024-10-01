@@ -69,3 +69,18 @@ samp {
         opacity: 1;
     }
 }
+
+@media (max-width: 1279px) {
+    .asumi {
+        display: none;
+    }
+}
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#app {
+    overflow: hidden;
+}

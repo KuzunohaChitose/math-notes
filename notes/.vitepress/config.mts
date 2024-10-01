@@ -120,6 +120,9 @@ export default defineConfig({
     markdown: {
         math: false,
         lineNumbers: false,
+        toc: {
+            level: [2, 3, 4],
+        },
         config: (it) => {
             const fakeMd = {
                 inline: {
@@ -152,7 +155,13 @@ export default defineConfig({
                 },
             };
 
-            it.use(mdMathJax3 as any);
+            it.use(mdMathJax3 as any, {
+                options: {
+                    format: {
+                        output: "svg",
+                    },
+                },
+            });
             mdkatex(fakeMd);
             it.use(mdFootnote);
         },
@@ -183,7 +192,7 @@ export default defineConfig({
         ],
         sidebar: [
             {
-                text: "第一章 函数与极限",
+                text: "第一章 函数、极限与连续",
                 collapsed: true,
                 items: [
                     {
@@ -191,40 +200,12 @@ export default defineConfig({
                         link: "/further-mathematics/chapter1/section1",
                     },
                     {
-                        text: "第二节 数列的极限",
+                        text: "第二节 极限",
                         link: "/further-mathematics/chapter1/section2",
                     },
                     {
-                        text: "第三节 函数的极限",
+                        text: "第三节 连续",
                         link: "/further-mathematics/chapter1/section3",
-                    },
-                    {
-                        text: "第四节 无穷小与无穷大",
-                        link: "/further-mathematics/chapter1/section4",
-                    },
-                    {
-                        text: "第五节 极限运算法则",
-                        link: "/further-mathematics/chapter1/section5",
-                    },
-                    {
-                        text: "第六节 极限存在准则 两个重要极限",
-                        link: "/further-mathematics/chapter1/section6",
-                    },
-                    {
-                        text: "第七节 无穷小的比较",
-                        link: "/further-mathematics/chapter1/section7",
-                    },
-                    {
-                        text: "第八节 函数的连续性与间断点",
-                        link: "/further-mathematics/chapter1/section8",
-                    },
-                    {
-                        text: "第九节 连续函数的运算与初等函数的连续性",
-                        link: "/further-mathematics/chapter1/section9",
-                    },
-                    {
-                        text: "第十节 闭区间上连续函数的性质",
-                        link: "/further-mathematics/chapter1/section10",
                     },
                     {
                         text: "总习题",

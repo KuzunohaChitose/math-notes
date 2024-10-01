@@ -36,7 +36,7 @@
     
     :::
     
-- **例2**：设$f(x^2 - 1) = \ln \frac{x^2}{x^2 - 2}$，且$f[\varphi(x)] = \ln x$，求$\varphi(x)$.
+- **例2**：设$f(x^2 - 1) = \ln \dfrac{x^2}{x^2 - 2}$，且$f[\varphi(x)] = \ln x$，求$\varphi(x)$.
 
     ::: details Answer
 
@@ -58,7 +58,7 @@
     $$
     :::
     
-- **例3**：设函数$f(x)$的定义域为$(0, +\infty)$，且满足$2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}}$，求$f(x)$.
+- **例3**：设函数$f(x)$的定义域为$(0, +\infty)$，且满足$2f(x) + x^2f(\frac{1}{x}) = \dfrac{x^2 + 2x}{\sqrt{1 + x^2}}$，求$f(x)$.
 
     ::: details Answer
 
@@ -72,11 +72,11 @@
     $$
     将$u$用$x$表示后，得到式一：
     $$
-    4x^2f(\frac{1}{x}) + 2f(x) = \frac{2x (1 + 2x)}{\sqrt{x^2 + 1}} \tag{1}
+    4x^2f(\frac{1}{x}) + 2f(x) = \frac{2x (1 + 2x)}{\sqrt{x^2 + 1}}
     $$
     式二：
     $$
-    2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}} \tag{2}
+    2f(x) + x^2f(\frac{1}{x}) = \frac{x^2 + 2x}{\sqrt{1 + x^2}}
     $$
     将式一减式二可得：
     $$
@@ -209,7 +209,7 @@ $$
 
     :::
 
-- **例6**：判定函数$f(x) = \frac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性。
+- **例6**：判定函数$f(x) = \dfrac{1 - e^{-x}}{1 + e^{-x}}$的奇偶性。
 
     ::: details Answer
 
@@ -240,7 +240,7 @@ $$
 
 ::: tip Tip
 
-1. 若$f(x + T) = f(x)$，则$f(ax + b)$以$\frac{T}{|a|}$为周期
+1. 若$f(x + T) = f(x)$，则$f(ax + b)$以$\dfrac{T}{|a|}$为周期
 2. 若$f(x)$以$T_1$为周期、$g(x)$以$T_2$为周期，则$f(x) \pm g(x)$、$f(x) \cdot g(x)$以$T_1$、$T_2$的最小公倍数为周期
 
 :::
@@ -571,7 +571,7 @@ $$
     $$
     ::: 
 
-2. 函数$f(x + \frac{1}{x}) = \frac{x + x^3}{1 + x^4}$，求$f(x)$.
+2. 函数$f(x + \frac{1}{x}) = \dfrac{x + x^3}{1 + x^4}$，求$f(x)$.
 
     ::: details Answer
     $$
@@ -579,7 +579,7 @@ $$
     $$
     :::
 
-3. 判断函数$f(x) = \ln (\frac{1 - x}{1 + x})$的奇偶性。
+3. 判断函数$f(x) = \ln (\dfrac{1 - x}{1 + x})$的奇偶性。
 
     ::: details Answer
 
@@ -605,7 +605,7 @@ $$
 
     :::
 
-5. 判断函数$f(x) = x (\frac{1}{2^x - 1} + \frac{1}{2})$的奇偶性。
+5. 判断函数$f(x) = x (\dfrac{1}{2^x - 1} + \dfrac{1}{2})$的奇偶性。
 
     ::: details Answer
 
