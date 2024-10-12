@@ -252,21 +252,46 @@ $$
 
 ## IV. 极限的运算法则
 
-设$\lim f(x) = A$、$\lim g(x) = B$，则：
+### 4.1 极限的四则运算法则
+
 $$
-\lim [f(x) \pm g(x)] = A \pm B, 
-\lim [f(x) \cdot g(x)] = A \cdot B,
-\lim \frac{f(x)}{g(x)} = \frac{A}{B}
-$$
-由此可进一步推得：
-$$
-\lim cf(x) = cA,
-\lim [f(x)]^n = [\lim f(x)]^n
+\lim_{x \to a} f(x) = A ,\, \lim_{x \to a} g(x) = B \Rightarrow
+\begin{cases}
+\lim_{x \to a} \left[ f(x) \pm g(x) \right] = A \pm B \\
+\lim_{x \to a} \left[ f(x) \times g(x) \right] = A \times B \\
+\lim_{x \to a} \left[ f(x) \div g(x) \right] = A \div B
+\end{cases}
 $$
 
 ::: tip Tip
 
-注意！和与积的运算法则只对有限项成立，对于无限项不成立！
+- 注意：
+
+    1. 和与积的运算法则只对有限项成立，对于无限项不成立！
+
+    2. 若$\lim_{x \to a} \left[ f(x) \pm g(x) \right]$存在，则$\lim_{x \to a} f(x)$与$\lim_{x \to a} g(x)$同时存在或同时不存在
+
+    3. 若$\lim_{x \to a} f(x) = A \neq 0$，则：
+        $$
+        \lim_{x \to a} \left[ f(x) \cdot g(x) \right] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x) = A \cdot \lim_{x \to a} g(x)
+        $$
+
+    4. 若$\lim_{x \to a} \dfrac{f(x)}{g(x)} = A$，则：
+        $$
+        \begin{cases}
+        \lim_{x \to a} f(x) = 0 \Rightarrow
+        \begin{cases}
+        A \neq 0 \Rightarrow \lim_{x \to a} g(x) = 0 \\
+        A = 0 \Rightarrow \lim_{x \to a} g(x) \neq 0
+        \end{cases} \\
+        \lim_{x \to a} g(x) = 0 \Rightarrow \lim_{x \to a} f(x) = \lim_{x \to a} \frac{f(x)}{g(x)} \cdot g(x) = A \cdot 0 = 0
+        \end{cases}
+        $$
+
+- 推论：
+
+    1. 若$\lim_{x \to a} f(x)$存在，且$c$为常数，则$\lim_{x \to a} \left[ c f(x) \right] = c \lim_{x \to a} f(x)$
+    2. 若$\lim_{x \to a} f(x)$存在，且$n$为常数，则$\lim_{x \to a} \left[ f(x) \right]^n = \left[ \lim_{x \to a} f(x) \right]^n$
 
 :::
 
@@ -348,68 +373,65 @@ $$
         $$
         ::: details Answer
 
-        因为分式上下都有多个趋向于无穷的项，而当存在多个趋向于无穷的项时，此多项式的极限取决于变化速度最快的那一项，也就是说此外的项都可以忽略，由此可得极限为：
+        对分子分母同除以$x^3$可得：（抓大头）
         $$
-        \lim_{x \to \infty} \frac{x^3}{3x^3} = \frac{1}{3}
+        \lim_{x \to \infty} \frac{1 + \frac{1}{x^2} + \frac{1}{x^3}}{3 + \frac{2}{x} + \frac{1}{x^3}}
+        $$
+        然后将$x = \infty$代入可得：
+        $$
+        \frac{1 + 0 + 0}{3 + 0 + 0} = \frac{1}{3}
         $$
         :::
-
+        
     - （3）
         $$
         \lim_{x \to +\infty} (\sqrt{4x^2 + 12x + 1} - 2x)
         $$
         ::: details Answer
-
+    
         首先通过乘以共轭的方式简化这个极限：
         $$
         \lim_{x \to +\infty} (\sqrt{4x^2 + 12x + 1} - 2x) \cdot \frac{\sqrt{4x^2 + 12x + 1} + 2x}{\sqrt{4x^2 + 12x + 1} + 2x}
         $$
         化简可得：
         $$
-        \lim_{x \to +\infty} \frac{4x^2 + 12x + 1 - 4x^2}{\sqrt{4x^2 + 12x + 1} + 2x} 
-        = \lim_{x \to +\infty} \frac{12x + 1}{\sqrt{4x^2 + 12x + 1} + 2x} 
+        \lim_{x \to +\infty} \frac{12x + 1}{\sqrt{4x^2 + 12x + 1} + 2x} \
         $$
-        对于分子：常数项在趋于无穷的$12x$面前可以忽略忽略不计，因此分子可以近似为$12x$
-
-        对于分母：第一项$\sqrt{4x^2 + 12x + 1}$中的$4x^2$为高阶的无穷大因此可以忽略相对低阶的无穷大，将此项近似为$2x$，因此分母可以近似为$2x + 2x = 4x$
-
-        所以，最后计算这个极限可得：
+        将分子分母同除以$x$可得：
         $$
-        \lim_{x \to +\infty} (\sqrt{4x^2 + 12x + 1} - 2x)
-        = \lim_{x \to +\infty} \frac{12x}{4x} = 3
+        \lim_{x \to +\infty} \frac{12 + \frac{1}{x}}{\sqrt{4 + \frac{12}{x} + \frac{1}{x^2}} + 2}
+        $$
+        然后将$x = +\infty$代入可得：
+        $$
+        \frac{12}{\sqrt{4 + 0 + 0} + 2} = \frac{12}{4} = 3
         $$
         :::
-
+        
     - （4）
         $$
         \lim_{x \to -\infty} \frac{\sqrt{4x^2 - 2x + 5} - 2x + 2}{\sqrt{2x^2 + 1}}
         $$
         ::: details Answer
-
-        首先通过乘以共轭的方式简化这个极限：
+    
+        对分子分母同时除以$x$可得：
         $$
-        \lim_{x \to -\infty} \frac{\sqrt{4x^2 - 2x + 5} - (2x - 2)}{\sqrt{2x^2 + 1}} \cdot \frac{\sqrt{4x^2 - 2x + 5} + (2x - 2)}{\sqrt{4x^2 - 2x + 5} + (2x - 2)}
+        \lim_{x \to -\infty} (\frac{\sqrt{4x^2 - 2x + 5}}{x} - \frac{2x}{x} + \frac{2}{x}) \cdot \frac{x}{\sqrt{2x^2 + 1}}
         $$
-        化简可得：
+        将带根式的分式项转换为根式项后得：（因为原项为负值所以转换后需要带上负号）
         $$
-        \lim_{x \to -\infty} \frac{6x + 1}{(\sqrt{4x^2 - 2x + 5} + 2x - 2) \sqrt{2x^2 + 1}}
+        \lim_{x \to -\infty} (-\sqrt{\frac{4x^2 - 2x + 5}{x^2}} - \frac{2x}{x} + \frac{2}{x}) \cdot -\sqrt{\frac{x^2}{2x^2 + 1}}
         $$
-        对于分子：可以近似为$6x$
-
-        对于分母：$\sqrt{4x^2 - 2x + 5}$可以近似为$-2x$（因为$x \to -\infty$）,因此$\sqrt{4x^2 - 2x + 5} + 2x - 2$可以近似为$-2x + 2x - 2 = -2$，而$\sqrt{2x^2 + 1}$可以近似为$-\sqrt{2}x$，则最后分母可以近似为$-2 \cdot (-\sqrt{2}x) = 2\sqrt{2}x$
-
-        所以，最后计算这个极限可得：
+        对每一项抓大头后可得：
         $$
-        \lim_{x \to -\infty} \frac{\sqrt{4x^2 - 2x + 5} - 2x + 2}{\sqrt{2x^2 + 1}}
-        = \lim_{x \to -\infty} \frac{6x}{2\sqrt{2}x} = \frac{3\sqrt{2}}{2}
+        \lim_{x \to -\infty} (-\sqrt{\frac{4x^2}{x^2}} - \frac{2x}{x} + \frac{2}{x}) \cdot -\sqrt{\frac{x^2}{2x^2}}
+        = \frac{-2 - 2 + 0}{-\sqrt{2}} = 2\sqrt{2}
         $$
         :::
-
+    
     - （5）
         $$
         \lim_{x \to 0^+} \frac{1 - e^{\frac{1}{x}}}{x + e^{\frac{1}{x}}}
         $$
-
         ::: details Answer
         
         对于分子：当$x \to 0^+$时，$\frac{1}{x}$趋向于$+\infty$，所以$e^{\frac{1}{x}}$趋向于$+\infty$，常数项$1$可忽略，则分子近似为$-e^{\frac{1}{x}}$
@@ -422,7 +444,11 @@ $$
         = \lim_{x \to 0^+} -\frac{e^{\frac{1}{x}}}{e^{\frac{1}{x}}} = -1
         $$
         :::
-    
+
+### 4.2 复合函数极限的运算法则
+
+若$\lim_{x \to a} g(x) = u_0$且$g(x) \neq u_0$，$\lim_{u \to u_0} f(u) = A$，则$\lim_{x \to a} f\left[ g(x) \right] = \lim_{u \to u_0} f(u) = A$
+
 - **例8**：已知$\lim_{x \to 0} \dfrac{f(3x)}{x} = 2$，求$\lim_{x \to 0} \dfrac{x}{f(2x)}$.
 
     ::: details Answer
@@ -449,8 +475,331 @@ $$
     = \frac{3}{4}
     $$
     :::
+    
+- **例9**：设函数：
+    $$
+    g(x) =
+    \begin{cases}
+    2 - x, & x \leq 0 \\
+    x + 2, & x \gt 0
+    \end{cases} \\
+    $$
+
+    $$
+    f(x) =
+    \begin{cases}
+    x^2, & x \lt 0 \\
+    -x, & x \geq 0
+    \end{cases}
+    $$
+
+    求$\lim_{x \to 0} g\left[ f(x) \right]$.
+
+    ::: details Answer
+
+    首先计算内层函数在$x \to 0$时的极限：
+    $$
+    \lim_{x \to 0^-} f(x) = \lim_{x \to 0^+} f(x) = 0
+    $$
+    由此可得：（设$u = f(x)$）
+    $$
+    \lim_{x \to 0} g\left[ f(x) \right] = \lim_{u \to 0} g(u) = 2
+    $$
+    :::
 
 ## V. 极限存在的两个准则
 
+### 5.1 夹逼准则
+
+设$I$为包含某点$a$的区间，且函数为$f(x)$、$g(x)$、$h(x)$定义在$I$上且可能不包含点$a$的函数。若对于所有属于$I$而不等于$a$的$x$，有：
+
+1. $g(x) \leq f(x) \leq h(x)$
+2. $\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$
+
+则函数$f(x)$的极限存在，且也为$L$，而函数$g(x)$、$h(x)$分别称为$f(x)$的下界与上界
+
+::: tip Tip
+
+若$a$为$I$的端点，则上述的极限为左极限或右极限。对于$x \to \infty$，此定理依旧可用
+
+:::
+
+- **例10**：求极限$\lim_{n \to \infty} \sqrt[n]{a_1^n + a_2^n + ... + a_m^n}$，其中$a_i \gt 0 \, (i \in\{ 1, 2, ..., m \})$.
+
+    ::: details Answer
+
+    设一个最大值$M$：
+    $$
+    M = \max \{ a_1, a_2, \dots, a_m \}
+    $$
+    则：
+    $$
+    a_1^n + a_2^n + \dots + a_m^n \leq m \cdot M^n
+    $$
+    且因为至少有一个$a_i = M$，则：
+    $$
+    a_1^n + a_2^n + \dots + a_m^n \geq M^n
+    $$
+    所以存在不等式：
+    $$
+    \sqrt[n]{M^n} \leq \sqrt[n]{a_1^n + a_2^n + ... + a_m^n} \leq \sqrt[n]{m M^n}
+    $$
+    求上界的极限可得：
+    $$
+    \lim_{n \to \infty} \sqrt[n]{m M^n} = M
+    $$
+    求下界的极限可得：
+    $$
+    \lim_{n \to \infty} \sqrt[n]{M^n} = M
+    $$
+    则根据夹逼准则可得：
+    $$
+    \lim_{n \to \infty} \sqrt[n]{a_1^n + a_2^n + ... + a_m^n} = \max \{ a_1, a_2, \dots, a_m \}
+    $$
+    :::
+    
+- **例11**：求极限$\lim_{n \to \infty} \left[ \dfrac{1}{\sqrt{n^2 + 1}} + \dfrac{1}{\sqrt{n^2 + 2}} + ... + \dfrac{1}{\sqrt{n^2 + n}} \right]$.
+
+    ::: details Answer
+
+    设数列$a_n$：
+    $$
+    a_n = \frac{1}{\sqrt{n^2 + 1}} + \frac{1}{\sqrt{n^2 + 2}} + ... + \frac{1}{\sqrt{n^2 + n}}
+    $$
+    首先找出$a_n$中最大的一项：
+    $$
+    \max \{ \frac{1}{\sqrt{n^2 + 1}}, \frac{1}{\sqrt{n^2 + 2}}, ..., \frac{1}{\sqrt{n^2 + n}} \} = \frac{1}{\sqrt{n^2 + 1}}
+    $$
+    其次找出$a_n$中最小的一项：
+    $$
+    \min \{ \frac{1}{\sqrt{n^2 + 1}}, \frac{1}{\sqrt{n^2 + 2}}, ..., \frac{1}{\sqrt{n^2 + n}} \} = \frac{1}{\sqrt{n^2 + n}}
+    $$
+    又因为$a_n$这个多项式共有$n$项，因此必然存在不等式：
+    $$
+    \frac{n}{\sqrt{n^2 + n}} \leq a_n \leq \frac{n}{\sqrt{n^2 + 1}}
+    $$
+    求上界的极限可得：
+    $$
+    \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + 1}}
+    = \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n^2}}} = 1
+    $$
+    求下界的极限可得：
+    $$
+    \lim_{n \to \infty} \frac{n}{\sqrt{n^2 + n}} 
+    = \lim_{n \to \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}} = 1
+    $$
+    则根据夹逼准则可得：
+    $$
+    \lim_{n \to \infty} \left[ \frac{1}{\sqrt{n^2 + 1}} + \frac{1}{\sqrt{n^2 + 2}} + ... + \frac{1}{\sqrt{n^2 + n}} \right] = 1
+    $$
+    :::
+
+### 5.2 单调有界准则
+
+单调递增（或递减）且有上界（或下界）的数列必有极限，即：
+
+1. 若$a_1 \leq a_2 \leq a_3 \leq ... \leq a_n \leq M$，则$\lim_{n \to \infty} a_n = a$存在，且$a$为$\{ a_n \}$的一个上界
+2. 若$a_1 \leq a_2 \leq a_3 \leq ... \leq a_n \leq m$，则$\lim_{n \to \infty} a_n = a$存在，且$a$为$\{ a_n \}$的一个下界
+
+::: tip Tip
+
+1. 单调有界准则只能证明$\{ a_n \}$的极限存在，但极限值未必能够求出
+2. 若$\{ a_n \} \uparrow (\downarrow)$且无上（下）界，则$\{ a_n \}$的极限为$+\infty$（或$-\infty$）
+3. 证明单调性的方法：
+    - 比较$a_{n + 1} - a_n$与$0$的大小
+    - 比较$\frac{a_{n + 1}}{a_n}$与$1$的大小
+    - 数学归纳法
+    - 重要不等式：$a^2 + b^2 \geq 2|ab|$
+    - 判断$a_{n + 1} - a_n$与$a_n - a_{n - 1}$是否同号
+    - 若$a_{n + 1} = f(a_n)$，则$y = f(x)$且$f'(x) \gt 0$
+4. 证明有界性的方法：
+    - 数学归纳法
+    - 重要不等式
+    - 最值
+
+:::
+
+- **例11**：已知$x_1 = \dfrac{1}{2}$，$x_{n + 1} = \dfrac{2}{1 + \frac{1}{x_n}} \, (n \in \mathbb{N}_+)$，证明$\lim_{n \to \infty} x_n$存在并求其值。
+
+    ::: details
+    
+    - 首先证明其单调性：
+    
+        关于递推式：
+        $$
+        x_{n + 1} = f(x_n) = \frac{2}{1 + \frac{1}{x_n}} = \frac{2x_n}{1 + x_n}
+        $$
+        对$f(x_n)$求导得：
+        $$
+        f'(x_n) = \frac{2}{(1 + x)^2} \gt 0
+        $$
+        又因为$x_1 = 0.5$，所以$x_n$单调递增且$x_n \geq 0.5$
+    
+    - 其次证明其有界性：
+    
+        已知$x_n \geq 0.5$，则：
+        $$
+        0 \lt \frac{1}{x_n} \leq 2
+        $$
+        则：
+        $$
+        1 \lt \frac{1}{x_n} + 1 \leq 3
+        $$
+        则：
+        $$
+        1 \gt \frac{1}{1 + \frac{1}{x_n}} \geq \frac{1}{3}
+        $$
+        则：
+        $$
+        2 \gt \frac{2}{1 + \frac{1}{x_n}} \geq \frac{2}{3}
+        $$
+        可见，$x_n$存在上界，其始终小于$2$
+    
+    :::
+    
+- **例12**：设$x_n = 1 + \dfrac{1}{2^2} + \dfrac{1}{3^2} + ... + \dfrac{1}{n^2}$，证明$\lim_{n \to \infty} x_n$存在。
+
+    ::: details
+    
+    - 首先证明其单调性：
+    
+        计算$x_{n + 1} - x_n$：
+        $$
+        x_{n + 1} - x_n = \left[ 1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots + \frac{1}{n^2} + \frac{1}{(n + 1)^2} \right] - \left[ 1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots + \frac{1}{n^2} \right] = \frac{1}{(n + 1)^2} \gt 0
+        $$
+        所以$x_n$为单调递增
+    
+    - 其次证明其有界性：
+        $$
+        x_n = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots + \frac{1}{n^2} \lt 1 + 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots + \frac{1}{n - 1} - \frac{1}{n} = 2 - \frac{1}{n} \lt 2
+        $$
+        所以$x_n$存在上界，其始终小于$2$
+    
+    :::
+
 ## VI. 无穷小量与无穷大量
+
+### 6.1 无穷小量的定义
+
+设函数$f(x)$在点$x_0$的某去心邻域内有定义，如果对于任意$\epsilon \gt 0$，存在$\delta \gt 0$，使得当$0 \lt |x - x_0| \lt \delta$时，有$|f(x)| \lt \epsilon$，则称函数$f(x)$是$x \to x_0$时的无穷小量
+
+::: tip Tip
+
+简而言之，即：$\lim_{x \to x_0} f(x) = 0$，称其为一个无穷小量
+
+:::
+
+### 6.2 无穷小量与极限的关系
+
+$$
+\lim_{x \to x_0} f(x) = A \Leftrightarrow f(x_0) = A + \alpha(x_0) ,\, \lim_{x \to x_0} \alpha(x) = 0
+$$
+
+### 6.3 无穷大量的定义
+
+设函数$f(x)$在点$x_0$的某去心邻域内有定义，如果对于任意正数$M$（无论它有多么大），存在$\epsilon \gt 0$，使得当$0 \lt |x - x_0| \lt \epsilon$时，有$|f(x)| \gt M$，则称函数$f(x)$是当$x \to x_0$时的无穷大量
+
+::: tip Tip
+
+简而言之，即：$\lim_{x \to x_0} f(x) = \infty$，称其为一个无穷大量
+
+:::
+
+- **例13**：设数列$\{ x_n \}$与$\{ y_n \}$满足$\lim_{n \to \infty} x_n y_n = 0$，则以下说法正确的是：
+
+    - （A）若$\{ x_n \}$发散，则$\{ y_n \}$不发散
+    - （B）若$\{ x_n \}$无界，则$\{ y_n \}$必有界
+    - （C）若$\{ x_n \}$有界，则$\{ y_n \}$必为无穷小
+    - （D）若$\{ \frac{1}{x_n} \}$为无穷小，则$\{ y_n \}$必为无穷小
+
+    ::: details Answer
+
+    若$\lim_{n \to \infty} \frac{1}{x_n} = 0$，则：
+    $$
+    \lim_{n \to \infty} x_n = \infty
+    $$
+    在此情况下，只有当$\lim_{n \to \infty} y_n = 0$时，形成$\infty \cdot 0$的未定式，才有可能得到$\lim_{n \to \infty} x_n y_n = 0$，例如：
+    $$
+    x_n = x ,\, y_n = \frac{1}{x^2} ,\, \lim_{n \to \infty} x_n y_n = 0
+    $$
+    所以D选项正确
+
+    :::
+
+### 6.4 无穷小量与无穷大量的关系
+
+1. 若$\lim_{x \to x_0} f(x) = \infty$，则$\lim_{x \to x_0} \dfrac{1}{f(x)} = 0$
+2. 若$\lim_{x \to x_0} f(x) = 0$，且$f(x) \neq 0$，则$\lim_{x \to x_0} \dfrac{1}{f(x)} = \infty$
+
+### 6.5 无穷小量和无穷大量的运算性质
+
+1. 有限个无穷小量的和、差、积也是无穷小量
+2. 有界函数与无穷小量之积为无穷小量
+3. 设$\lim f(x) = \pm \infty$、$\lim g(x) = \pm \infty$，则$\lim \left[ f(x) + g(x) \right] = \pm \infty$
+
+### 6.6 无穷小量阶的比较
+
+设$\lim \alpha = \lim \beta = 0$，且$\alpha \neq 0$，则：
+
+- 若$\lim \dfrac{\beta}{\alpha} = 0$，则称$\beta$是比$\alpha$高阶的无穷小，记作$\beta = o(\alpha)$
+- 若$\lim \dfrac{\beta}{\alpha} = \infty$，则称$\beta$是比$\alpha$低阶的无穷小
+- 若$\lim \dfrac{\beta}{\alpha} = c \neq 0$，则称$\beta$与$\alpha$是同阶的无穷小；当$c = 0$时两者为等价的无穷小，记作$\beta \sim \alpha$
+- 若$\lim \dfrac{\beta}{\alpha^k} \neq 0 \, (k \gt 0)$，则称$\beta$是$\alpha$的$k$阶无穷小
+
+### 6.7 等价无穷小替换定理
+
+在自变量的同一变化过程中，设$\alpha(x) \sim\tilde{\alpha}(x)$，$\beta(x) \sim \tilde{\beta}(x)$，且$\lim \dfrac{\tilde{\beta}}{\tilde{\alpha}}$存在，则$\lim \dfrac{\beta}{\alpha} = \lim \dfrac{\tilde{\beta}}{\tilde{\alpha}}$
+
+### 6.8 常用的等价无穷小量
+
+当$x \to 0$时：
+$$
+x \sim \sin x \sim \tan x \sim \arcsin x \sim \arctan x \sim \ln (1 + x) \sim e^x - 1
+$$
+
+$$
+(1 + x)^a - 1 \sim ax (a \neq 0) ,\, a^x - a \sim x \ln a (a \gt 0, a \neq 1) ,\, 1 - \cos x \sim \frac{x^2}{2}
+$$
+
+$$
+x - \sin x \sim \frac{x^3}{6} ,\, x - \tan x \sim -\frac{x^3}{3} ,\, x - \ln (1 + x) \sim \frac{x^2}{2}
+$$
+
+$$
+x - \arcsin x \sim -\frac{x^3}{6} ,\, x - \arctan x - \frac{x^3}{3}
+$$
+
+- **例14**：设$\alpha(x) = (e^{kx} - 1) \arcsin x$，$\beta(x) = \sqrt{1 + x \arcsin x} - \sqrt{\cos x}$，当$x \to 0$时，$\alpha(x) \sim \beta(x)$，则$k$的值是多少？
+
+    ::: details Answer
+
+    通过等价无穷小替换来简化极限：
+    $$
+    \lim_{x \to 0} \frac{(e^{kx} - 1) \arcsin x}{\sqrt{1 + x \arcsin x} - \sqrt{\cos x}} \\
+    = \lim_{x \to 0} \frac{kx^2}{\sqrt{1 + x^2} - \sqrt{1 - \frac{x^2}{2}}} \\
+    = \lim_{x \to 0} \frac{kx^2}{1 + \frac{x^2}{2} - 1 + \frac{x^2}{4}} \\
+    = \lim_{x \to 0} \frac{kx^2}{\frac{3x^2}{4}} = 1 \\
+    $$
+    可解得$k = \dfrac{3}{4}$
+
+    :::
+
+- **例15**：若极限$\lim_{x \to 0} \dfrac{\sin x}{e^x - a} (\cos x - b) = 5$，则$a$和$b$的值是多少？
+
+    ::: details Answer
+
+    通过等价无穷小替换来简化极限：
+    $$
+    \lim_{x \to 0} \frac{\sin x}{e^x - a} (\cos x - b)
+    = \lim_{x \to 0} \frac{x}{1 - a + x} (1 - b - \frac{x^2}{2})
+    $$
+    已知分子为无穷小，则分母必须也为无穷小，否则无法得到极限值$5$，所以$1 - a = 0$，则$a = 1$；然后再将$a = 1$代入后求$b$：
+    $$
+    \lim_{x \to 0} \frac{x}{1 - 1 + x} (1 - b - \frac{x^2}{2}) 
+    = \lim_{x \to 0} (1 - b - \frac{x^2}{2})
+    = 1 - b = 5
+    $$
+    由此可得$b = -4$
+
+    :::
 
