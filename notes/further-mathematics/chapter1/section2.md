@@ -692,8 +692,16 @@ $$
 ### 6.2 无穷小量与极限的关系
 
 $$
-\lim_{x \to x_0} f(x) = A \Leftrightarrow f(x_0) = A + \alpha(x_0) ,\, \lim_{x \to x_0} \alpha(x) = 0
+\lim_{x \to a} f(x) = A \Leftrightarrow \lim_{x \to a} \left[ f(x) - A \right] = 0 \Leftrightarrow^{\alpha = f(x) - A} f(x) = A + \alpha ,\, \lim_{x \to a} \alpha = 0
 $$
+
+::: tip Tip
+
+作用：可以用来去掉极限号，将$f(x)$的表达式求出来
+
+用法：已知极限中含有抽象函数，可利用该方法将抽象函数表达式求出
+
+:::
 
 ### 6.3 无穷大量的定义
 
@@ -702,6 +710,8 @@ $$
 ::: tip Tip
 
 简而言之，即：$\lim_{x \to x_0} f(x) = \infty$，称其为一个无穷大量
+
+无穷大量与无界量之间的关系：无穷大量必为无界量，无界量未必为无穷大量，但无界量必定含有一个无穷大的子序列
 
 :::
 
@@ -734,7 +744,7 @@ $$
 ### 6.5 无穷小量和无穷大量的运算性质
 
 1. 有限个无穷小量的和、差、积也是无穷小量
-2. 有界函数与无穷小量之积为无穷小量
+2. 有界量与无穷小量之积为无穷小量
 3. 设$\lim f(x) = \pm \infty$、$\lim g(x) = \pm \infty$，则$\lim \left[ f(x) + g(x) \right] = \pm \infty$
 
 ### 6.6 无穷小量阶的比较
@@ -745,6 +755,35 @@ $$
 - 若$\lim \dfrac{\beta}{\alpha} = \infty$，则称$\beta$是比$\alpha$低阶的无穷小
 - 若$\lim \dfrac{\beta}{\alpha} = c \neq 0$，则称$\beta$与$\alpha$是同阶的无穷小；当$c = 0$时两者为等价的无穷小，记作$\beta \sim \alpha$
 - 若$\lim \dfrac{\beta}{\alpha^k} \neq 0 \, (k \gt 0)$，则称$\beta$是$\alpha$的$k$阶无穷小
+
+::: tip Tip
+
+1. 同阶无穷小与等价无穷小之间的关系：
+    $$
+    \lim_{x \to a} \frac{\beta}{\alpha} = c \Leftrightarrow 
+    \lim_{x \to a} \frac{\beta}{c \alpha} = 1 \Leftrightarrow
+    \beta \sim c \alpha
+    $$
+
+2. 高阶无穷小与等价无穷小之间的关系：
+    $$
+    \lim_{x \to a} \frac{\beta}{\alpha} = 0 \Leftrightarrow 
+    \lim_{x \to a} \left[ \frac{\beta}{\alpha} + 1 \right] = 1 \Leftrightarrow
+    \lim_{x \to a} \frac{\beta + \alpha}{\alpha} = 1 \Leftrightarrow
+    \beta + \alpha \sim \alpha \Leftrightarrow
+    \alpha + o(\alpha) \sim \alpha
+    $$
+
+3. 高阶无穷小的运算：
+    $$
+    o(x^n) \pm o(x^n) = o(x^n) ,\, o(x^n) + o(x^m) = o(x^m) ,\, (m \lt n)
+    $$
+
+    $$
+    x^m \cdot o(x^n) = o(x^{m + n}) ,\, o(x^m) \cdot o(x^n) = o(x^{m + n}) ,\, o(cx^n) = o(x^n) ,\, (c \neq 0)
+    $$
+
+:::
 
 ### 6.7 等价无穷小替换定理
 

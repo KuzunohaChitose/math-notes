@@ -84,3 +84,7 @@ mjx-container {
 #app {
     overflow: hidden;
 }
+
+.fp {
+    aspect-ratio: 8 / 5;
+}

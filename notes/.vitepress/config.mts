@@ -1,9 +1,11 @@
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
 
 const tags = [
+    "mjx-container",
     "math",
     "maction",
     "maligngroup",
@@ -92,7 +94,11 @@ const tags = [
 ];
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid({
+    mermaid: {},
+    mermaidPlugin: {
+        class: "mermaid my-class",
+    },
     vite: {
         server: {
             host: "0.0.0.0",
@@ -207,16 +213,29 @@ export default defineConfig({
                         text: "第三节 连续",
                         link: "/further-mathematics/chapter1/section3",
                     },
-                    {
-                        text: "总习题",
-                        link: "/further-mathematics/chapter1/exercises",
-                    },
                 ],
             },
             {
                 text: "第二章 导数与微分",
                 collapsed: true,
-                items: [],
+                items: [
+                    {
+                        text: "第一节 导数的概念",
+                        link: "/further-mathematics/chapter2/section1",
+                    },
+                    {
+                        text: "第二节 导数的计算",
+                        link: "/further-mathematics/chapter2/section2",
+                    },
+                    {
+                        text: "第三节 高阶导数",
+                        link: "/further-mathematics/chapter2/section3",
+                    },
+                    {
+                        text: "第四节 函数的微分",
+                        link: "/further-mathematics/chapter2/section4",
+                    },
+                ],
             },
             {
                 text: "第三章 微分中值定理与导数的应用",

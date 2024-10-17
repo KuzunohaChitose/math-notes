@@ -24,15 +24,17 @@
     "server": "python ./script.py server"
   },
   "devDependencies": {
-    "vitepress": "1.0.0-rc.25"
+    "mermaid": "^10.9.1",
+    "vitepress": "1.0.0-rc.25",
+    "vitepress-plugin-mermaid": "^2.0.17"
   },
   "dependencies": {
     "ant-design-vue": "^4.0.7",
     "echarts": "^5.4.3",
+    "function-plot": "^1.25.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-mathjax3": "^4.3.2",
-    "mermaid": "^10.6.1",
     "vue": "^3.3.8"
   }
 }
