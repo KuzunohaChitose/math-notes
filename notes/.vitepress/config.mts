@@ -109,7 +109,7 @@ export default withMermaid({
             "link",
             {
                 rel: "icon",
-                href: "/english-notes/resources/logo.png",
+                href: "/math-notes/resources/logo.png",
                 type: "image/png",
             },
         ],
