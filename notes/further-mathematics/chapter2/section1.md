@@ -10,7 +10,7 @@
 
 ### 1.1 函数在一点处的导数
 
-设函数$y = f(x)$在$U(x_0,\delta)$内有定义，若极限$\lim_{\Delta x \to 0} \dfrac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \dfrac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$存在，则称$f(x)$在点$x_0$处可导，并称此极限值为$f(x)$在点$x_0$处的导数，记为$f'(x)$或$\dfrac{dy}{dx}|_{x = x_0}$；如果该极限不存在，则称此函数在点$x_0$处不可导
+设函数$y = f(x)$在$U(x_0,\delta)$内有定义，若极限$\lim_{\Delta x \to 0} \dfrac{\Delta y}{\Delta x} = \lim_{\Delta x \to 0} \dfrac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}$存在，则称$f(x)$在点$x_0$处可导，并称此极限值为$f(x)$在点$x_0$处的导数，记为$f'(x)$或$\dfrac{\mathrm{d} y}{\mathrm{d} x}|_{x = x_0}$；如果该极限不存在，则称此函数在点$x_0$处不可导
 
 ::: tip Tip
 
@@ -326,7 +326,7 @@ $$
 
 2. 若函数$f(x)$在开区间$(a, b)$内可导，且导数$f'_+(a)$和$f'_-(b)$都存在，则称函数$f(x)$在闭区间$\left[ a, b \right]$上可导
 
-3. 若函数$f(x)$在开区间$(a, b)$内可导，对于任一$x \in (a, b)$，都对应着一个确定的到数值$f'(x)$，则称$f'(x)$为函数$f(x)$在$(a, b)$内的导函数，$f'(x)$也记作$y'$、$\dfrac{dy}{dx}$或$\dfrac{df(x)}{x}$，导函数的定义式为：
+3. 若函数$f(x)$在开区间$(a, b)$内可导，对于任一$x \in (a, b)$，都对应着一个确定的到数值$f'(x)$，则称$f'(x)$为函数$f(x)$在$(a, b)$内的导函数，$f'(x)$也记作$y'$、$\dfrac{\mathrm{d} y}{\mathrm{d} x}$或$\dfrac{\mathrm{d} f(x)}{x}$，导函数的定义式为：
     $$
     f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
     $$
@@ -389,7 +389,7 @@ $$
 
 ## V. 相关变化率
 
-设$x = x(t)$及$y = y(t)$都是可导函数，而变量$x$与$y$之间存在某种关系，从而变化率$dx/dt$与$dy/dt$之间也存在某种关系，这两个相互依赖的变化率便称为**相关变化率**
+设$x = x(t)$及$y = y(t)$都是可导函数，而变量$x$与$y$之间存在某种关系，从而变化率$\mathrm{d} x / \mathrm{d} t$与$\mathrm{d} y / \mathrm{d} t$之间也存在某种关系，这两个相互依赖的变化率便称为**相关变化率**
 
 - **例8**：已知一个长方形的长$h$以`2cm/s`的速率增加，宽$w$以`3cm/s`的速率增加，则当$h$ = 12cm、$w$ = 5cm时，它的对角线增加的速率是多少？
 
@@ -410,7 +410,7 @@ $$
     根据导函数的定义求其导函数：
     $$
     \begin{gather}
-    l'(t) = \frac{dl}{dt} = \lim_{\Delta t \to 0} \frac{l(\Delta t + t) - l(t)}{\Delta t} \\
+    l'(t) = \frac{\mathrm{d} l}{\mathrm{d} t} = \lim_{\Delta t \to 0} \frac{l(\Delta t + t) - l(t)}{\Delta t} \\
     = \lim_{\Delta t \to 0} \frac{\sqrt{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2} - \sqrt{(12 + 2t)^2 + (5 + 3t)^2}}{\Delta t} \\
     = \lim_{\Delta t \to 0} \frac{\sqrt{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2} - \sqrt{(12 + 2t)^2 + (5 + 3t)^2}}{\Delta t} \cdot \frac{\sqrt{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2} + \sqrt{(12 + 2t)^2 + (5 + 3t)^2}}{\sqrt{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2} + \sqrt{(12 + 2t)^2 + (5 + 3t)^2}} \\
     = \lim_{\Delta t \to 0} \frac{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2 - (12 + 2t)^2 - (5 + 3t)^2}{\Delta t (\sqrt{(12 + 2\Delta t + 2t)^2 + (5 + 3\Delta t + 3t)^2} + \sqrt{(12 + 2t)^2 + (5 + 3t)^2})} \\
