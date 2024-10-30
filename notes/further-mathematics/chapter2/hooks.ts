@@ -1,24 +1,4 @@
-import { text } from "stream/consumers";
 import { onMounted, useTemplateRef } from "vue";
-
-const drawBorderedBox =
-    (ctx: CanvasRenderingContext2D) =>
-    (
-        x: number,
-        y: number,
-        height: number,
-        width: number,
-        borderWidth: number = 1
-    ) => {
-        ctx.strokeStyle = "#000000";
-        ctx.lineWidth = borderWidth;
-        ctx.strokeRect(
-            x + borderWidth,
-            y + borderWidth,
-            height - borderWidth,
-            width - borderWidth
-        );
-    };
 
 const drawLine =
     (ctx: CanvasRenderingContext2D) =>

@@ -240,7 +240,12 @@ export default withMermaid({
             {
                 text: "第三章 微分中值定理与导数的应用",
                 collapsed: true,
-                items: [],
+                items: [
+                    {
+                        text: "第一节 微分中值定理",
+                        link: "/further-mathematics/chapter3/section1"
+                    }
+                ],
             },
             {
                 text: "第四章 不定积分",
