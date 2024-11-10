@@ -243,8 +243,20 @@ export default withMermaid({
                 items: [
                     {
                         text: "第一节 微分中值定理",
-                        link: "/further-mathematics/chapter3/section1"
-                    }
+                        link: "/further-mathematics/chapter3/section1",
+                    },
+                    {
+                        text: "第而节 洛必达法则",
+                        link: "/further-mathematics/chapter3/section2",
+                    },
+                    {
+                        text: "第三节 函数的单调性与极值",
+                        link: "/further-mathematics/chapter3/section3",
+                    },
+                    {
+                        text: "第四节 曲线的凹凸性与拐点",
+                        link: "/further-mathematics/chapter3/section4",
+                    },
                 ],
             },
             {
