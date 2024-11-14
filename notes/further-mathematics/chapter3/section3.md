@@ -273,4 +273,50 @@ $$
 
 - **例6**：若要造一圆柱形油罐，其体积为$V$，试问：当底半径$r$与高$h$等于多少时，使得表面积最小？且此时底直径与高的比是多少？
 
+    ::: details Answer
+    
+    由体积公式可知，圆柱体的体积为：
+    $$
+    V = \pi r^2 h
+    $$
+    则$h$是关于$r$的函数：
+    $$
+    h = \frac{V}{\pi r^2}
+    $$
+    而根据表面积公式可知：
+    $$
+    S = 2\pi r^2 + 2\pi hr
+    $$
+    将$h(r)$代入可得：
+    $$
+    S = 2\pi r^2 + 2V \frac{1}{r}
+    $$
+    然后求出$S'(r)$：
+    $$
+    \dfrac{\mathrm{d} S}{\mathrm{d} r} = 4\pi r - 2V \frac{1}{r^2}
+    $$
+    然后求出$S''(r)$：
+    $$
+    \dfrac{\mathrm{d}^2 S}{\mathrm{d} r^2} = 4\pi r - \frac{2V}{r^2}
+    $$
+    然后求解方程$S'(r) = 0$以求出函数$S(r)$的驻点：
+    $$
+    4\pi r - 2V \frac{1}{r^2} = 0 \Rightarrow r = \sqrt[3]{\frac{V}{2\pi}}
+    $$
+    将此$r$的取值代入函数$S''(r)$：
+    $$
+    S''(\sqrt[3]{\frac{V}{2\pi}}) = 12\pi \gt 0
+    $$
+    且$S(r)$的驻点唯一，所以$r = \sqrt[3]{\dfrac{V}{2\pi}}$是函数$S(r)$的极小值点，再将此取值代入$h(r)$：
+    $$
+    h(\sqrt[3]{\frac{V}{2\pi}}) = \frac{(2\pi)^{\frac{2}{3}} V}{\pi V^{\frac{2}{3}}}
+    $$
+    然后计算$2r$与$h$的比值：
+    $$
+    \frac{2r}{h} = \frac{2 V^{\frac{1}{3}}}{(2\pi)^{\frac{1}{3}}} \cdot \frac{\pi V^{\frac{2}{3}}}{(2\pi)^{\frac{2}{3}} V} = \frac{2\pi V}{2\pi V} = 1
+    $$
+    所以：当$r = \sqrt[3]{\dfrac{V}{2\pi}}$、$h = 2\sqrt[3]{\dfrac{V}{2\pi}}$时，使得表面积最小，此时底直径与高之比为`1:1`
+    
+    :::
+
 [^1]:即导数为零的点
