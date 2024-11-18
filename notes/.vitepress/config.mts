@@ -1,8 +1,9 @@
-import { defineConfig } from "vitepress";
-import { withMermaid } from "vitepress-plugin-mermaid";
+import {defineConfig} from "vitepress";
+import {withMermaid} from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
+import { text } from "function-plot/dist/graph-types";
 
 const tags = [
     "mjx-container",
@@ -140,7 +141,8 @@ export default withMermaid({
                 },
                 block: {
                     ruler: {
-                        after(...args) {},
+                        after(...args) {
+                        },
                     },
                 },
                 renderer: {
@@ -262,7 +264,20 @@ export default withMermaid({
             {
                 text: "第四章 不定积分",
                 collapsed: true,
-                items: [],
+                items: [
+                    {
+                        text: "第一节 不定积分的概念与性质",
+                        link: "/further-mathematics/chapter4/section1",
+                    },
+                    {
+                        text: "第二节 不定积分的基本积分法",
+                        link: "/further-mathematics/chapter4/section2",
+                    },
+                    {
+                        text: "第三节 几种特殊类型函数的积分",
+                        link: "/further-mathematics/chapter4/section3",
+                    },
+                ],
             },
             {
                 text: "第五章 定积分",
@@ -291,9 +306,9 @@ export default withMermaid({
             },
         ],
         socialLinks: [
-            { icon: "github", link: "https://github.com/KuzunohaChitose" },
-            { icon: "twitter", link: "https://twitter.com" },
-            { icon: "youtube", link: "https://youtube.com" },
+            {icon: "github", link: "https://github.com/KuzunohaChitose"},
+            {icon: "twitter", link: "https://twitter.com"},
+            {icon: "youtube", link: "https://youtube.com"},
         ],
     },
 });
