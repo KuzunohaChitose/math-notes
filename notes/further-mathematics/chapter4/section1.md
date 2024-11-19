@@ -64,14 +64,94 @@
     - （B）$f(x)$与$g(x)$都不存在原函数
     - （C）$f(x)$存在原函数，$g(x)$不存在原函数
     - （D）$f(x)$不存在原函数，$g(x)$存在原函数
+    
+    ::: details Answer
+    
+    对于函数$f(x)$：
+    $$
+    \lim_{x \to 0^-} \frac{e^{1/x} - 1}{e^{1/x} +1} = -1 ,\, 
+    \lim_{x \to 0^+} \frac{e^{1/x} - 1}{e^{1/x} +1} = 1
+    $$
+    显然可见，因为$\lim_{x \to 0^-} f(x) \neq \lim_{x \to 0^+} f(x)$，所以$x = 0$是第一类间断点，所以$f(x)$在$(-1, 1)$内不存在原函数；
+    
+    对于函数$g(x)$：
+    $$
+    \lim_{x \to 0^-} x^2 = 0 ,\, \lim_{x \to 0^+} x \sin \frac{1}{x} = 0
+    $$
+    显然可见，因为$\lim_{x \to 0^-} g(x) = \lim_{x \to 0^+} g(x) = g(0) = 0$，所以$g(x)$在$x = 0$处连续，所以$g(x)$在$(-1, 1)$内存在原函数；所以最终选D
+    
+    :::
 
 ### 1.2 不定积分的概念
 
 在区间$I$上，函数$f(x)$的带有任意常数项的原函数称为$f(x)$在区间$I$上的不定积分，记作$\int f(x) \mathrm{d}x$，其中记号$\int$为积分符号，$f(x)$为被积函数，$f(x) \mathrm{d}x$为被积表达式，$x$为积分变量，即：
 $$
-F'(x) = f(x) \Rightarrow \int f(x) \mathrm{d}x = F(x)
+F'(x) = f(x) \Rightarrow \int f(x) \mathrm{d}x = F(x) + C
 $$
 
+- **例3**：已知函数：
+    $$
+    f(x) =
+    \begin{cases}
+    2(x - 1), & x \lt 1 \\
+    \ln x, & x \geq 1
+    \end{cases}
+    $$
+    则$f(x)$的一个原函数是\_\_\_\_\_.
 
-​    
+    - （A）
+        $$
+        F(x) =
+        \begin{cases}
+        (x - 1)^2, & x \lt 1 \\
+        x (\ln x - 1), & x \geq 1
+        \end{cases}
+        $$
 
+    - （B）
+        $$
+        F(x) =
+        \begin{cases}
+        (x - 1)^2, & x \lt 1 \\
+        x (\ln x + 1) - 1, & x \geq 1
+        \end{cases}
+        $$
+
+    - （C）
+        $$
+        F(x) =
+        \begin{cases}
+        (x - 1)^2, & x \lt 1 \\
+        x (\ln x + 1) + 1, & x \geq 1
+        \end{cases}
+        $$
+
+    - （D）
+        $$
+        F(x) =
+        \begin{cases}
+        (x - 1)^2, & x \lt 1 \\
+        x (\ln x - 1) + 1, & x \geq 1
+        \end{cases}
+        $$
+
+    ::: details Answer
+
+    话不多说，直接开导：
+    $$
+    \begin{gather}
+    \left[ (x - 1) \right]' = 2 (x - 1) \\
+    \left[ x (\ln x - 1) \right]' = \left[ x (\ln x - 1) + 1 \right]' = \ln x \\
+    \left[ x (\ln x + 1) - 1 \right]' = \left[ x (\ln x + 1) - 1 \right]' = \ln x + 2
+    \end{gather}
+    $$
+    显然可见，根据求导的结果可知，只有A、D满足要求，接下来判断它们的连续性：
+    $$
+    \begin{gather}
+    \left[ \lim_{x \to 1^-} (x - 1)^2 = 0 \right] \neq \left[ \lim_{x \to 1^+} x (\ln x - 1) = -1 \right] \\
+    \left[ \lim_{x \to 1^-} (x - 1)^2 = 0 \right] = \left[ \lim_{x \to 1^+} x (\ln x - 1) + 1 = 0 \right]
+    \end{gather}
+    $$
+    所以最终仅有D满足要求，则选D
+
+    :::
