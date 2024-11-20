@@ -155,3 +155,47 @@ $$
     所以最终仅有D满足要求，则选D
 
     :::
+
+## II. 不定积分的性质
+
+以下均假定函数$f(x)$（或$f'(x)$）、$g(x)$在所讨论的区间上连续：
+
+$$
+\frac{\mathrm{d}}{\mathrm{d}x} \left[ \int f(x) \mathrm{d}x \right] = f(x) ,\,
+\mathrm{d} \left[ \int f(x) \mathrm{d}x \right] = f(x) \mathrm{d}x \tag{1}
+$$
+
+$$
+\int \mathrm{d} f(x) = \int f'(x) \mathrm{d}x = f(x) + C \tag{2}
+$$
+
+$$
+\int \left[ f(x) \pm g(x) \right] \mathrm{d}x = \int f(x) \mathrm{d}x \pm \int g(x) \mathrm{d}x \tag{3}
+$$
+
+$$
+\int k f(x) \mathrm{d}x = k \int f(x) \mathrm{d}x ,\, k \neq 0 \tag{4}
+$$
+
+- **例4**：如果$f(x)$的一个原函数是$x \ln x - x$，则$\int f'(x) \mathrm{d}x$为\_\_\_\_\_.
+
+    - （A）$x \ln x + C$
+    - （B）$\ln x + C$
+    - （C）$x \ln x + x + C$
+    - （D）$-x \ln x + C$
+
+    ::: details Answer
+    $$
+    \int f'(x) \mathrm{d}x = f(x) + C = (x \ln x - x)' + C = \ln x + 1 - 1 + C = \ln x + C
+    $$
+    :::
+
+## III. 基本积分表
+
+|          $\int k \mathrm{d}x = kx + C$（$k$为常数）          | $\int \dfrac{\mathrm{d}x}{x} = \ln \mathrm{abs}(x) + C$ |
+| :----------------------------------------------------------: | :-----------------------------------------------------: |
+| $\int x^{\eta} \mathrm{d}x = \dfrac{x^{\eta + 1}}{\eta + 1} + C$（$\eta \neq -1$） |         $\int \cos x \mathrm{d}x = \sin x + C$          |
+|           $\int \sin x \mathrm{d}x = -\cos x + C$            |        $\int \sec^2 x \mathrm{d}x = \tan x + C$         |
+|          $\int \csc^2 x \mathrm{d}x = -\cot x + C$           |      $\int \sec x \tan x \mathrm{d}x = \sec x + C$      |
+|        $\int \csc x \cot x \mathrm{d}x = -\csc x + C$        |                                                         |
+
