@@ -192,10 +192,61 @@ $$
 
 ## III. 基本积分表
 
-|          $\int k \mathrm{d}x = kx + C$（$k$为常数）          | $\int \dfrac{\mathrm{d}x}{x} = \ln \mathrm{abs}(x) + C$ |
-| :----------------------------------------------------------: | :-----------------------------------------------------: |
-| $\int x^{\eta} \mathrm{d}x = \dfrac{x^{\eta + 1}}{\eta + 1} + C$（$\eta \neq -1$） |         $\int \cos x \mathrm{d}x = \sin x + C$          |
-|           $\int \sin x \mathrm{d}x = -\cos x + C$            |        $\int \sec^2 x \mathrm{d}x = \tan x + C$         |
-|          $\int \csc^2 x \mathrm{d}x = -\cot x + C$           |      $\int \sec x \tan x \mathrm{d}x = \sec x + C$      |
-|        $\int \csc x \cot x \mathrm{d}x = -\csc x + C$        |                                                         |
+|          $\int k \mathrm{d}x = kx + C$（$k$为常数）          |   $\int \dfrac{\mathrm{d}x}{x} = \ln \mathrm{abs}(x) + C$    |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| $\int x^{\eta} \mathrm{d}x = \dfrac{x^{\eta + 1}}{\eta + 1} + C$（$\eta \neq -1$） |            $\int \cos x \mathrm{d}x = \sin x + C$            |
+|           $\int \sin x \mathrm{d}x = -\cos x + C$            |           $\int \sec^2 x \mathrm{d}x = \tan x + C$           |
+|          $\int \csc^2 x \mathrm{d}x = -\cot x + C$           |        $\int \sec x \tan x \mathrm{d}x = \sec x + C$         |
+|        $\int \csc x \cot x \mathrm{d}x = -\csc x + C$        | $\int a^x \mathrm{d}x = \dfrac{a^x}{\ln a} + C$（$a \gt 0$且$a \neq 1$） |
+|               $\int e^x \mathrm{d}x = e^x + C$               |  $\int \tan x \mathrm{d}x = -\ln \mathrm{abs}(\cos x) + C$   |
+|   $\int \cot x \mathrm{d}x = \ln \mathrm{abs}(\sin x) + C$   | $\int \sec x \mathrm{d}x = \ln \mathrm{abs}(\sec x + \tan x) + C$ |
+| $\int \csc x \mathrm{d}x = \ln \mathrm{abs}(\csc x - \cot x) + C$ | $\int \dfrac{\mathrm{d}x}{a^2 + x^2} = \dfrac{1}{a} \arctan \dfrac{x}{a} + C$ |
+|     $\int \dfrac{\mathrm{d}x}{1 + x^2} = \arctan x + C$      | $\int \dfrac{\mathrm{d}x}{x^2 - a^2} = \dfrac{1}{2a} \ln \mathrm{abs}(\dfrac{x - a}{x + a}) + C$（$a \gt 0$） |
+| $\int \dfrac{\mathrm{d}x}{\sqrt{a^2 - x^2}} = \arcsin \dfrac{x}{a} + C$（$a \gt 0$） |  $\int \dfrac{\mathrm{d}x}{\sqrt{1 - x^2}} = \arcsin x + C$  |
+| $\int \dfrac{\mathrm{d}x}{\sqrt{x^2 + a^2}} = \ln (x + \sqrt{x^2 + a^2}) + C$（$a \gt 0$） | $\int \dfrac{\mathrm{d}x}{\sqrt{x^2 - a^2}} = \ln \mathrm{abs}(x + \sqrt{x^2 - a^2}) + C$（$a \gt 0$） |
 
+- **例5**：求下列不定积分：
+
+    1. $\int \dfrac{\sqrt{x} + 2}{\sqrt[4]{x}} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \int \frac{\sqrt{x} + 2}{\sqrt[4]{x}} \mathrm{d}x
+        = \int \frac{u^2 + 2}{u} \mathrm{d}(u^4), u = x^{\frac{1}{4}} \\
+        = 4 \int u^4 \mathrm{d}u + 8 \int u^2 \mathrm{d}u
+        = \frac{4}{5} x^{\frac{5}{4}} + \frac{8}{3} x^{\frac{3}{4}} + C
+        $$
+        :::
+
+    2. $\int \dfrac{2x^4 + x^2 + 3}{x^2 + 1} \mathrm{d}x$
+
+        ::: details Answer
+
+        :::
+
+    3. $\int \dfrac{\cos 2x}{\cos x - \sin x} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{\cos 2x}{\cos x - \sin x} \mathrm{d}x
+        = \int \frac{\cos^2 x - \sin^2 x}{\cos x - \sin x} \mathrm{d}x \\
+        = \int \frac{(\cos x + \sin x)(\cos x - \sin x)}{\cos x - \sin x} \mathrm{d}x = \int (\cos x + \sin x) \mathrm{d}x \\
+        = \int \cos x \mathrm{d}x + \int \sin x \mathrm{d}x 
+        = \sin x - \cos x + C
+        \end{gather}
+        $$
+        :::
+
+    4. $\int \dfrac{e^{2x} - 1}{e^x - 1} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{e^{2x} - 1}{e^x - 1} \mathrm{d}x
+        = \int \frac{(e^x + 1)(e^x - 1)}{e^x - 1} \mathrm{d}x \\
+        = \int e^x \mathrm{d}x + \int \mathrm{d}x 
+        = e^x + x + C
+        \end{gather}
+        $$
+        :::
