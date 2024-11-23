@@ -222,6 +222,20 @@ $$
 
         ::: details Answer
 
+        使用多项式除法：
+        $$
+        2x^4 + x^2 + 3 = (x^2 + 1) 2x^2 - x^3 + 3 = (x^2 + 1)(2x^2 - 1) + 4
+        $$
+        则可解得：
+        $$
+        \begin{gather}
+        \int \dfrac{2x^4 + x^2 + 3}{x^2 + 1} \mathrm{d}x
+        = \int \frac{(x^2 + 1)(2x^2 - 1) + 4}{x^2 + 1} \mathrm{d}x \\
+        = \int (2x^2 - 1 + \frac{4}{x^2 + 1}) \mathrm{d}x
+        = 2 \int x^2 \mathrm{d}x - \int \mathrm{d}x + 4 \int \frac{1}{x^2 + 1} \mathrm{dx} \\
+        = \frac{2}{3} x^3 - x + 4 \arctan x + C
+        \end{gather}
+        $$
         :::
 
     3. $\int \dfrac{\cos 2x}{\cos x - \sin x} \mathrm{d}x$
@@ -237,9 +251,9 @@ $$
         \end{gather}
         $$
         :::
-
+    
     4. $\int \dfrac{e^{2x} - 1}{e^x - 1} \mathrm{d}x$
-
+    
         ::: details Answer
         $$
         \begin{gather}
