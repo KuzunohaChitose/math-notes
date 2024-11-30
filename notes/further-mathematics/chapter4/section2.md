@@ -102,6 +102,8 @@ $$
         :::
     
     2. $\int \dfrac{\sqrt{x + 1} - 1}{\sqrt{x + 1} + 1} \mathrm{d}x$
+    
+        ::: details Answer
         $$
         \begin{gather}
         \int \frac{\sqrt{x + 1} - 1}{\sqrt{x + 1} + 1} \mathrm{d}x
@@ -113,16 +115,131 @@ $$
         = x + 1 - 4\sqrt{x + 1} + 4 \ln (\sqrt{x + 1} + 1) + C \\
         \end{gather}
         $$
+        :::
     
     3. $\int \sqrt{a^2 - x^2} \mathrm{d}x \, (a \gt 0)$
     
         ::: details Answer
         $$
-        \int \sqrt{a^2 - x^2} \mathrm{d}x
+        \begin{gather}
+        \int \sqrt{a^2 - x^2} \mathrm{d}x = \int a \sqrt{1 - \frac{x^2}{a^2}} \mathrm{d}x \\
+        = a^2 \int \sqrt{1 - \sin^2 t} \mathrm{d} (\sin t), x = a \sin t \\
+        = a^2 \int \cos^2 t \mathrm{d}t = a^2 \int \frac{1 + \cos 2t}{2} \mathrm{d}t \\
+        = \frac{a^2}{2} (\int \mathrm{d}t + \int \cos 2t \mathrm{d}t) \\
+        = \frac{a^2}{2} t + \frac{a^2}{4} \sin 2t + C \\
+        = \frac{a^2}{2} t + \frac{a^2}{2} \sin t \cos t + C \\
+        = \frac{a^2}{2} (\arcsin \frac{x}{a} + \frac{x}{a^2} \sqrt{a^2 - x^2}) + C
+        \end{gather}
         $$
         :::
 
 ## II. 分部积分法
 
+设$u = u(x)$、$v = v(x)$均有连续的导数，则：
+$$
+\int u(x) v'(x) \mathrm{d}x = u(x) v(x) - \int v(x) u'(x) \mathrm{d}x
+$$
+或：
+$$
+\int u(x) \mathrm{d}v(x) = u(x) v(x) - \int v(x) \mathrm{d}u(x)
+$$
 
+- **例3**：求下列不定积分：
 
+    1. $\int x \arctan x \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int x \arctan x \mathrm{d}x
+        = \frac{1}{2} \int  \arctan x \mathrm{d} (x^2) \\
+        = \frac{1}{2} x^2 \arctan x - \frac{1}{2} \int x^2 \mathrm{d} (\arctan x) \\
+        = \frac{1}{2} x^2 \arctan x - \frac{1}{2} \int \frac{x^2}{1 + x^2} \mathrm{d}x \\
+        = \frac{1}{2} x^2 \arctan x - \frac{1}{2} \int (1 - \frac{1}{1 + x^2}) \mathrm{d}x \\
+        = \frac{1}{2} x^2 \arctan x - \frac{1}{2} \int \mathrm{d}x + \frac{1}{2} \int \frac{\mathrm{d}x}{1 + x^2} \\
+        = \frac{1}{2} x^2 \arctan x - \frac{1}{2} x + \frac{1}{2} \arctan x + C
+        \end{gather}
+        $$
+        :::
+
+    2. $\int x^2 \ln x \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int x^2 \ln x \mathrm{d}x
+        = \frac{1}{3} \int \ln x \mathrm{d}(x^3) \\
+        = \frac{1}{3} x^3 \ln x - \frac{1}{3} \int x^3 \mathrm{d}(\ln x) \\
+        = \frac{1}{3} x^3 \ln x - \frac{1}{3} \int x^2 \mathrm{d}x \\
+        = \frac{1}{3} x^3 \ln x - \frac{1}{9} x^3 + C
+        \end{gather}
+        $$
+        :::
+
+    3. $\int e^x \cos x \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int e^x \cos x \mathrm{d}x
+        = \int \cos x \mathrm{d}(e^x) \\
+        = e^x \cos x - \int e^x \mathrm{d}(\cos x) \\
+        = e^x \cos x + \int e^x \sin x \mathrm{d}x \\
+        = e^x \cos x + \int \sin x \mathrm{d}(e^x) \\
+        = e^x \cos x + e^x \sin x - \int e^x \mathrm{d}(\sin x) \\
+        = e^x \cos x + e^x \sin x - \int e^x \cos x \mathrm{d}x
+        \end{gather}
+        $$
+        由此可知：
+        $$
+        \int e^x \cos x \mathrm{d}x = e^x \cos x + e^x \sin x - \int e^x \cos x \mathrm{d}x
+        $$
+        则：
+        $$
+        2 \int e^x \cos x \mathrm{d}x = e^x \cos x + e^x \sin x
+        $$
+        则：
+        $$
+        \int e^x \cos x \mathrm{d}x = \frac{1}{2} e^x \cos x + \frac{1}{2} e^{x} \sin x + C
+        $$
+        :::
+
+    4. $\int e^{\sqrt{x}} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int e^{\sqrt{x}} \mathrm{d}x
+        = \int e^t \mathrm{d}(t^2), t = \sqrt{x} \\
+        = 2 \int t e^t \mathrm{d} t
+        = 2 \int t \mathrm{d}(e^t)
+        = 2t e^t - 2 \int e^x \mathrm{d}t \\
+        = 2t e^t - 2e^t + C
+        = 2\sqrt{x} e^{\sqrt{x}} - 2e^{\sqrt{x}} + C
+        \end{gather}
+        $$
+        :::
+
+- **例4**：设$f(\ln x) = \dfrac{\ln (1 + x)}{x}$，计算$\int f(x) \mathrm{d}x$.
+
+    ::: details Answer
+
+    设$t = \ln x$，则$x = e^t$，则：
+    $$
+    f(t) = \frac{\ln (1 + e^t)}{e^t} \Rightarrow f(x) = \frac{\ln (1 + e^x)}{e^x}
+    $$
+    将$f(x)$代入不定积分：
+    $$
+    \begin{gather}
+    \int \frac{\ln (1 + e^x)}{e^x} \mathrm{d}x
+    = -\int \ln (1 + e^x) \mathrm{d}(e^{-x}) \\
+    = -e^{-x} \ln (1 + e^x) + \int e^{-x} \mathrm{d}(\ln (1 + e^x)) \\
+    = -e^{-x} \ln (1 + e^x) + \int e^{-x} \cdot \frac{e^x}{1 + e^x} \mathrm{d}x \\
+    = -e^{-x} \ln (1 + e^x) + \int \frac{1}{1 + e^x} \mathrm{d}x \\
+    = -e^{-x} \ln (1 + e^x) + \int (1 - \frac{e^x}{1 + e^x}) \mathrm{d}x \\
+    = -e^{-x} \ln (1 + e^x) + \int \mathrm{d}x - \int \frac{e^x}{1 + e^x} \mathrm{d}x \\
+    = -e^{-x} \ln (1 + e^x) + \int \mathrm{d}x - \int \frac{1}{1 + e^x} \mathrm{d}(1 + e^x) \\
+    = -e^{-x} \ln (1 + e^x) + x - \ln (1 + e^x) + C
+    \end{gather}
+    $$
+    :::
