@@ -18,9 +18,114 @@ $$
 
 - **例1**：求下列不定积分：
     1. $\int \dfrac{2x + 3}{x^2 - 3x + 2} \mathrm{d}x$
-    2. $\int \dfrac{\mathrm{d}x}{x^2 (x - 1)}$
-    3. $\int \dfrac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}$
-    4. $\int \dfrac{x^5 + 1}{x^2 + 1} \mathrm{d}x$
+    
+        ::: details Answer
+    
+        首先对分母进行因式分解：
+        $$
+        x^2 - 3x + 2 = (x - 1)(x - 2)
+        $$
+        然后使用待定系数法将其分解成部分分式：
+        $$
+        \frac{2x + 3}{x^2 - 3x + 2} = \frac{A}{x - 1} + \frac{B}{x - 2}
+        $$
+        化简得：
+        $$
+        2x + 3 = A(x - 2) + B(x - 1)
+        $$
+        当$x = 2$时：
+        $$
+        2 \cdot 2 + 3 = B(2 - 1) \Rightarrow B = 7
+        $$
+        当$x = 1$时：
+        $$
+        2 \cdot 1 + 3 = A(1 - 2) \Rightarrow A = -5
+        $$
+        然后继续进行积分计算：
+        $$
+        \begin{gather}
+        \int \frac{2x + 3}{x^2 - 3x + 2} \mathrm{d}x
+        = \int (\frac{-5}{x - 1} + \frac{7}{x - 2}) \mathrm{d}x \\
+        = -5 \int \frac{1}{x - 1} \mathrm{d}x + 7 \int \frac{1}{x - 2} \mathrm{d}x \\
+        = -5 \int \frac{1}{x - 1} \mathrm{d}(x - 1) + 7 \int \frac{1}{x - 2} \mathrm{d}(x - 2) \\
+        = -5 \ln \left| x - 1 \right| + 7 \ln \left| x - 2 \right| + C
+        \end{gather}
+        $$
+        :::
+    
+    1. $\int \dfrac{\mathrm{d}x}{x^2 (x - 1)}$
+    
+        ::: details Answer
+    
+        使用待定系数法将其分解成部分分式：
+        $$
+        \frac{1}{x^2(x - 1)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x - 1}
+        $$
+        化简得：
+        $$
+        1 = Ax(x - 1) + B(x - 1) + Cx^2
+        $$
+        当$x = 1$时：
+        $$
+        C = 1
+        $$
+        当$x = 0$时：
+        $$
+        B = -1
+        $$
+        当$x = 2$时，代入$B = -1$、$C = 1$：
+        $$
+        1 = A \cdot 2 \cdot (2 - 1) - (2 - 1) + 4
+        $$
+        解得：
+        $$
+        A = -1
+        $$
+        然后继续进行积分计算：
+        $$
+        \begin{gather}
+        \int \frac{\mathrm{d}x}{x^2(x - 1)}
+        = \int (\frac{-1}{x} + \frac{-1}{x^2} + \frac{1}{x - 1}) \mathrm{d}x \\
+        = -\int \frac{1}{x} \mathrm{d}x - \int x^{-2} \mathrm{d}x + \int \frac{1}{x - 1} \mathrm{d}x \\
+        = -\ln \left| x \right| - \frac{1}{x} + \ln \left| x - 1 \right| + C \\
+        = \ln \left| \frac{x - 1}{x} \right| - \frac{1}{x} + C
+        \end{gather}
+        $$
+        :::
+    
+    2. $\int \dfrac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}$
+    
+        ::: details Answer
+    
+        使用待定系数法将其分解成部分分式：
+        $$
+        \frac{1}{(x + 1)(x^2 + 2x + 2)} = \frac{A}{x + 1} + \frac{Bx + C}{x^2 + 2x + 2}
+        $$
+        化简得：
+        $$
+        1 = A(x^2 + 2x + 2) + (x + 1)(Bx + C)
+        $$
+        当$x = -1$时：
+        $$
+        1 = A(1 - 2 + 2) \Rightarrow A = 1
+        $$
+        当$x = 0$时，代入$A = 1$：
+        $$
+        1 = 2 + C \Rightarrow C = -1
+        $$
+        当$x = 1$时，代入$A = 1$、$C = -1$：
+        $$
+        1 = 5 + 2(B - 1) \Rightarrow B = -1
+        $$
+        然后继续进行积分计算：
+        $$
+        \int \frac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}
+        = \int (\frac{1}{x + 1} + \frac{-x - 1}{x^2 + 2x + 2}) \mathrm{d}x \\
+        = \int \frac{1}{x + 1} \mathrm{d}x - \int \frac{x + 1}{x^2 + 2x + 2} \mathrm{d}x \\
+        $$
+        :::
+    
+    3. $\int \dfrac{x^5 + 1}{x^2 + 1} \mathrm{d}x$
 
 ## II. 三角函数有理式的不定积分
 
