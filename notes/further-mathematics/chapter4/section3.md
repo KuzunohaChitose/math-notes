@@ -53,7 +53,7 @@ $$
         $$
         :::
     
-    1. $\int \dfrac{\mathrm{d}x}{x^2 (x - 1)}$
+    2. $\int \dfrac{\mathrm{d}x}{x^2 (x - 1)}$
     
         ::: details Answer
     
@@ -93,7 +93,7 @@ $$
         $$
         :::
     
-    2. $\int \dfrac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}$
+    3. $\int \dfrac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}$
     
         ::: details Answer
     
@@ -119,13 +119,34 @@ $$
         $$
         然后继续进行积分计算：
         $$
+        \begin{gather}
         \int \frac{\mathrm{d}x}{(x + 1)(x^2 + 2x + 2)}
         = \int (\frac{1}{x + 1} + \frac{-x - 1}{x^2 + 2x + 2}) \mathrm{d}x \\
         = \int \frac{1}{x + 1} \mathrm{d}x - \int \frac{x + 1}{x^2 + 2x + 2} \mathrm{d}x \\
+        = \int \frac{1}{x + 1} \mathrm{d}x - \frac{1}{2} \int \frac{1}{x^2 + 2x + 2} \mathrm{d}(x + 1)^2 \\
+        = \int \frac{1}{x + 1} \mathrm{d}(x + 1) - \frac{1}{2} \int \frac{1}{x^2 + 2x + 2} \mathrm{d}(x^2 + 2x + 2) \\
+        = \ln \left| x + 1 \right| - \frac{1}{2} \ln (x^2 + 2x + 2) + C
+        \end{gather}
         $$
         :::
     
-    3. $\int \dfrac{x^5 + 1}{x^2 + 1} \mathrm{d}x$
+    4. $\int \dfrac{x^5 + 1}{x^2 + 1} \mathrm{d}x$
+    
+        ::: details Answer
+    
+        注意到分子的最高次数大于分母的最高次数，所以先使用多项式除法进行化简：
+        $$
+        x^5 + 1 = (x^3 - x)(x^2 + 1) + (x + 1)
+        $$
+        所以对原式化简可得：
+        $$
+        \int x^3 \mathrm{d}x - \int x \mathrm{d}x + \int \frac{x}{x^2 + 1} \mathrm{dx} + \int \frac{1}{x^2 + 1} \mathrm{dx}
+        $$
+        最终解得：
+        $$
+        \frac{1}{4} x^4 - \frac{1}{2} x^2 + \frac{1}{2} \ln (x^2 + 1) + \arctan x + C
+        $$
+        :::
 
 ## II. 三角函数有理式的不定积分
 
