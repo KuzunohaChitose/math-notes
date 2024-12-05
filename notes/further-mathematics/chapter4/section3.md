@@ -150,5 +150,49 @@ $$
 
 ## II. 三角函数有理式的不定积分
 
-## III. 简单无理函数的不定积分
+由三角函数$\sin x$、$\cos x$与常数经过有限次四则运算所构成的函数称为三角有理函数，记作$R(\sin x, \cos x)$。对于三角函数有理式的积分，由于：
+$$
+\sin x = \frac{2 \tan \frac{x}{2}}{1 + \tan^2 \frac{x}{2}},
+\cos x = \frac{1 - \tan^2 \frac{x}{2}}{1 + \tan^2 \frac{x}{2}},
+\tan x = \frac{2 \tan \frac{x}{2}}{1 - \tan^2 \frac{x}{2}}
+$$
+通常利用万能公式$u = \tan \frac{x}{2}$，将其转换为有理函数的积分，即：
+$$
+\int R(\sin x, \cos x) \mathrm{d}x = \int R(\frac{2u}{1 + u^2}, \frac{1 - u^2}{1 + u^2}) \frac{2}{1 + u^2} \mathrm{d}x, u = \tan \frac{x}{2}
+$$
 
+- **例2**：求下列不定积分：
+
+    1. $\int \dfrac{\mathrm{d}x}{\sin x + \tan x}$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{\mathrm{d}x}{\sin x + \tan x}
+        = \int \frac{1}{\frac{2u}{1 + u^2} + \frac{2u}{1 - u^2}} \cdot \frac{2}{1 + u^2} \mathrm{d}u, u = \tan \frac{x}{2} \\
+        = \int \frac{(1 + u^2)(1 - u^2)}{4u} \cdot \frac{2}{1 + u^2} \mathrm{d}u
+        = \frac{1}{2} \int \frac{1 - u^2}{u} \mathrm{d}u \\
+        = \frac{1}{2} \int \frac{1}{u} \mathrm{d}u - \frac{1}{2} \int u \mathrm{d}u
+        = \frac{1}{2} \ln \left| u \right| - \frac{1}{4} u^2 + C \\
+        = \frac{1}{2} \ln \left| \tan \frac{x}{2} \right| - \frac{1}{4} \tan^2 \frac{x}{2} + C
+        \end{gather}
+        $$
+        :::
+
+    2. $\int \dfrac{\mathrm{d}x}{5 + \cos x}$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{\mathrm{d}x}{5 + \cos x}
+        = \int \frac{1}{5 + \frac{1 - u^2}{1 + u^2}} \cdot \frac{2}{1 + u^2} \mathrm{d}u, u = \tan \frac{x}{2} \\
+        = \int \frac{1 + u^2}{6 + 4u^2} \cdot \frac{2}{1 + u^2} \mathrm{d}u
+        = \int \frac{\mathrm{d}u}{3 + 2u^2} 
+        = \frac{1}{2} \int \frac{\mathrm{d}u}{\frac{3}{2} + u^2} \\
+        = \frac{1}{\sqrt{6}} \arctan \frac{2u}{\sqrt{6}} + C
+        = \frac{\sqrt{6}}{6} \arctan (\frac{\sqrt{6}}{3} \tan \frac{x}{2}) + C
+        \end{gather}
+        $$
+        :::
+
+## III. 简单无理函数的不定积分
