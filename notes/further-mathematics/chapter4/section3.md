@@ -196,3 +196,59 @@ $$
         :::
 
 ## III. 简单无理函数的不定积分
+
+对于简单无理函数$R(x, \sqrt[n]{\dfrac{ax + b}{cx + d}})$的积分，通常通过变量代换$t = \sqrt[n]{\dfrac{ax + b}{cx + d}}$将其转换为有理函数的积分
+
+- **例3**：求下列不定积分：
+
+    1. $\int \dfrac{\mathrm{d}x}{\sqrt{x} + \sqrt[3]{x}}$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{\mathrm{d}x}{\sqrt{x} + \sqrt[3]{x}}
+        = \int \frac{\mathrm{d}(t^6)}{t^3 + t^2}, x^6 = t \\
+        = 6 \int \frac{t^5}{t^3 + t^2} \mathrm{d}t = 6 \int \frac{t^3}{t + 1} \mathrm{d}t \\
+        = 6 \int \frac{(t + 1)(t^2 - t + 1) - 1}{t + 1} \mathrm{d}t  \\
+        = 6 \int (t^2 - t + 1 - \frac{1}{t + 1}) \mathrm{d}t \\
+        = 6 \int t^2 \mathrm{d}t - 6 \int t \mathrm{d}t + 6 \int \mathrm{d}t - 6 \int \frac{\mathrm{d}t}{t + 1} \\
+        = 2 t^3 - 3t^2 + 6t - 6 \ln (t + 1) + C \\
+        = 2 \sqrt{x} - 3 \sqrt[3]{x} + 6 \sqrt[6]{x} - 6 \ln (\sqrt[6]{x} + 1) + C
+        \end{gather}
+        $$
+        :::
+
+    2. $\int \dfrac{\mathrm{d}x}{1 + \sqrt[3]{x + 1}}$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{\mathrm{d}x}{1 + \sqrt[3]{x + 1}}
+        = \int \frac{\mathrm{d}t^3}{1 + t}, x + 1 = t^3 \\
+        = 3 \int \frac{t^2}{1 + t} \mathrm{d}t
+        = 3 \int \frac{(t + 1)(t - 1) + 1}{t + 1} \mathrm{d}t \\
+        = 3 \int t \mathrm{d}t - 3 \int \mathrm{d}t + 3 \int \frac{1}{t + 1} \mathrm{d}t \\
+        = \frac{3}{2} t^2 - 3t + 3 \ln \left| t + 1 \right| + C \\
+        = \frac{3}{2} (x + 1)^{\frac{2}{3}} - 3 (x + 1)^{\frac{1}{3}} + 3 \ln \left| (x + 1)^{\frac{1}{3}} + 1 \right| + C
+        \end{gather}
+        $$
+        :::
+
+    3. $\int \dfrac{1}{x} \sqrt{\dfrac{1 + x}{x}} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{x} \sqrt{\dfrac{1 + x}{x}} \mathrm{d}x
+        = \int \frac{1}{\frac{1}{t^2 - 1}} \sqrt{\dfrac{1 + \frac{1}{t^2 - 1}}{\frac{1}{t^2 - 1}}} \mathrm{d}(\frac{1}{t^2 - 1}), t = \sqrt{\frac{1 + x}{x}} \\
+        = \int (t^3 - t) \mathrm{d} (\frac{1}{t^2 - 1}) 
+        = -2 \int \frac{t^2(t^2 - 1)}{(t^2 - 1)^2} \mathrm{d}t 
+        = -2 \int \frac{t^2}{t^2 - 1} \mathrm{d}t \\
+        = -2 \int (1 + \frac{1}{t^2 - 1}) \mathrm{d}t
+        = -2 \int \mathrm{d}t - 2 \int \frac{1}{t^2 - 1} \mathrm{d}t \\
+        = -2t - \ln \left| \frac{t - 1}{t + 1} \right| + C
+        = -2\sqrt{\frac{1 + x}{x}} - \ln \left| \frac{\sqrt{\frac{1 + x}{x}} - 1}{\sqrt{\frac{1 + x}{x}} + 1} \right| + C \\
+        = -2\sqrt{\frac{1 + x}{x}} - \ln \left| \frac{\sqrt{1 + x} - \sqrt{x}}{\sqrt{1 + x} + \sqrt{x}} \right| + C
+        \end{gather}
+        $$
+        :::
