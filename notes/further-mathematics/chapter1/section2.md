@@ -39,7 +39,7 @@ $$
 
 :::
 
-- **例1**：若$\lim_{n \to \infty} u_n = a$，证明$\lim_{n \to \infty} |u_n| = |a|$，并举例说明：如果数列$\{ x_n \}$有极限，数列$\{ x_n \}$未必有极限。
+- **例1**：若$\lim_{n \to \infty} u_n = a$，证明$\lim_{n \to \infty} |u_n| = |a|$，并举例说明：如果数列$\{ \left| x_n \right| \}$有极限，数列$\{ x_n \}$未必有极限。
 
     ::: details Answer
 
