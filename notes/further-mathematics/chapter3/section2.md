@@ -1,20 +1,22 @@
 # 第二节 洛必达法则
 
-- **定理一**：
+- **若**：（$a = x_0, x_0^-, x_0^+, +\infty, -\infty, \infty$）
+    1. 当$x \to a$时，$f(x)$和$g(x)$皆趋于$0$或$\infty$
+    2. 当$x \to a$时，$f'(x)$和$g'(x)$均存在且$g'(x) \neq 0$
+    3. $\lim_{x \to a} \dfrac{f'(x)}{g'(x)}$存在或为$\infty$
 
-    1. 当$x \to a$时，函数$f(x)$和$g(x)$都趋于零（或无穷）
-    2. 在点$a$的某去心邻域内，$f'(x)$和$g'(x)$都存在，且$g'(x) \neq 0$
-    3. $\lim_{x \to a} f'(x) / g'(x)$存在（或为无穷大）
+- **则**：
+    $$
+    \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}
+    $$
 
-    则$\lim_{x \to a} \dfrac{f(x)}{g(x)} = \lim_{x \to a} \dfrac{f'(x)}{g'(x)}$
+::: tip Tip
 
-- **定理二**：
+1. 抽象函数的极限利用洛必达法则时要首先验证是否满足条件二
+2. 若$\lim_{x \to a} \dfrac{f'(x)}{g'(x)}$不存在，则洛必达法则失效
+3. $\lim_{x \to a} \dfrac{f(x)}{g(x)} = \lim_{x \to a} \dfrac{f'(x)}{g'(x)} (0/0, \infty/\infty) = \lim_{x \to a} \dfrac{f''(x)}{g''(x)} (0/0, \infty/\infty) = \dots$
 
-    1. 当$x \to \infty$时，函数$f(x)$和$g(x)$都趋于零（或无穷）
-    2. 当$\left| x \right| \gt X$时，$f'(x)$和$g'(x)$都存在，且$g'(x) \neq 0$
-    3. $\lim_{x \to a} f'(x) / g'(x)$存在（或为无穷大）
-
-    则$\lim_{x \to \infty} \dfrac{f(x)}{g(x)} = \lim_{x \to \infty} \dfrac{f'(x)}{g'(x)}$
+:::
 
 - **例1**：求此极限：
     $$
