@@ -12,12 +12,19 @@
 
 设$F(x)$是$f(x)$的一个原函数，$u = \varphi(x)$可导，则：
 $$
-\int f\left[ \varphi(x) \right] \varphi'(x) 
+\int f\left[ \varphi(x) \right] \varphi'(x) \mathrm{d}x
 = \int f\left[ \varphi(x) \right] \mathrm{d}\varphi(x) 
 = \int f(u) \mathrm{d}u 
 = F(u) + C 
 = F\left[ \varphi(x) \right] + C
 $$
+
+::: tip Tip
+
+1. 关键在于将积分变量$x$的微分$\mathrm{d}x$凑成中间变量$g(x)$的微分$\mathrm{d}g(x)$
+2. 被积函数中存在两个函数且两个函数存在”导数关系“
+
+:::
 
 - **例1**：求下列不定积分：
 
@@ -35,7 +42,7 @@ $$
         :::
 
     2. $\int \dfrac{\mathrm{d}x}{a^2 + x^2} (a \neq 0)$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -45,9 +52,9 @@ $$
         = \frac{1}{a} \arctan u + C = \frac{1}{a} \arctan \frac{x}{a} + C
         \end{gather}
         $$
-    
+
     3. $\int \sin^3 x \mathrm{d}x$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -59,9 +66,9 @@ $$
         \end{gather}
         $$
         :::
-    
+
     4. $\int \dfrac{\mathrm{d}x}{\sqrt{x(1 + x)}} (x \gt 0)$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -70,6 +77,94 @@ $$
         = 2 \int \frac{1}{\sqrt{1 + u^2}} \mathrm{d}u, u = x^{\frac{1}{2}} \\
         = 2 \ln (u + \sqrt{1 + u^2}) + C \\
         = 2 \ln (\sqrt{x} + \sqrt{1 + x}) + C
+        \end{gather}
+        $$
+        :::
+    
+    5. $\int \dfrac{1}{\sqrt{a^2 - x^2}} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{\sqrt{a^2 - x^2}} \mathrm{d}x
+        = \frac{1}{a} \int \frac{1}{\sqrt{1 - (\frac{x}{a})^2}} \mathrm{d}x \\
+        = \int \frac{1}{\sqrt{1 - (\frac{x}{a})^2}} \mathrm{d}(\frac{x}{a})
+        = \int \frac{1}{\sqrt{1 - u^2}} \mathrm{d}u, u = \frac{x}{a} \\
+        = \arcsin u + C
+        = \arcsin \frac{x}{a} + C
+        \end{gather}
+        $$
+        :::
+    
+    6. $\int \dfrac{1}{x^2 - a^2} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{x^2 - a^2} \mathrm{d}x
+        = \int \frac{1}{(x + a)(x - a)} \mathrm{d}x \\
+        = \frac{1}{2a} \int \frac{1}{x - a} \mathrm{d}x - \frac{1}{2a} \int \frac{1}{x + a} \mathrm{d}x \\
+        = \frac{1}{2a} \left[ \int \frac{1}{x - a} \mathrm{d}(x - a) - \int \frac{1}{x + a} \mathrm{d}(x + a) \right] \\
+        = \frac{1}{2a} \left[ \ln \left| x - a \right| - \ln \left| x + a \right| \right] + C \\
+        = \frac{1}{2a} \ln \left| \frac{x - a}{x + a} \right| + C \\
+        \end{gather}
+        $$
+        ::: 
+    
+    7. $\int \dfrac{1}{x^2 + a^2} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{x^2 + a^2} \mathrm{d}x
+        = \frac{1}{a^2} \int \frac{1}{1 + (\frac{x}{a})^2} \mathrm{d}x \\
+        = \frac{1}{a} \int \frac{1}{1 + u} \mathrm{d}u, u = \frac{x}{a} \\
+        = \frac{1}{a} \arctan u + C
+        = \frac{1}{a} \arctan \frac{x}{a} + C \\
+        \end{gather}
+        $$
+        :::
+    
+    8. $\int \dfrac{1}{x^2 + 8x + 25} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{x^2 + 8x + 25} \mathrm{d}x \\
+        = \int \frac{1}{(x + 4)^2 + 3^2} \mathrm{d}(x + 4) \\
+        = \frac{1}{3} \arctan \frac{x + 4}{3} + C \\
+        \end{gather}
+        $$
+        :::
+    
+    9. $\int f(ax^n + b) \cdot x^{n - 1} \mathrm{d}x$
+    
+        ::: details Answer
+    
+        > 设$F'(x) = f(x)$
+    
+        $$
+        \begin{gather}
+        \int f(ax^n + b) \cdot x^{n - 1} \mathrm{d}x \\
+        = \frac{1}{an} \int f(ax^n + b) \mathrm{d}(ax^n + b) \\
+        = \frac{1}{an} F(ax^n + b) + C \\
+        \end{gather}
+        $$
+    
+        :::
+    
+    10. $\int \dfrac{x^3}{\sqrt{1 + x^2}} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{x^3}{\sqrt{1 + x^2}} \mathrm{d}x
+        = \frac{1}{2} \int \frac{x^2}{\sqrt{1 + x^2}} \mathrm{d}(x^2) \\
+        = \frac{1}{2} \int \frac{x^2 + 1 - 1}{\sqrt{x^2 + 1}} \mathrm{d}(x^2) 
+        = \frac{1}{2} \int \left[ (x^2 + 1)^{\frac{1}{2}} - (x^2 + 1)^{-\frac{1}{2}} \right] \mathrm{d}(x^2) \\
+        = \frac{1}{2} \int u^{\frac{1}{2}} \mathrm{d}u - \frac{1}{2} \int u^{-\frac{1}{2}} \mathrm{d}u, u = x^2 + 1 \\
+        = \frac{1}{3} u^{\frac{3}{2}} - u^{\frac{1}{2}} + C
+        = \frac{1}{3} \sqrt{(x^2 + 1)^3} - \sqrt{x^2 + 1} + C
         \end{gather}
         $$
         :::
@@ -129,6 +224,45 @@ $$
         = \frac{a^2}{2} t + \frac{a^2}{4} \sin 2t + C \\
         = \frac{a^2}{2} t + \frac{a^2}{2} \sin t \cos t + C \\
         = \frac{a^2}{2} (\arcsin \frac{x}{a} + \frac{x}{a^2} \sqrt{a^2 - x^2}) + C
+        \end{gather}
+        $$
+        :::
+    
+    4. $\int \dfrac{1}{\sqrt{x^2 + a^2}} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{\sqrt{x^2 + a^2}} \mathrm{d}x
+        = \int \frac{1}{\sqrt{a^2 \tan^2 u + a^2}} \mathrm{d}(a \tan u), x = a \tan u \\
+        = \int \frac{\sec^2 u}{\sqrt{\tan^2 u + 1}} \mathrm{d}u
+        = \int \sec u \mathrm{d}u
+        = \ln \left| \sec u + \tan u \right| + C \\
+        = \ln \left| \sqrt{1 + \tan^2 u} + \tan u \right| + C
+        = \ln \left| \sqrt{1 + (\frac{x}{a})^2} + \frac{x}{a} \right| + C \\
+        = \ln \left| \sqrt{\frac{a^2 + x^2}{a^2}} + \frac{x}{a} \right| + C
+        = \ln \left| \frac{\sqrt{a^2 + x^2} + x}{a} \right| + C \\
+        = \ln (\sqrt{a^2 + x^2} + x) - \ln a + C
+        = \ln (\sqrt{a^2 + x^2} + x) + C \\
+        \end{gather}
+        $$
+        :::
+    
+    5. $\int \dfrac{1}{\sqrt{x^2 - a^2}} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int \frac{1}{\sqrt{x^2 - a^2}} \mathrm{d}x
+        = \int \frac{1}{\sqrt{a^2 \sec^2 u - a^2}} \mathrm{d}(a \sec u), x = a \sec u \\
+        = \int \frac{1}{\sqrt{\sec^2 u - 1}} \mathrm{d}(\sec u) 
+        = \int \frac{\cos u}{\sin u} \cdot \frac{\sin u}{\cos^2 u} \mathrm{d}u \\
+        = \int \sec u \mathrm{d}u
+        = \ln \left| \sec u + \tan u \right| + C \\
+        = \ln \left| \sec u + \sqrt{\sec^2 u - 1} \right| + C 
+        = \ln \left| \frac{x}{a} + \sqrt{\frac{x^2}{a^2} - 1} \right| + C \\
+        = \ln \left| \frac{x + \sqrt{x^2 - a^2}}{a} \right| + C 
+        = \ln \left| x + \sqrt{x^2 - a^2} \right| + C \\
         \end{gather}
         $$
         :::

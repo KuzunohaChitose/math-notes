@@ -10,7 +10,7 @@
 
 ### 1.1 原函数的概念
 
-如果在区间$I$上，可导函数$F(x)$的导函数为$f(x)$，即为任一$x$，都有$F'(x) = f(x)$，则称$F(x)$为$f(x)$在区间$I$上的一个原函数
+若$\forall x \in I$有$F'(x) = f(x)$或$\mathrm{d}F(x) = f(x)\mathrm{d}x$，则称$f(x)$为$F(x)$的导函数，$F(x)$称为$f(x)$在区间$I$上的原函数
 
 ::: tip Tip
 
@@ -21,7 +21,17 @@
 
 :::
 
-- **例1**：当$x \in (0, 1)$时，试证明：函数$\arcsin (2x - 1)$、$\arccos (1 - 2x)$、$2 \arctan \sqrt{\dfrac{x}{1 - x}}$都是$\dfrac{1}{\sqrt{x - x^2}}$的原函数。
+- **例1**：设$f(x)$的一个原函数为$3^x$，则$f'(x)$为\_\_\_\_\_.
+
+    ::: details Answer
+
+    已知$(3^x)' = f(x)$，则$f'(x) = (3^x)''$，即：
+    $$
+    (3^x)'' = (e^{x \ln 3})'' = (e^{x \ln 3} \cdot \ln 3)' = e^{x \ln 3} \ln^2 3 = 3^x \ln^2 3
+    $$
+    :::
+
+- **例2**：当$x \in (0, 1)$时，试证明：函数$\arcsin (2x - 1)$、$\arccos (1 - 2x)$、$2 \arctan \sqrt{\dfrac{x}{1 - x}}$都是$\dfrac{1}{\sqrt{x - x^2}}$的原函数。
 
     ::: details Answer
 
@@ -50,7 +60,7 @@
 
     :::
     
-- **例2**：设函数$f(x) = \dfrac{e^{1/x} - 1}{e^{1/x} +1}$，
+- **例3**：设函数$f(x) = \dfrac{e^{1/x} - 1}{e^{1/x} +1}$，
     $$
     g(x) =
     \begin{cases}
@@ -89,7 +99,21 @@ $$
 F'(x) = f(x) \Rightarrow \int f(x) \mathrm{d}x = F(x) + C
 $$
 
-- **例3**：已知函数：
+::: tip Tip
+
+若$F(x)$和$G(x)$都是函数$f(x)$的原函数，则$F(x)$与$G(x)$之间相差一个常数
+
+::: details Proof
+
+设$H(x) = F(x) - G(x)$，则：
+$$
+H'(x) = \left[ F(x) - G(x) \right]' = F'(x) - G'(x) = f(x) - f(x) = 0
+$$
+由于$H(x)$的导数恒为零，则$H(x)$恒等于一个常数，即：一个函数的任意两个原函数之间只相差一个常数
+
+:::
+
+- **例4**：已知函数：
     $$
     f(x) =
     \begin{cases}
@@ -177,7 +201,7 @@ $$
 \int k f(x) \mathrm{d}x = k \int f(x) \mathrm{d}x ,\, k \neq 0 \tag{4}
 $$
 
-- **例4**：如果$f(x)$的一个原函数是$x \ln x - x$，则$\int f'(x) \mathrm{d}x$为\_\_\_\_\_.
+- **例5**：如果$f(x)$的一个原函数是$x \ln x - x$，则$\int f'(x) \mathrm{d}x$为\_\_\_\_\_.
 
     - （A）$x \ln x + C$
     - （B）$\ln x + C$
@@ -205,7 +229,7 @@ $$
 | $\int \dfrac{\mathrm{d}x}{\sqrt{a^2 - x^2}} = \arcsin \dfrac{x}{a} + C$（$a \gt 0$） |  $\int \dfrac{\mathrm{d}x}{\sqrt{1 - x^2}} = \arcsin x + C$  |
 | $\int \dfrac{\mathrm{d}x}{\sqrt{x^2 + a^2}} = \ln (x + \sqrt{x^2 + a^2}) + C$（$a \gt 0$） | $\int \dfrac{\mathrm{d}x}{\sqrt{x^2 - a^2}} = \ln \mathrm{abs}(x + \sqrt{x^2 - a^2}) + C$（$a \gt 0$） |
 
-- **例5**：求下列不定积分：
+- **例6**：求下列不定积分：
 
     1. $\int \dfrac{\sqrt{x} + 2}{\sqrt[4]{x}} \mathrm{d}x$
 
