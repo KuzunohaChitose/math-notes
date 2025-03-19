@@ -85,9 +85,13 @@ $$
 
         ::: details Answer
         $$
-        \lim_{n \to \infty} (\frac{1}{n^3 + n^2} + \frac{4}{n^3 + 2n^2} + \frac{9}{n^3 + 3n^2} + \dots + \frac{i^2}{n^3 + in^2} + \frac{1}{2n}) \\
-        = \lim_{n \to \infty} \frac{1}{n} (\frac{1^2}{n^2 + 1 \cdot n} + \frac{2^2}{n^2 + 2 \cdot n} + \frac{3^2}{n^2 + 3 \cdot n} + \dots + \frac{i^2}{n^2 + in} + \dots + \frac{1}{2}) \\
-        = \lim_{n \to \infty} \frac{1}{n} \sum_{i = 1}^{n} \frac{i^2}{n^2 + in} \\
+        \begin{gather}
+        \lim_{n \to \infty} (\frac{1}{n^3 + n^2} + \frac{4}{n^3 + 2n^2} + \frac{9}{n^3 + 3n^2} + \dots + \frac{i^2}{n^3 + in^2} + \dots + \frac{1}{2n}) \\
+        = \lim_{n \to \infty} \sum_{i = 1}^n \frac{i^2}{n^3 + in^2}
+        = \lim_{n \to \infty} \sum_{i = 1}^n \frac{i^2}{n^2 + in} \cdot \frac{1}{n} \\
+        = \lim_{n \to \infty} \frac{1}{n} \sum_{i = 1}^n \frac{(\frac{i}{n})^2}{(1 + \frac{i}{n})}
+        = \int_0^1 \frac{x^2}{1 + x} \mathrm{d}x \\
+        \end{gather}
         $$
         :::
 
@@ -111,20 +115,15 @@ $$
 
 ::: tip Tip
 $$
-\int_{-a}^{a} f(x) \mathrm{d}x =
-\begin{cases}
-2 \displaystyle\int_0^a f(x) \mathrm{d}x, & f(-x) = f(x) \\
-0, & f(-x) = -f(x) \\
-\end{cases}
+\begin{gather}
+f(-x) = f(x) \Rightarrow \int_{-a}^{a} f(x) \mathrm{d}x = 2 \int_{0}^{a} f(x) \mathrm{d}x = 2 \int_{-a}^{0} f(x) \mathrm{d}x \\
+f(-x) = -f(x) \Rightarrow \int_{-a}^{a} f(x) \mathrm{d}x = 0 \\
+f(x + T) = f(x) \Rightarrow \int_{a}^{a + T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x \\
+\end{gather}
 $$
-
-$$
-\int_{a}^{a + T} f(x) \mathrm{d}x = \int_0^T f(x) \mathrm{d}x ,\, f(x + T) = f(x)
-$$
-
 :::
 
-- **例1**：根据定积分的几何意义计算$\int_0^1 \sqrt{1 - x^2} \mathrm{d}x$.
+- **例2**：根据定积分的几何意义计算$\int_0^1 \sqrt{1 - x^2} \mathrm{d}x$.
 
     ::: details Answer
 
@@ -134,7 +133,7 @@ $$
     $$
     :::
 
-- **例2**：设在区间$\left[ a, b \right]$上$f(x) \gt 0$、$f'(x) \lt 0$、$f''(x) \gt 0$，令$S_1 = \int_{a}^{b} f(x) \mathrm{d}x$、$S_2 = f(b)(b - a)$、$S_3 = \dfrac{1}{2} \left[ f(a) + f(b) \right](b - a)$，则三者之间的大小关系为\_\_\_\_\_.
+- **例3**：设在区间$\left[ a, b \right]$上$f(x) \gt 0$、$f'(x) \lt 0$、$f''(x) \gt 0$，令$S_1 = \int_{a}^{b} f(x) \mathrm{d}x$、$S_2 = f(b)(b - a)$、$S_3 = \dfrac{1}{2} \left[ f(a) + f(b) \right](b - a)$，则三者之间的大小关系为\_\_\_\_\_.
 
     ::: details Answer
 
@@ -202,7 +201,8 @@ $$
     \exists \xi \in \left[ a, b \right] \rightarrow \int_{a}^{b} f(x) g(x) \mathrm{d}x = f(\xi) \int_{a}^{b} g(x) \mathrm{d}x
     $$
 
-- **例3**：已知$\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\int_{-1}^{3} g(x) \mathrm{d}x = 3$
+- **例4**：已知$\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\int_{-1}^{3} g(x) \mathrm{d}x = 3$
+    
     1. $\int_{-1}^{1} f(x) \mathrm{d}x$
     
         ::: details Answer
@@ -253,6 +253,20 @@ $$
         \end{gather}
         $$
         :::
+    
+- **例5**：设$I = \displaystyle\int_{0}^{\frac{\pi}{2}} \sin x \mathrm{d}x$、$J = \displaystyle\int_{0}^{\frac{\pi}{2}} x \mathrm{d}x$、$K = \displaystyle\int_{0}^{\frac{\pi}{2}} \tan x \mathrm{d}x$，则三者间的大小关系为\_\_\_\_\_.
+
+    ::: details Answer
+
+    因为：
+    $$
+    \sin x \lt x \lt \tan x
+    $$
+    所以：
+    $$
+    I \lt J \lt K
+    $$
+    :::
 
 ## II. 微积分基本定理
 
