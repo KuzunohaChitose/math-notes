@@ -177,7 +177,7 @@ $$
     $$
     \int_{a}^{b} f(x) \mathrm{d}x \geq 0 \, (a \lt b)
     $$
-    推论一：若在区间$\left[ a, b \right]$上$f(x) \leq g(x)$，则：
+    推论一：若在区间$\left[ a, b \right]$上$f(x) \leq g(x)$，则：（$a \leq b$）
     $$
     \int_{a}^{b} f(x) \mathrm{d}x \leq \int_{a}^{b} g(x) \mathrm{d}x \, (a \lt b)
     $$
@@ -185,6 +185,14 @@ $$
     $$
     2 \left| \int_{a}^{b} f(x) \mathrm{d}x \right| \leq \int_{a}^{b} \left| f(x) \right| \mathrm{d}x \, (a \lt b)
     $$
+    ::: details Attention
+
+    > 设$f(x)$在$\left[ a, b \right]$上连续，且$\forall x \in \left[ a, b \right] \rightarrow f(x) \geq 0$
+
+    1. $\exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) \neq 0 \Leftrightarrow \displaystyle\int_{a}^{b} f(x) \mathrm{d}x \gt 0$
+    2. $\displaystyle\int_{a}^{b} f(x) \mathrm{d}x = 0 \Leftrightarrow \forall x \in \left[ a, b \right] \rightarrow f(x) \equiv 0$
+
+    :::
 
 5. （估值定理）设$M$和$m$分别为函数$f(x)$在区间$\left[ a, b \right]$上的最大值和最小值，则：
     $$
@@ -201,9 +209,9 @@ $$
     \exists \xi \in \left[ a, b \right] \rightarrow \int_{a}^{b} f(x) g(x) \mathrm{d}x = f(\xi) \int_{a}^{b} g(x) \mathrm{d}x
     $$
 
-- **例4**：已知$\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\int_{-1}^{3} g(x) \mathrm{d}x = 3$
-    
-    1. $\int_{-1}^{1} f(x) \mathrm{d}x$
+- **例4**：已知$\displaystyle\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\displaystyle\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\displaystyle\int_{-1}^{3} g(x) \mathrm{d}x = 3$
+  
+    1. $\displaystyle\int_{-1}^{1} f(x) \mathrm{d}x$
     
         ::: details Answer
         $$
@@ -215,7 +223,7 @@ $$
         $$
         :::
     
-    2. $\int_{1}^{3} f(x) \mathrm{d}x$
+    2. $\displaystyle\int_{1}^{3} f(x) \mathrm{d}x$
     
         ::: details Answer
     
@@ -230,7 +238,7 @@ $$
         $$
         :::
     
-    3. $\int_{3}^{-1} g(x) \mathrm{d}x$
+    3. $\displaystyle\int_{3}^{-1} g(x) \mathrm{d}x$
     
         ::: details Answer
         $$
@@ -242,7 +250,7 @@ $$
         $$
         :::
     
-    4. $\int_{-1}^{3} \frac{1}{5} \left[ 4f(x) + 3g(x) \right] \mathrm{d}x$
+    4. $\displaystyle\int_{-1}^{3} \frac{1}{5} \left[ 4f(x) + 3g(x) \right] \mathrm{d}x$
     
         ::: details Answer
         $$
@@ -258,14 +266,6 @@ $$
 
     ::: details Answer
 
-    因为：
-    $$
-    \sin x \lt x \lt \tan x
-    $$
-    所以：
-    $$
-    I \lt J \lt K
-    $$
     :::
 
 ## II. 微积分基本定理

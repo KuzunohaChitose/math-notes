@@ -319,7 +319,7 @@ export default withMermaid({
             },
         ],
         socialLinks: [
-            {icon: "github", link: "https://github.com/KuzunohaChitose"},
+            {icon: "github", link: "https://github.com"},
             {icon: "twitter", link: "https://twitter.com"},
             {icon: "youtube", link: "https://youtube.com"},
         ],
