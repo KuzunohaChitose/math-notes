@@ -22,7 +22,7 @@ $$
 ::: tip Tip
 
 1. 关键在于将积分变量$x$的微分$\mathrm{d}x$凑成中间变量$g(x)$的微分$\mathrm{d}g(x)$
-2. 被积函数中存在两个函数且两个函数存在”导数关系“
+2. 被积函数中存在两个函数且两个函数存在“导数关系”
 
 :::
 
@@ -176,7 +176,32 @@ $$
 \int f(x) \mathrm{d}x = \int f\left[ \varphi(t) \right] \mathrm{d} \varphi(t) = \int f\left[ \varphi(t) \right] \varphi'(t) \mathrm{d}t
 $$
 
+::: tip Tip
+
+1. 整体代换：被积函数中含有$\sqrt[n]{ax + b}$或$\sqrt[n]{\dfrac{ax + b}{cx + d}}$，直接令$t$等于根式整体
+2. TODO...
+
+:::
+
 - **例2**：求下列不定积分：
+
+    1. $\int \dfrac{1}{\sqrt{x} + \sqrt[3]{x}} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{}
+        \int \frac{1}{\sqrt{x} + \sqrt[3]{x}} \mathrm{d}x
+        = \int \frac{1}{t^3 + t^2} \mathrm{d}(t^6), t = \sqrt[6]{x} \\
+        = 6 \int \frac{t^5}{t^3 + t^2} \mathrm{d}t
+        = 6 \int \frac{t^3}{t + 1} \mathrm{d}t \\
+        = 6 \int \frac{(t + 1)(t^2 - t + 1) - 1}{t + 1} \mathrm{d}t \\
+        = 6 \int (t^2 - t + 1 - \frac{1}{t + 1}) \mathrm{d}t \\
+        = 6 \int t^2 \mathrm{d}t - 6 \int t \mathrm{d}t + 6 \int \mathrm{d}t - 6 \int \frac{1}{t + 1} \mathrm{d}(t + 1) \\
+        = 2 t^3 - 3 t^2 + 6t - 6 \ln \left| t + 1 \right| + C \\
+        = 2 x^{\frac{1}{2}} - 3 x^{\frac{1}{3}} + 6x^{\frac{1}{6}} - 6 \ln (x^{\frac{1}{6}} + 1) + C \\
+        \end{gather}
+        $$
+        :::
 
     1. $\int \dfrac{\mathrm{d}x}{x(x^5 + 1)}$
 
@@ -195,9 +220,9 @@ $$
         \end{gather}
         $$
         :::
-    
+
     2. $\int \dfrac{\sqrt{x + 1} - 1}{\sqrt{x + 1} + 1} \mathrm{d}x$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -211,9 +236,9 @@ $$
         \end{gather}
         $$
         :::
-    
+
     3. $\int \sqrt{a^2 - x^2} \mathrm{d}x \, (a \gt 0)$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -227,9 +252,9 @@ $$
         \end{gather}
         $$
         :::
-    
+
     4. $\int \dfrac{1}{\sqrt{x^2 + a^2}} \mathrm{d}x$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -247,9 +272,9 @@ $$
         \end{gather}
         $$
         :::
-    
+
     5. $\int \dfrac{1}{\sqrt{x^2 - a^2}} \mathrm{d}x$
-    
+
         ::: details Answer
         $$
         \begin{gather}
@@ -377,3 +402,4 @@ $$
     \end{gather}
     $$
     :::
+
