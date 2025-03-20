@@ -157,7 +157,7 @@ $$
 
 设下述定积分皆存在，则：
 
-1. 设$\alpha$与$\beta$为常数，则：
+1. （线性运算性质）设$\alpha$与$\beta$为常数，则：
     $$
     \int_{a}^{b} \left[ \alpha f(x) \pm \beta g(x) \right] \mathrm{d}x
     = \alpha \int_{a}^{b} f(x) \mathrm{d}x \pm \beta \int_{a}^{b} g(x) \mathrm{d}x
@@ -195,14 +195,21 @@ $$
     
     推论二：
     $$
-    2 \left| \int_{a}^{b} f(x) \mathrm{d}x \right| \leq \int_{a}^{b} \left| f(x) \right| \mathrm{d}x \, (a \lt b)
+    \left| \int_{a}^{b} f(x) \mathrm{d}x \right| \leq \int_{a}^{b} \left| f(x) \right| \mathrm{d}x \, (a \lt b)
     $$
     ::: details Proof
     
-    设$A$为$f(x)$在$x$轴上方的面积，$B$为$f(x)$在$x$轴下方的面积；（$A \gt 0$、$B \gt 0$）
+    因为：
     $$
-    \int_{a}^{b} \left| f(x) \right| \mathrm{d}x = A + B \\
-    \left| \int_{a}^{b} f(x) \mathrm{d}x \right| = \left| A - B \right| \\
+    -\left| f(x) \right| \leq f(x) \leq \left| f(x) \right|
+    $$
+    则由定积分性质四的推论一可知：
+    $$
+    -\int_a^b \left| f(x) \right| \mathrm{d}x \leq \int_a^b f(x) \mathrm{d}x \leq \int_a^b \left| f(x) \right| \mathrm{d}x
+    $$
+    即可证得：
+    $$
+    \left| \int_a^b f(x) \mathrm{d}x \right| \leq \int_a^b \left| f(x) \right| \mathrm{d}x
     $$
     :::
     
@@ -263,18 +270,83 @@ $$
     $$
     m(b - a) \leq \int_{a}^{b} f(x) \mathrm{d}x \leq M(b - a) ,\, a \lt b
     $$
-
+    ::: details Proof
+    
+    因为：
+    $$
+    \forall x \in \left[ a, b \right] \rightarrow m \leq f(x) \leq M \\
+    $$
+    所以由定积分性质四的推论一可知：
+    $$
+    \int_{a}^{b} m \mathrm{d}x \leq \int_{a}^{b} f(x) \mathrm{d}x \leq \int_{a}^{b} M \mathrm{d}x
+    $$
+    又因为定积分的线性运算性质以及性质三，有：
+    $$
+    \begin{gather}
+    \int_{a}^{b} m \mathrm{d}x = m \int_{a}^{b} 1 \mathrm{d}x = m(b - a) \\
+    \int_{a}^{b} M \mathrm{d}x = M \int_{a}^{b} 1 \mathrm{d}x = M(b - a) \\
+    \end{gather}
+    $$
+    所以最终可得：
+    $$
+    m(b - a) \leq \int_a^b f(x) \mathrm{d}x \leq M(b - a)
+    $$
+    :::
+    
 6. （定积分第一中值定理）若函数$f(x)$在$\left[ a, b \right]$上连续，则：
     $$
     \exists \xi \in \left[ a, b \right] \rightarrow \int_{a}^{b} f(x) \mathrm{d}x = f(\xi) (b - a)
     $$
-
+    ::: details Proof
+    
+    设$m$和$M$分别为函数$f(x)$在区间$\left[ a, b \right]$上的最大值和最小值，则由定积分性质五估值定理可知：
+    $$
+    m(b - a) \leq \int_{a}^{b} f(x) \mathrm{d}x \leq M(b - a)
+    \Rightarrow m \leq \frac{\displaystyle\int_{a}^{b} f(x) \mathrm{d}x}{b - a} \leq M
+    $$
+    又因为$f(x)$在$\left[ a, b \right]$上连续，则由介值定理可知：
+    $$
+    \exists \xi \in \left[ a, b \right] \rightarrow f(\xi) = \frac{\displaystyle\int_a^b f(x) \mathrm{d}x}{b - a} \Rightarrow \int_a^b f(x) \mathrm{d}x = f(\xi)(b - a)
+    $$
+    ::: tip Tip
+    
+    1. 作用：用于去掉积分号
+    2. $f(\xi) = \dfrac{\displaystyle\int_a^b f(x) \mathrm{d}x}{b - a}$表示$f(x)$在$\left[ a, b \right]$上的“平均值”
+    
+    :::
+    
 7. （定积分第二中值定理）若函数$f(x)$在$\left[ a, b \right]$上连续，$g(x)$在$\left[ a, b \right]$上可积且不变号，则：
     $$
     \exists \xi \in \left[ a, b \right] \rightarrow \int_{a}^{b} f(x) g(x) \mathrm{d}x = f(\xi) \int_{a}^{b} g(x) \mathrm{d}x
     $$
+    ::: details Proof
+    
+    设$m$和$M$分别为函数$f(x)$在区间$\left[ a, b \right]$上的最小值和最大值，则$m \leq f(x) \leq M$，不妨设$g(x) \gt 0$，则有：
+    $$
+    m \cdot g(x) \leq f(x) \cdot g(x) \leq M \cdot g(x)
+    $$
+    则由定积分性质四的推论二可知：
+    $$
+    m \int_a^b g(x) \mathrm{d}x \leq \int_a^b f(x) g(x) \mathrm{d}x \leq M \int_a^b g(x) \mathrm{d}x
+    \Rightarrow m \leq \frac{\displaystyle\int_a^b f(x) g(x) \mathrm{d}x}{\displaystyle\int_a^b g(x) \mathrm{d}x} \leq M
+    $$
+    则最终由介值定理可证：
+    $$
+    \exists \xi \in \left[ a, b \right] \rightarrow 
+    f(\xi) = \frac{\displaystyle\int_a^b f(x) g(x) \mathrm{d}x}{\displaystyle\int_a^b g(x) \mathrm{d}x}
+    \Rightarrow \int_a^b f(x) g(x) \mathrm{d}x = f(\xi) \int_a^b g(x) \mathrm{d}x
+    $$
+    而在$g(x) \lt 0$时也同理可证
+    
+    :::
 
-- **例4**：已知$\displaystyle\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\displaystyle\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\displaystyle\int_{-1}^{3} g(x) \mathrm{d}x = 3$
+- **例4**：$\displaystyle\lim_{n \to \infty} \int_0^1 \frac{x^n}{1 + x} \mathrm{d}x$.
+
+    ::: details Answer
+
+    :::
+
+- **例5**：已知$\displaystyle\int_{-1}^{1} 3f(x) \mathrm{d}x = 18$、$\displaystyle\int_{-1}^{3} f(x) \mathrm{d}x = 4$、$\displaystyle\int_{-1}^{3} g(x) \mathrm{d}x = 3$
   
     1. $\displaystyle\int_{-1}^{1} f(x) \mathrm{d}x$
     
@@ -327,10 +399,16 @@ $$
         $$
         :::
     
-- **例5**：设$I = \displaystyle\int_{0}^{\frac{\pi}{2}} \sin x \mathrm{d}x$、$J = \displaystyle\int_{0}^{\frac{\pi}{2}} x \mathrm{d}x$、$K = \displaystyle\int_{0}^{\frac{\pi}{2}} \tan x \mathrm{d}x$，则三者间的大小关系为\_\_\_\_\_.
+- **例6**：设$I = \displaystyle\int_{0}^{\frac{\pi}{4}} \sin x \mathrm{d}x$、$J = \displaystyle\int_{0}^{\frac{\pi}{4}} x \mathrm{d}x$、$K = \displaystyle\int_{0}^{\frac{\pi}{4}} \tan x \mathrm{d}x$，则三者间的大小关系为\_\_\_\_\_.
 
     ::: details Answer
-
+    $$
+    \begin{gather}
+    \because \forall x \in (0, \frac{\pi}{2}) \rightarrow \frac{2}{\pi} x \lt \sin x \lt x \lt \tan x \\
+    \therefore \int_{0}^{\frac{\pi}{4}} \sin x \mathrm{d}x \lt \int_{0}^{\frac{\pi}{4}} x \mathrm{d}x \lt \int_{0}^{\frac{\pi}{4}} \tan x \mathrm{d}x \\
+    \therefore I \lt J \lt K
+    \end{gather}
+    $$
     :::
 
 ## II. 微积分基本定理
