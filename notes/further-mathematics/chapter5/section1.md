@@ -181,19 +181,84 @@ $$
     $$
     \int_{a}^{b} f(x) \mathrm{d}x \leq \int_{a}^{b} g(x) \mathrm{d}x \, (a \lt b)
     $$
+    ::: details Proof
+    
+    设$F(x) = g(x) - f(x)$，则在$\left[ a, b \right]$上$F(x) \geq 0$，则根据定积分性质一和性质四可知：
+    $$
+    \begin{gather}
+    0 \leq \int_{a}^{b} F(x) \mathrm{d}x = \int_{a}^{b} \left[ g(x) - f(x) \right] \mathrm{d}x \\
+    = \int_{a}^{b} g(x) \mathrm{d}x - \int_{a}^{b} f(x) \mathrm{d}x \\
+    \Rightarrow \int_{a}^{b} f(x) \mathrm{d}x \leq \int_{a}^{b} g(x) \mathrm{d}x
+    \end{gather}
+    $$
+    :::
+    
     推论二：
     $$
     2 \left| \int_{a}^{b} f(x) \mathrm{d}x \right| \leq \int_{a}^{b} \left| f(x) \right| \mathrm{d}x \, (a \lt b)
     $$
-    ::: details Attention
-
-    > 设$f(x)$在$\left[ a, b \right]$上连续，且$\forall x \in \left[ a, b \right] \rightarrow f(x) \geq 0$
-
-    1. $\exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) \neq 0 \Leftrightarrow \displaystyle\int_{a}^{b} f(x) \mathrm{d}x \gt 0$
-    2. $\displaystyle\int_{a}^{b} f(x) \mathrm{d}x = 0 \Leftrightarrow \forall x \in \left[ a, b \right] \rightarrow f(x) \equiv 0$
-
+    ::: details Proof
+    
+    设$A$为$f(x)$在$x$轴上方的面积，$B$为$f(x)$在$x$轴下方的面积；（$A \gt 0$、$B \gt 0$）
+    $$
+    \int_{a}^{b} \left| f(x) \right| \mathrm{d}x = A + B \\
+    \left| \int_{a}^{b} f(x) \mathrm{d}x \right| = \left| A - B \right| \\
+    $$
     :::
-
+    
+    ::: details Attention
+    
+    > 设$f(x)$在$\left[ a, b \right]$上连续，且$\forall x \in \left[ a, b \right] \rightarrow f(x) \geq 0$，试证明：
+    >
+    > 1. $\exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) \neq 0 \Rightarrow \displaystyle\int_{a}^{b} f(x) \mathrm{d}x \gt 0$
+    > 2. $\displaystyle\int_{a}^{b} f(x) \mathrm{d}x = 0 \Rightarrow \forall x \in \left[ a, b \right] \rightarrow f(x) \equiv 0$
+    
+    由$f(x)$在$\left[ a, b \right]$上连续可知：
+    $$
+    \forall x_0 \in \left[ a, b \right] \rightarrow f(x_0) = \lim_{x \to x_0} f(x)
+    $$
+    又因为：
+    $$
+    \forall x \in \left[ a, b \right] \rightarrow f(x) \geq 0
+    $$
+    且：
+    $$
+    \exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) \neq 0
+    $$
+    所以：
+    $$
+    \exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) = \lim_{x \to x_0} f(x) \gt 0
+    $$
+    又由极限的保号性可知：
+    $$
+    \exists \delta \gt 0 \rightarrow \forall x \in (x_0 - \delta, x_0 + \delta) \rightarrow f(x) \gt \epsilon \gt 0
+    $$
+    于是根据定积分的可加性可知：
+    $$
+    \begin{gather}
+    \int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{x_0 - \delta} f(x) \mathrm{d}x + \int_{x_0 - \delta}^{x_0 + \delta} f(x) \mathrm{d}x + \int_{x_0 + \delta}^{b} f(x) \mathrm{d}x \\ 
+    \gt \int_{x_0 - \delta}^{x_0 + \delta} f(x) \mathrm{d}x \gt \int_{x_0 - \delta}^{x_0 + \delta} \epsilon \mathrm{d}x = \epsilon \cdot 2\delta \gt 0
+    \tag{1}
+    \end{gather}
+    $$
+    假设：
+    $$
+    \forall x \in \left[ a, b \right] \rightarrow f(x) \not\equiv 0
+    $$
+    所以：
+    $$
+    \exists x_0 \in \left[ a, b \right] \rightarrow f(x_0) \gt 0
+    $$
+    则由（1）可知：
+    $$
+    \int_{a}^{b} f(x) \mathrm{d}x \gt 0
+    $$
+    这不符合前提条件，所以：
+    $$
+    \forall x \in \left[ a, b \right] \rightarrow f(x) \equiv 0 \tag{2}
+    $$
+    :::
+    
 5. （估值定理）设$M$和$m$分别为函数$f(x)$在区间$\left[ a, b \right]$上的最大值和最小值，则：
     $$
     m(b - a) \leq \int_{a}^{b} f(x) \mathrm{d}x \leq M(b - a) ,\, a \lt b
