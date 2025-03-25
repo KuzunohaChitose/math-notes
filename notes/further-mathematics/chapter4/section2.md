@@ -189,7 +189,7 @@ $$
 
         ::: details Answer
         $$
-        \begin{}
+        \begin{gather}
         \int \frac{1}{\sqrt{x} + \sqrt[3]{x}} \mathrm{d}x
         = \int \frac{1}{t^3 + t^2} \mathrm{d}(t^6), t = \sqrt[6]{x} \\
         = 6 \int \frac{t^5}{t^3 + t^2} \mathrm{d}t

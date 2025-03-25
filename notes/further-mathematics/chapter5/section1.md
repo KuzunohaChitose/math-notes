@@ -790,7 +790,77 @@ $$
         \end{gather}
         $$
         :::
+    
+- **例14**：求$\displaystyle\int_{0}^{2} f(x - 1) \mathrm{d}x$，其中：
+    $$
+    f(x) =
+    \begin{cases}
+    \dfrac{1}{1 + e^x}, & x \lt 0 \\
+    \dfrac{1}{1 + x}, & x \geq 0 \\
+    \end{cases}
+    $$
+    ::: details Answer
+
+    通过变量代换，设$u = x - 1$，则积分上限变为$2 - 1 = 1$，积分下限变为$0 - 1 = -1$，则有：
+    $$
+    \begin{gather}
+    \int_{0}^{2} f(x - 1) \mathrm{d}x
+    = \int_{-1}^{1} f(u) \mathrm{d}u \\
+    = \int_{-1}^{0} f(u) \mathrm{d}u + \int_{0}^{1} f(u) \mathrm{d}u \\
+    = \int_{-1}^{0} \frac{1}{1 + e^u} \mathrm{d}u + \int_{0}^{1} \frac{1}{1 + u} \mathrm{d}u \\
+    = -\int_{-1}^{0} \frac{e^{-u}}{e^{-u} + 1} \mathrm{d}(-u) + \int_{0}^{1} \frac{1}{1 + u} \mathrm{d}(1 + u) \\
+    = -\int_{-1}^{0} \frac{1}{e^{-u} + 1} \mathrm{d}(e^{-u} + 1) + \left[ \ln \left| 1 + u \right| \right]_{0}^{1} \\
+    = -\left[ \ln (e^{-u} + 1) \right]_{-1}^{0} + (\ln 2 - \ln 1) \\
+    = -\left[ \ln \frac{1 + e^u}{e^u} \right]_{-1}^{0} + \ln 2 \\
+    = -\left[ \ln (1 + e^u) - u \right]_{-1}^{0} + \ln 2 \\
+    = -\left[ \ln (1 + e^0) - 0 - \ln (1 + e^{-1}) - 1 \right] + \ln 2 \\
+    = -\ln 2 + \ln \frac{1 + e}{e} + 1 + \ln 2 \\
+    = \ln (1 + e) - \ln e + 1 \\
+    = \ln (1 + e) \\
+    \end{gather}
+    $$
+    :::
 
 ### 3.2 定积分的分部积分法
+
+设$u$、$v$在$\left[ a, b \right]$上具有连续的导数，则有：
+$$
+\int_{a}^{b} u \mathrm{d}v = uv|_{a}^{b} - \int_{a}^{b} v \mathrm{d}u
+$$
+
+- **例15**：计算下列定积分：
+
+    1. $\displaystyle \int_{1}^{4} \frac{\ln x}{\sqrt{x}} \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{1}^{4} \frac{\ln x}{\sqrt{x}} \mathrm{d}x
+        = 2 \int_{1}^{4} \ln x  \mathrm{d}(\sqrt{x}) \\
+        = 2 \left[ \sqrt{x} \ln x \right]_{1}^{4} - 2 \int_{1}^{4} \sqrt{x} \mathrm{d}(\ln x) \\
+        = 2 (\sqrt{4} \ln 4 - \sqrt{1} \ln 1) - 2 \int_{1}^{4} x^{\frac{1}{2}} \cdot x^{-1} \mathrm{d}x \\
+        = 2 \cdot \sqrt{4} \ln 2^2 - 2 \int_{1}^{4} x^{-\frac{1}{2}} \mathrm{d}x \\
+        = 8 \ln 2 - 4 \left[ \sqrt{x} \right]_{1}^{4}
+        = 8 \ln 2 - 4 \\
+        \end{gather}
+        $$
+        :::
+
+    2. $\displaystyle \int_{0}^{\pi} (x \sin x)^2 \mathrm{d}x$
+
+        ::: details Answer
+        $$
+        \int_{0}^{\pi} (x \sin x)^2 \mathrm{d}x
+        = \int_{0}^{\pi} x^2 \sin^2 x \mathrm{d}x \\
+        = \frac{1}{3} \int_{0}^{\pi} \sin^2 x \mathrm{d}(x^3)
+        = \frac{1}{3} \left[ x^3 \sin^2 x \right]_{0}^{\pi} - \frac{1}{3} \int_{0}^{\pi} x^3 \mathrm{d}(\sin^2 x) \\
+        = \frac{1}{3} \left[ \pi^3 \sin^2 \pi - 0^3 \sin^2 0 \right] - \frac{1}{3} \int_{0}^{\pi} x^3 \sin (2x) \mathrm{d}x \\
+        = \frac{1}{3} \pi^3 \sin^2 \pi - \frac{1}{3} \int_{0}^{\pi} x^3 \sin (2x) \mathrm{d}x \\
+        $$
+         :::
+
+    3. $\displaystyle \int_{1}^{e} \sin (\ln x) \mathrm{d}x$
+
+    4. $\displaystyle \int_{0}^{\pi^2} \sqrt{x} \sin \sqrt{x} \mathrm{d}x$
 
 ## IV. 关于定积分的几个重要结论
