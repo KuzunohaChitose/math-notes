@@ -113,16 +113,6 @@ $$
 2. 若$\forall x \in \left[ a, b \right], f(x) \leq 0$，则$\displaystyle\int_{a}^{b} f(x) \mathrm{d}x$表示由曲线$y = f(x)$和两条直线$x = a$、$x = b$以及$x$轴所围成的曲边梯形的面积的负值
 3. 若上述条件均不满足，则$\displaystyle\int_{a}^{b} f(x) \mathrm{d}x$表示$f(x)$在$x$轴上方的图形面积与$x$轴下方的图形面积之差
 
-::: tip Tip
-$$
-\begin{gather}
-f(-x) = f(x) \Rightarrow \int_{-a}^{a} f(x) \mathrm{d}x = 2 \int_{0}^{a} f(x) \mathrm{d}x = 2 \int_{-a}^{0} f(x) \mathrm{d}x \\
-f(-x) = -f(x) \Rightarrow \int_{-a}^{a} f(x) \mathrm{d}x = 0 \\
-f(x + T) = f(x) \Rightarrow \int_{a}^{a + T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x \\
-\end{gather}
-$$
-:::
-
 - **例2**：根据定积分的几何意义计算$\displaystyle\int_0^1 \sqrt{1 - x^2} \mathrm{d}x$.
 
     ::: details Answer
@@ -978,3 +968,74 @@ $$
     $$
 
 - **例17**：计算下列定积分：
+
+    1. $\displaystyle \int_{-1}^{1} \frac{2x^2 + x \cos x}{1 + \sqrt{1 - x^2}} \mathrm{d}x$.
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{-1}^{1} \frac{2x^2 + x \cos x}{1 + \sqrt{1 - x^2}} \mathrm{d}x \\
+        = 2 \int_{-1}^{1} \frac{x^2}{1 + \sqrt{1 - x^2}} \mathrm{d}x + \int_{-1}^{1} \frac{x \cos x}{1 + \sqrt{1 - x^2}} \mathrm{d}x \\
+        = 4 \int_{0}^{1} \frac{x^2}{1 + \sqrt{1 - x^2}} \mathrm{d}x + 0 \\
+        = 4 \int_{0}^{1} \frac{x^2 (1 - \sqrt{1 - x^2})}{(1 + \sqrt{1 - x^2})(1 - \sqrt{1 - x^2})} \mathrm{d}x \\
+        = 4 \int_{0}^{1} \frac{x^2 - x^2 \sqrt{1 - x^2}}{x^2} \mathrm{d}x \\
+        = 4 \int_{0}^{1} \mathrm{d}x - 4 \int_{0}^{1} \sqrt{1 - x^2} \mathrm{d}x
+        = 4 - \pi \\
+        \end{gather}
+        $$
+        :::
+
+    2. $\displaystyle \int_{0}^{\pi} \frac{x \sin x}{1 + \cos^2 x} \mathrm{d}x$.
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{0}^{\pi} \frac{x \sin x}{1 + \cos^2 x} \mathrm{d}x
+        = \frac{\pi}{2} \int_{0}^{\pi} \frac{\sin x}{1 + \cos^2 x} \mathrm{d}x \\
+        = -\frac{\pi}{2} \int_{1}^{-1} \frac{1}{1 + u^2} \mathrm{d}u, u = \cos x \\
+        = -\frac{\pi}{2} \left[ \arctan u \right]_{1}^{-1}
+        = -\frac{\pi}{2} \cdot (-\frac{\pi}{4} - \frac{\pi}{4})
+        = \frac{\pi^2}{4} \\
+        \end{gather}
+        $$
+        :::
+
+    3. $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} (x^2 \sin x + \cos^5 x + \sin^6 x) \mathrm{d}x$.
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} (x^2 \sin x + \cos^5 x + \sin^6 x) \mathrm{d}x \\
+        = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} x^2 \sin x \mathrm{d}x + \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^5 x \mathrm{d}x + \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin^6 x \mathrm{d}x \\
+        = 0 + 2 \int_{0}^{\frac{\pi}{2}} \cos^5 x \mathrm{d}x + 2 \int_{0}^{\frac{\pi}{2}} \sin^6 x \mathrm{d}x \\
+        = 2 \cdot \frac{4}{5} \cdot \frac{2}{3} + 2 \cdot \frac{5}{6} \cdot \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}
+        = \frac{16}{15} + \frac{5}{16} \pi \\
+        \end{gather}
+        $$
+        :::
+
+    4. $\displaystyle \int_{0}^{2\pi} \left| \sin (x + 1) \right| \mathrm{d}x$.
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{0}^{2\pi} \left| \sin (x + 1) \right| \mathrm{d}x
+        = \int_{1}^{2\pi + 1} \left| \sin u \right| \mathrm{d}u, u = x + 1 \\
+        = 2 \int_{0}^{\pi} \sin u \mathrm{d}u
+        = -2 \left[ \cos u \right]_{0}^{\pi}
+        = -2 (\cos \pi - \cos 0) = 4 \\
+        \end{gather}
+        $$
+        :::
+
+- **例18**：求定积分$\displaystyle \int_{-2}^{3} \min \{ 1, x^2 \} \mathrm{d}x$.
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    \int_{-2}^{3} \min \{ 1, x^2 \} \mathrm{d}x
+    = \int_{-2}^{-1} \mathrm{d}x + \int_{-1}^{1} x^2 \mathrm{d}x + \int_{1}^{3} \mathrm{d}x \\
+    = 1 + \frac{2}{3} + 2 = \frac{11}{3} \\
+    \end{gather}
+    $$
+    :::
