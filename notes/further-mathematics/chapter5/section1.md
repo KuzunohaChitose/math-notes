@@ -850,17 +850,131 @@ $$
 
         ::: details Answer
         $$
-        \int_{0}^{\pi} (x \sin x)^2 \mathrm{d}x
-        = \int_{0}^{\pi} x^2 \sin^2 x \mathrm{d}x \\
-        = \frac{1}{3} \int_{0}^{\pi} \sin^2 x \mathrm{d}(x^3)
-        = \frac{1}{3} \left[ x^3 \sin^2 x \right]_{0}^{\pi} - \frac{1}{3} \int_{0}^{\pi} x^3 \mathrm{d}(\sin^2 x) \\
-        = \frac{1}{3} \left[ \pi^3 \sin^2 \pi - 0^3 \sin^2 0 \right] - \frac{1}{3} \int_{0}^{\pi} x^3 \sin (2x) \mathrm{d}x \\
-        = \frac{1}{3} \pi^3 \sin^2 \pi - \frac{1}{3} \int_{0}^{\pi} x^3 \sin (2x) \mathrm{d}x \\
+        \begin{gather}
+        \int_{0}^{\pi} (x \sin x)^2 \mathrm{d}x 
+        = \int_{0}^{\pi} x^2 \cdot \frac{1 - \cos (2x)}{2} \mathrm{d}x \\
+        = \frac{1}{2} \int_{0}^{\pi} x^2 \mathrm{d}x - \frac{1}{2} \int_{0}^{\pi} x^2 \cos (2x) \mathrm{d}x \\
+        = \frac{1}{6} \left[ x^3 \right]_{0}^{\pi} - \frac{1}{4} \int_{0}^{2\pi} (\frac{u}{2})^2 \cos u \mathrm{d}u, u = 2x \\
+        = \frac{1}{6} \pi^3 - \frac{1}{16} \int_{0}^{2\pi} u^2 \mathrm{d}(\sin u) \\
+        = \frac{1}{6} \pi^3 - \frac{1}{16} \left[ u^2 \sin u \right]_{0}^{2\pi} + \frac{1}{16} \int_{0}^{2\pi} \sin u \mathrm{d}(u^2) \\
+        = \frac{1}{6} \pi^3 - \frac{1}{4} \pi^2 \sin (2\pi) - \frac{1}{8} \int_{0}^{2\pi} u \mathrm{d}(\cos u) \\
+        = \frac{1}{6} \pi^3 - \frac{1}{8} \left[ u \cos u \right]_{0}^{2\pi} + \frac{1}{8} \int_{0}^{2\pi} \cos u \mathrm{d}u \\
+        = \frac{1}{6} \pi^3 - \frac{1}{4} \pi + \frac{1}{8} \left[ \sin u \right]_{0}^{2\pi}
+        = \frac{1}{6} \pi^3 - \frac{1}{4} \pi \\
+        \end{gather}
         $$
          :::
-
+    
     3. $\displaystyle \int_{1}^{e} \sin (\ln x) \mathrm{d}x$
-
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{1}^{e} \sin (\ln x) \mathrm{d}x
+        = \int_{0}^{1} \sin u \mathrm{d}(e^u), u = \ln x \\
+        = -\int_{0}^{1} e^u \mathrm{d}(\cos u)
+        = -\left[ e^u \cos u \right]_{0}^{1} + \int_{0}^{1} \cos u \mathrm{d}(e^u) \\
+        = -\left[ e^u \cos u \right]_{0}^{1} + \int_{0}^{1} e^u \mathrm{d}(\sin u) \\
+        = -\left[ e^u \cos u \right]_{0}^{1} + \left[ e^u \sin u \right]_{0}^{1} - \int_{0}^{1} \sin u \mathrm{d}(e^u) \\
+        \Rightarrow 2 \int_{0}^{1} \sin u \mathrm{d}(e^u) = \left[ e^u \sin u \right]_{0}^{1} - \left[ e^u \cos u \right]_{0}^{1} \\
+        \Rightarrow \int_{0}^{1} \sin u \mathrm{d}(e^u) = \frac{1}{2} (e^1 \sin 1 - e^0 \sin 0) - \frac{1}{2} (e^1 \cos 1 - e^0 \cos 0) \\
+        = \frac{e \sin 1 - e \cos 1 + 1}{2}
+        = \frac{e}{2} (\sin 1 - \cos 1) + \frac{1}{2} \\
+        \end{gather}
+        $$
+        :::
+    
     4. $\displaystyle \int_{0}^{\pi^2} \sqrt{x} \sin \sqrt{x} \mathrm{d}x$
+    
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{0}^{\pi^2} \sqrt{x} \sin \sqrt{x} \mathrm{d}x
+        = \int_{0}^{\pi} u \sin u \mathrm{d}(u^2), u = \sqrt{x} \\
+        = -2 \int_{0}^{\pi} u^2 \mathrm{d}(\cos u)
+        = -2 \left[ u^2 \cos u \right]_{0}^{\pi} + 2 \int_{0}^{\pi} \cos u \mathrm{d}(u^2) \\
+        = -2 (\pi^2 \cos \pi - 0^2 \cos 0) + 4 \int_{0}^{\pi} u \mathrm{d}(\sin u) \\
+        = 2\pi^2 + 4 \left[ u \sin u \right]_{0}^{\pi} - 4 \int_{0}^{\pi} \sin u \mathrm{d}u \\
+        = 2\pi^2 + 4 (\pi \sin \pi - 0 \sin 0) + 4 \left[ \cos u \right]_{0}^{\pi} \\
+        = 2\pi^2 + 4 (\cos \pi - \cos 0)
+        = 2\pi^2 - 8 \\
+        \end{gather}
+        $$
+        :::
+    
+- **例16**：已知$f(2) = \dfrac{1}{2}$，$f'(2) = 0$，$\displaystyle \int_{0}^{2} f(x) \mathrm{d}x = 1$，计算$\displaystyle \int_{0}^{1} x^2 f''(2x) \mathrm{d}x$.
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    \int_{0}^{1} x^2 f''(2x) \mathrm{d}x
+    = \frac{1}{8} \int_{0}^{2} u^2 f''(u) \mathrm{d}u, u = 2x \\
+    = \frac{1}{8} \int_{0}^{2} u^2 \mathrm{d}f'(u)
+    = \frac{1}{8} \left[ u^2 f'(u) \right]_{0}^{2} - \frac{1}{8} \int_{0}^{2} f'(u) \mathrm{d}(u^2) \\
+    = \frac{1}{8} \left[ 2^2 f'(2) - 0^2 f'(0) \right] - \frac{1}{4} \int_{0}^{2} u \mathrm{d}f(u) \\
+    = -\frac{1}{4} \left[ uf(u) \right]_{0}^{2} + \frac{1}{4} \int_{0}^{2} f(u) \mathrm{d}u \\
+    = -\frac{1}{4} \left[ 2f(2) - 0f(0) \right] + \frac{1}{4} \cdot 1
+    = \frac{1}{4} - \frac{1}{4} = 0 \\
+    \end{gather}
+    $$
+    :::
 
 ## IV. 关于定积分的几个重要结论
+
+1. **结论一：**
+    $$
+    \int_{0}^{a} \sqrt{a^2 - x^2} \mathrm{d}x = \frac{1}{4} \pi a^2
+    $$
+
+2. **结论二**：设函数$f(x)$在区间$\left[ -a, a \right]$上连续，则：
+    $$
+    \int_{-a}^{a} f(x) \mathrm{d}x =
+    \begin{cases}
+    0, & f(-x) = -f(x) \\
+    2 \displaystyle \int_{0}^{a} f(x) \mathrm{d}x, &  f(-x) = f(x) \\
+    2 \displaystyle \int_{-a}^{0} f(x) \mathrm{d}x, &  f(-x) = f(x) \\
+    \end{cases}
+    $$
+
+3. **结论三**：
+    $$
+    \int_{0}^{\frac{\pi}{2}} \sin^n \mathrm{d}x
+    = \int_{0}^{\frac{\pi}{2}} \cos^n x \mathrm{d}x \\ =
+    \begin{cases}
+    \displaystyle \frac{n - 1}{n} \cdot \frac{n - 3}{n - 2} \cdot \frac{n - 5}{n - 4} \dots \frac{3}{4} \cdot \frac{1}{2} \cdot \frac{\pi}{2}, & n\text{为正偶数} \\
+    \displaystyle \frac{n - 1}{n} \cdot \frac{n - 3}{n - 2} \cdot \frac{n - 5}{n - 4} \dots \frac{4}{5} \cdot \frac{2}{3}, & n\text{为大于1的正奇数} \\
+    \end{cases}
+    $$
+
+4. **结论四**：
+    $$
+    \int_{0}^{\pi} \sin^n x \mathrm{d}x = 2 \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x
+    $$
+
+    $$
+    \int_{0}^{\pi} \cos^n x \mathrm{d}x =
+    \begin{cases}
+    0, & n = 1, 3, 5, \dots \\
+    2 \displaystyle \int_{0}^{\frac{\pi}{2}} \cos^n x \mathrm{d}x, & n = 2, 4, 6, \dots
+    \end{cases}
+    $$
+
+5. **结论五**：设$f(x)$在$\left[ 0, 1 \right]$上连续，则：
+    $$
+    \int_{0}^{\frac{\pi}{2}} f(\sin x) \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} f(\cos x) \mathrm{d}x
+    $$
+
+    $$
+    \int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x
+    $$
+
+6. **结论六**：设$f(x)$是周期为$T$的连续函数，则：
+    $$
+    \int_{a}^{a + T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x
+    $$
+
+    $$
+    \int_{a}^{a + nT} f(x) \mathrm{d}x = n \int_{0}^{T} f(x) \mathrm{d}x ,\, n \in N
+    $$
+
+- **例17**：计算下列定积分：
