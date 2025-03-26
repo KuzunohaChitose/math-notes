@@ -178,8 +178,28 @@ $$
 
 ::: tip Tip
 
-1. 整体代换：被积函数中含有$\sqrt[n]{ax + b}$或$\sqrt[n]{\dfrac{ax + b}{cx + d}}$，直接令$t$等于根式整体
-2. TODO...
+1. **整体代换**：被积函数中含有$\sqrt[n]{ax + b}$或$\sqrt[n]{\dfrac{ax + b}{cx + d}}$时，令$t$等于根式整体
+
+2. **三角代换**：被积函数中含有$\sqrt{a^2 - x^2}$、$\sqrt{x^2 - a^2}$、$\sqrt{x^2 + a^2}$时，令$x$变为关于$t$的三角函数的形式，以去除根号
+    $$
+    \sqrt{a^2 - x^2} = a \cos t, x = a \sin t,  t \in (-\frac{\pi}{2}, \frac{\pi}{2})
+    $$
+
+    $$
+    \sqrt{a^2 + x^2} = a \sec t, x = a \tan t, t \in (-\frac{\pi}{2}, \frac{\pi}{2})
+    $$
+
+    $$
+    \sqrt{x^2 - a^2} =
+    \begin{cases}
+    a \tan t, x = a \sec t, t \in (0, \dfrac{\pi}{2}), & x \gt a \\
+    \sqrt{(-t)^2 - a^2}, x = -t, \text{然后遵从上式}, & x \lt -a \\
+    \end{cases}
+    $$
+
+3. **倒数代换**：当$\dfrac{P(x)}{Q(x)}$且$P(x)$次幂低于$Q(x)$次幂时，令$x = \dfrac{1}{t}$
+
+4. **其他代换**：如$a^x = t$、$\arcsin x = t$、$\arctan x = t$等
 
 :::
 
