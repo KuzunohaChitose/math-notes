@@ -3,7 +3,7 @@ import {withMermaid} from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
-import { text } from "function-plot/dist/graph-types";
+import {text} from "function-plot/dist/graph-types";
 
 const tags = [
     "mjx-container",
@@ -280,33 +280,46 @@ export default withMermaid({
                 ],
             },
             {
-                text: "第五章 定积分",
+                text: "第五章 定积分及其应用",
+                collapsed: true,
+                items: [
+                    {
+                        text: "第一节 定积分",
+                        link: "/further-mathematics/chapter5/section1",
+                    },
+                    {
+                        text: "第二节 反常积分",
+                        link: "/further-mathematics/chapter5/section2",
+                    },
+                    {
+                        text: "第三节 定积分的应用",
+                        link: "/further-mathematics/chapter5/section3",
+                    },
+                ],
+            },
+            {
+                text: "第六章 常微分方程",
                 collapsed: true,
                 items: [],
             },
             {
-                text: "第六章 定积分的应用",
+                text: "第七章 多元函数微分学",
                 collapsed: true,
                 items: [],
             },
             {
-                text: "第七章 微分方程",
+                text: "第八章 二重积分",
                 collapsed: true,
                 items: [],
             },
             {
-                text: "第八章 多元函数微分法及其应用",
-                collapsed: true,
-                items: [],
-            },
-            {
-                text: "第九章 二重积分",
+                text: "第九章 无穷级数",
                 collapsed: true,
                 items: [],
             },
         ],
         socialLinks: [
-            {icon: "github", link: "https://github.com/KuzunohaChitose"},
+            {icon: "github", link: "https://github.com"},
             {icon: "twitter", link: "https://twitter.com"},
             {icon: "youtube", link: "https://youtube.com"},
         ],
