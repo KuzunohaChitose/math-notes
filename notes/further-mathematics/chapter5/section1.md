@@ -915,7 +915,25 @@ $$
     $$
     \int_{0}^{a} \sqrt{a^2 - x^2} \mathrm{d}x = \frac{1}{4} \pi a^2
     $$
-
+    ::: details Proof
+    $$
+    \begin{gather}
+    \int_{0}^{a} \sqrt{a^2 - x^2} \mathrm{d}x \\
+    = a^2 \int_{0}^{a} \sqrt{1 - (\frac{x}{a})^2} \mathrm{d}(\frac{x}{a}) \\
+    = a^2 \int_{\frac{\pi}{2}}^{0} \sqrt{1 - \cos^2 u} \mathrm{d}(\cos u), x = a \cos u \\
+    = a^2 \int_{0}^{\frac{\pi}{2}} \sin^2 u \mathrm{d}u \\
+    = -a^2 \int_{0}^{\frac{\pi}{2}} \sin u \mathrm{d}(\cos u) \\
+    = -a^2 \left[ \sin u \cos u \right]_{0}^{\frac{\pi}{2}} + a^2 \int_{0}^{\frac{\pi}{2}} \cos u \mathrm{d}(\sin u) \\
+    = -a^2 (\sin \frac{\pi}{2} \cos \frac{\pi}{2} - \sin 0 \cos 0) + a^2 \int_{0}^{\frac{\pi}{2}} \cos^2 u \mathrm{d}u \\
+    = 0 + a^2 \int_{0}^{\frac{\pi}{2}} (1 - \sin^2 u) \mathrm{d}u \\
+    = a^2 \left[ u \right]_{0}^{\frac{\pi}{2}} - a^2 \int_{0}^{\frac{\pi}{2}} \sin^2 u \mathrm{d}u \\
+    \Rightarrow 2a^2 \int_{0}^{\frac{\pi}{2}} \sin^2 u \mathrm{d}u = a^2 (\frac{\pi}{2} - 0) \\
+    \Rightarrow a^2 \int_{0}^{\frac{\pi}{2}} \sin^2 u \mathrm{d}u = \frac{1}{4} \pi a^2 \\
+    \Rightarrow \int_{0}^{a} \sqrt{a^2 - x^2} \mathrm{d}x = \frac{1}{4} \pi a^2 \\
+    \end{gather}
+    $$
+    :::
+    
 2. **结论二**：设函数$f(x)$在区间$\left[ -a, a \right]$上连续，则：
     $$
     \int_{-a}^{a} f(x) \mathrm{d}x =
@@ -925,7 +943,61 @@ $$
     2 \displaystyle \int_{-a}^{0} f(x) \mathrm{d}x, &  f(-x) = f(x) \\
     \end{cases}
     $$
-
+    ::: details Proof
+    
+    - 当$f(-x) = -f(x)$时：
+        $$
+        \int_{-a}^{a} f(x) \mathrm{d}x \\
+        = -\int_{a}^{-a} f(-u) \mathrm{d}u, x = -u \\
+        = \int_{a}^{-a} f(u) \mathrm{d}u \\
+        $$
+        又因为：
+        $$
+        \int_{-a}^{a} f(x) \mathrm{d}x = -\int_{a}^{-a} f(x) \mathrm{d}x
+        $$
+        所以：
+        $$
+        \begin{gather}
+        -\int_{a}^{-a} f(x) \mathrm{d}x
+        = \int_{a}^{-a} f(x) \mathrm{d}x \\
+        \Rightarrow 
+        \int_{-a}^{a} f(x) \mathrm{d}x
+        = \int_{a}^{-a} f(x) \mathrm{d}x 
+        = 0
+        \end{gather}
+        $$
+    
+    - 当$f(-x) = f(x)$时：
+        $$
+        \int_{-a}^{a} f(x) \mathrm{d}x
+        = \int_{-a}^{0} f(x) \mathrm{d}x + \int_{0}^{a} f(x) \mathrm{d}x
+        $$
+        在此基础之上，当对前半部分的积分上下限进行翻转时：
+        $$
+        \int_{-a}^{0} f(x) \mathrm{d}x
+        = -\int_{0}^{-a} f(x) \mathrm{d}x \\
+        = \int_{0}^{a} f(-u) \mathrm{d}u|_{x = -u} 
+        = \int_{0}^{a} f(u) \mathrm{d}u
+        $$
+        代回原式可得：
+        $$
+        \int_{-a}^{a} f(x) \mathrm{d}x = 2 \int_{0}^{a} f(x) \mathrm{d}x
+        $$
+        同理，当对后半部分的积分上下限进行翻转时：
+        $$
+        \int_{0}^{a} f(x) \mathrm{d}x
+        = -\int_{a}^{0} f(x) \mathrm{d}x \\
+        = \int_{-a}^{0} f(-u) \mathrm{d}u|_{x = -u}
+        = \int_{-a}^{a} f(u) \mathrm{d}u
+        $$
+        代回原式可得：
+        $$
+        \int_{-a}^{a} f(x) \mathrm{d}x = 2 \int_{-a}^{0} f(x) \mathrm{d}x
+        $$
+        
+    
+    :::
+    
 3. **结论三**：
     $$
     \int_{0}^{\frac{\pi}{2}} \sin^n \mathrm{d}x
@@ -954,18 +1026,75 @@ $$
     \int_{0}^{\frac{\pi}{2}} f(\sin x) \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} f(\cos x) \mathrm{d}x
     $$
 
+    ::: details Proof
+    $$
+    \begin{gather}
+    \int_{0}^{\frac{\pi}{2}} f(\sin x) \mathrm{d}x
+    = -\int_{0}^{\frac{\pi}{2}} f\left[ \cos (\frac{\pi}{2} - x) \right] \mathrm{d}(\frac{\pi}{2} - x) \\
+    = -\int_{\frac{\pi}{2}}^{0} f(\cos u) \mathrm{d}u|_{u = \frac{\pi}{2} - x}
+    = \int_{0}^{\frac{\pi}{2}} f(\cos u) \mathrm{d}u \\
+    \end{gather}
+    $$
+    :::
     $$
     \int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x
     $$
-
+    ::: details Proof
+    $$
+    \begin{gather}
+    \int_{0}^{\pi} x f(\sin x) \mathrm{d}x \\
+    = \int_{\pi}^{0} (\pi - u) f\left[ \sin (\pi - u) \right] \mathrm{d}(\pi - u)|_{u = \pi - x} \\
+    = \int_{0}^{\pi} (\pi - u) f(\sin u) \mathrm{d}u \\
+    = \pi \int_{0}^{\pi} f(\sin u) \mathrm{d}u - \int_{0}^{\pi} u f(\sin u) \mathrm{d}u \\
+    \Rightarrow 2 \int_{0}^{\pi} x f(\sin x) \mathrm{d}x = \pi \int_{0}^{\pi} f(\sin x) \mathrm{d}x \\
+    \Rightarrow \int_{0}^{\pi} x f(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x \\
+    \end{gather}
+    $$
+    :::
+    
 6. **结论六**：设$f(x)$是周期为$T$的连续函数，则：
     $$
     \int_{a}^{a + T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x
     $$
 
+    ::: details Proof
+    
+    首先可以将原式拆成三个部分的定积分：
+    $$
+    \begin{gather}
+    \int_{a}^{a + T} f(x) \mathrm{d}x
+    = \int_{a}^{0} f(x) \mathrm{d}x + \int_{0}^{a + T} f(x) \mathrm{d}x \\
+    = \int_{a}^{0} f(x) \mathrm{d}x + \int_{0}^{T} f(x) \mathrm{d}x + \int_{T}^{a + T} f(x) \mathrm{d}x \\
+    \end{gather}
+    $$
+    然后对于第三个部分，有：
+    $$
+    \int_{T}^{a + T} f(x) \mathrm{d}x
+    = \int_{0}^{a} f(u) \mathrm{d}u, u = x - T
+    $$
+    则原式可变为：
+    $$
+    \begin{gather}
+    \int_{a}^{a + T} f(x) \mathrm{d}x
+    = \int_{a}^{0} f(x) \mathrm{d}x + \int_{0}^{T} f(x) \mathrm{d}x + \int_{0}^{a} f(x) \mathrm{d}x \\
+    = \int_{a}^{0} f(x) \mathrm{d}x + \int_{0}^{T} f(x) \mathrm{d}x - \int_{a}^{0} f(x) \mathrm{d}x
+    = \int_{0}^{T} f(x) \mathrm{d}x \\
+    \end{gather}
+    $$
+     :::
     $$
     \int_{a}^{a + nT} f(x) \mathrm{d}x = n \int_{0}^{T} f(x) \mathrm{d}x ,\, n \in N
     $$
+    ::: details Proof
+    $$
+    \int_{a}^{a + nT} f(x) \mathrm{d}x
+    = \sum_{i = 1}^{n} \int_{a + (i - 1)T}^{a + iT} f(x) \mathrm{d}x
+    $$
+    显然，可以将这个定积分拆成$n$个上下限相差$T$的定积分，由结论$\displaystyle \int_{a}^{a + T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$可知，当$f(x + T) = f(x)$时，每一个上下限相差$T$的定积分的值都相等，则最终可得：
+    $$
+    \int_{a}^{a + nT} f(x) \mathrm{d}x = n \int_{0}^{T} f(x) \mathrm{d}x
+    $$
+    :::
 
 - **例17**：计算下列定积分：
 
