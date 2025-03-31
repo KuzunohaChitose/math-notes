@@ -1007,7 +1007,42 @@ $$
     \displaystyle \frac{n - 1}{n} \cdot \frac{n - 3}{n - 2} \cdot \frac{n - 5}{n - 4} \dots \frac{4}{5} \cdot \frac{2}{3}, & n\text{为大于1的正奇数} \\
     \end{cases}
     $$
-
+    ::: details Proof
+    
+    设：
+    $$
+    \begin{gather}
+    I_n = \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x
+    = \int_{0}^{\frac{\pi}{2}} \sin^{n - 1} x \mathrm{d}(-\cos x) \\
+    = -\left[ \cos x \sin^{n - 1} x \right]_{0}^{\frac{\pi}{2}} + \int_{0}^{\frac{\pi}{2}} \cos x 
+    \mathrm{d}(\sin^{n - 1} x) \\
+    = 0 + \int_{0}^{\frac{\pi}{2}} (n - 1) \sin^{n - 2} x \cos^2 x \mathrm{d}x \\
+    = (n - 1) \int_{0}^{\frac{\pi}{2}} \sin^{n - 2} x (1 - \sin^2 x) \mathrm{d}x \\
+    = (n - 1) \int_{0}^{\frac{\pi}{2}} \sin^{n - 2} x \mathrm{d}x - (n - 1) \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x \\
+    = (n - 1) (I_{n - 2} - I_n) \\
+    \end{gather}
+    $$
+    由此可以得出递推式：
+    $$
+    n I_n = (n - 1) I_{n - 2} \Rightarrow I_n = \frac{n - 1}{n} \cdot I_{n - 2} \\
+    $$
+    所以，当$n$为奇数时：
+    $$
+    I_n = \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x
+    = \frac{n - 1}{n} \cdot \frac{n - 3}{n - 2} \dots \frac{2}{3} \cdot I_1
+    $$
+    当$n$为偶数时：
+    $$
+    I_n = \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x
+    = \frac{n - 1}{n} \cdot \frac{n - 3}{n - 2} \dots \frac{1}{2} \cdot I_0
+    $$
+    然后计算出$I_0$和$I_1$的取值，便可得出最终结果：
+    $$
+    I_1 = \int_{0}^{\frac{\pi}{2}} \sin x \mathrm{d}x = 1,
+    I_0 = \int_{0}^{\frac{\pi}{2}} \mathrm{d}x = \frac{\pi}{2}
+    $$
+    :::
+    
 4. **结论四**：
     $$
     \int_{0}^{\pi} \sin^n x \mathrm{d}x = 2 \int_{0}^{\frac{\pi}{2}} \sin^n x \mathrm{d}x
