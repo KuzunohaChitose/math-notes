@@ -49,7 +49,7 @@ $$
 $$
 :::
 
-- **例1**：试判断$\displaystyle \int_{1}^{+\infty} \frac{1}{x^p} \mathrm{d}x$的收敛性.
+- **例1**：试判断$\displaystyle \int_{1}^{+\infty} \frac{1}{x^p} \mathrm{d}x$的收敛性.（“$p$积分”）
 
     ::: details Answer
 
@@ -131,23 +131,29 @@ $$
 
 对于反常积分$\displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x ,\, f(x) \geq 0$，其收敛性主要取决于当$x \to +\infty$时，$f(x) \to 0$的速度，趋于$0$的速度越快则此反常积分的收敛性越强，反之越弱；
 
-比较判别法：设$f(x)$在$\left[ a, +\infty \right)$上连续，且$\forall x \in \left[ a, +\infty \right)$有$0 \leq f(x) \leq g(x)$，则：
+**比较判别法**：设$f(x)$在$\left[ a, +\infty \right)$上连续，且$\forall x \in \left[ a, +\infty \right)$有$0 \leq f(x) \leq g(x)$，则：
 
 1. 若$\displaystyle \int_{a}^{+\infty} g(x) \mathrm{d}x$收敛，则$\displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x$收敛：“大敛则小敛”
 2. 若$\displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x$发散，则$\displaystyle \int_{a}^{+\infty} g(x) \mathrm{d}x$发散：“小散则大散”
 
-比较判别法的极限形式：设$g(x) = \dfrac{1}{x^p}$，则：
+**比较判别法的极限形式**：设$g(x) = \dfrac{1}{x^p}$，则：
 $$
 \lim_{x \to +\infty} \frac{f(x)}{g(x)} = \lim_{x \to +\infty} x^p f(x) = l \\
 \Rightarrow
 \begin{cases}
-0 \leq l \leq +\infty,& p \gt 1 \Rightarrow \displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x \, \text{收敛} \\
-0 \leq l \leq +\infty,& p \leq 1 \Rightarrow 
+0 \leq l \lt +\infty,& p \gt 1 \Rightarrow \displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x \, \text{收敛} \\
+0 \lt l \leq +\infty,& p \leq 1 \Rightarrow \displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x \, \text{发散} \\
 \end{cases}
 $$
 
-
 ::: tip Tip
+
+注意：
+
+1. 当$l = 0$时，只判敛不判散，即此时$p$只能取大于$1$的数；
+2. 当$l = +\infty$时，只判散不判敛，即此时$p$只能取小于等于$1$的数；
+
+另外，若$F'(x) = f(x)$，则：
 
 1. 对于$\displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x$，若极限$\displaystyle \lim_{x \to +\infty} F(x)$存在则其收敛，否则发散；
 2. 对于$\displaystyle \int_{-\infty}^{b} f(x) \mathrm{d}x$，若极限$\displaystyle \lim_{x \to -\infty} F(x)$存在则其收敛，否则发散；
@@ -171,6 +177,19 @@ $$
     $$
     \int_{1}^{+\infty} \frac{1}{\sqrt[3]{x^4 + 1}} \mathrm{d}x \, \text{收敛}
     $$
+    :::
+    
+- **例6**：判定反常积分$\displaystyle \int_{1}^{+\infty} \frac{1}{\ln (1 + x)} \mathrm{d}x$的敛散性
+
+    ::: details Answer
+
+    设$g(x) = \dfrac{1}{x}$，则反常积分$\displaystyle \int_{1}^{+\infty} g(x) \mathrm{d}x$发散，考虑此极限：
+    $$
+    \lim_{x \to +\infty} \frac{\frac{1}{\ln (1 + x)}}{\frac{1}{x}}
+    = \lim_{x \to +\infty} \frac{x}{\ln (1 + x)} = +\infty
+    $$
+    因此，当$p = 1$时，极限值为$+\infty$，可判定此反常积分为发散
+    
     :::
 
 ## III. 无界函数的反常积分
