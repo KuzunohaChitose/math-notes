@@ -27,7 +27,7 @@ $$
 
 根据牛顿·莱布尼茨公式，设$F'(x) = f(x)$，可知：
 $$
-\begin{gather}
+\begin{gather} 
 \int_{a}^{+\infty} f(x) \mathrm{d}x = F(x)|_{a}^{+\infty} \\
 \int_{-\infty}^{b} f(x) \mathrm{d}x = F(x)|_{-\infty}^{b} \\
 \int_{-\infty}^{+\infty} f(x) \mathrm{d}x = F(x)|_{-\infty}^{+\infty} \\
@@ -159,6 +159,10 @@ $$
 2. 对于$\displaystyle \int_{-\infty}^{b} f(x) \mathrm{d}x$，若极限$\displaystyle \lim_{x \to -\infty} F(x)$存在则其收敛，否则发散；
 3. 对于$\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$，若极限$\displaystyle \lim_{x \to +\infty} F(x)$和$\displaystyle \lim_{x \to -\infty} F(x)$皆存在则其收敛，否则发散。
 
+::: danger Attention
+
+无穷限反常积分的对称性不一定成立，仅当$\displaystyle \int_{-\infty}^{+\infty} f(x) \mathrm{d}x$收敛时成立
+
 :::
 
 - **例5**：判定反常积分$\displaystyle \int_{1}^{+\infty} \frac{\mathrm{d}x}{\sqrt[3]{x^4 + 1}}$的敛散性
@@ -191,5 +195,100 @@ $$
     因此，当$p = 1$时，极限值为$+\infty$，可判定此反常积分为发散
     
     :::
+    
+- **例7**：判定反常积分$\displaystyle \int_{-\infty}^{+\infty} x^3 \mathrm{d}x$的敛散性
 
-## III. 无界函数的反常积分
+    ::: details Answer
+    $$
+    \begin{gather}
+    \int_{-\infty}^{+\infty} x^3 \mathrm{d}x
+    = \int_{-\infty}^{0} x^3 \mathrm{d}x + \int_{0}^{+\infty} f(x) \mathrm{d}x \\
+    = -\frac{1}{4} \lim_{x \to -\infty} x^4 + \frac{1}{4} \lim_{x \to +\infty} x^4
+    = \infty - \infty \\
+    \end{gather}
+    $$
+    :::
+
+## II. 无界函数的反常积分
+
+### 2.1 瑕积分的定义
+
+> **瑕点**：若$f(x)$在点$x_0$的任一邻域内均无界，则称$x_0$为$f(x)$的瑕点
+
+若$x = a$为函数$f(x)$的瑕点，且$f(x)$在$\left( a, b \right]$上连续，则$\forall t \in (a, b)$，称：
+$$
+\lim_{t \to a^+} \int_{t}^{b} f(x) \mathrm{d}x
+$$
+为$f(x)$在$\left( a, b \right]$上的瑕积分，设$F'(x) = f(x)$，记作：
+$$
+\int_{a}^{b} f(x) \mathrm{d}x = \lim_{t \to a^+} \int_{t}^{b} f(x) \mathrm{d}x
+$$
+
+### 2.2 瑕积分的计算
+
+若函数$f(x)$在$\left( a, b \right]$上连续，且$x = a$为$f(x)$的瑕点，设$F'(x) = f(x)$，则有：
+$$
+\int_{a}^{b} f(x) \mathrm{d}x
+= \lim_{t \to a^+} \int_{t}^{b} f(x) \mathrm{d}x 
+= F(b) - \lim_{t \to a^+} f(t)
+$$
+
+### 2.3 瑕积分的敛散性的判定
+
+若函数$f(x)$在$\left( a, b \right]$上连续，且$x = a$为$f(x)$的瑕点，设$F'(x) = f(x)$，对于：
+$$
+\int_{a}^{b} f(x) \mathrm{d}x = F(b) - \lim_{t \to a^+} f(t)
+$$
+若$\displaystyle \lim_{t \to a^+} f(t)$存在，则此瑕积分收敛，否则发散；若$f(x) \geq 0$，则其敛散性主要取决于当$x \to a^+$时$f(x)$趋于$+\infty$的速度，速度越快则收敛性越弱，反之则越强；
+
+**比较判别法**：设$f(x)$、$g(x)$在$\left( a, b \right]$上连续，$x = a$为瑕点且$\forall x \in \left( a, b \right]$有$0 \leq f(x) \leq g(x)$，则：
+
+1. 若$\displaystyle \int_{a}^{b} g(x) \mathrm{d}x$收敛，则$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$也收敛（“大敛则小敛”）
+2. 若$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$发散，则$\displaystyle \int_{a}^{b} g(x) \mathrm{d}x$也发散（“小散则大散”）
+
+**比较判别法的极限形式**：
+
+- **例8**：设$a \lt b$，对于反常积分$\displaystyle \int_{a}^{b} \frac{\mathrm{d}x}{(x - a)^q}$，试证明：
+
+    1. 若$0 \lt q \lt 1$，则此反常积分收敛；
+
+        ::: details Answer
+        $$
+        \begin{gather}
+        \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
+        = \int_{0}^{b - a} u^{-q} \mathrm{d}u, u = x - a \\
+        = \lim_{t \to 0^+} \int_{t}^{b - a} u^{-q} \mathrm{d}u
+        = \frac{1}{1 - q} \lim_{t \to 0^+} \left[ (b - a)^{1 - q} - t^{1 - q} \right] \\
+        = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
+        = \frac{(b - a)^{1 - q}}{1 - q} \\
+        \end{gather}
+        $$
+        此时此瑕积分的值为一个常数，显然此时其为收敛
+
+        :::
+
+    2. 若$q \geq 1$，则此反常积分发散；
+
+        ::: details Answer
+
+        让我们直接快进到极限环节：（当$q \neq 1$时）
+        $$
+        \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
+        = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
+        $$
+        考虑其中的极限：
+        $$
+        \lim_{t \to 0^+} t^{1 - q} = \lim_{t \to 0^+} \frac{1}{t^{q - 1}} = +\infty ,\, (q - 1 \gt 0)
+        $$
+        显然此时这个瑕积分是发散的；继续考虑当$q = 1$时的情况：
+        $$
+        \begin{gather}
+        \int_{a}^{b} \frac{1}{x - a} \mathrm{d}x
+        = \lim_{t \to 0^+} \int_{t}^{b - a} \frac{1}{u} \mathrm{d}u, u = x - a \\
+        = \lim_{t \to 0^+} \left[ \ln (b - a) - \ln t \right]
+        = \ln (b - a) - \lim_{t \to 0^+} \ln t = +\infty \\
+        \end{gather}
+        $$
+        显然此时这个瑕积分也是发散的，所以综合两种情况可以知道：当$q \geq 1$时，$\displaystyle \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x$是发散的
+
+        :::
