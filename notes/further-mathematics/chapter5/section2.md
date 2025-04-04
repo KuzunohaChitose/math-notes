@@ -138,7 +138,7 @@ $$
 
 **比较判别法的极限形式**：设$g(x) = \dfrac{1}{x^p}$，则：
 $$
-\lim_{x \to +\infty} \frac{f(x)}{g(x)} = \lim_{x \to +\infty} x^p f(x) = l \\
+\lim_{x \to +\infty} \frac{f(x)}{g(x)} = \lim_{x \to +\infty} x^p f(x) = l
 \Rightarrow
 \begin{cases}
 0 \leq l \lt +\infty,& p \gt 1 \Rightarrow \displaystyle \int_{a}^{+\infty} f(x) \mathrm{d}x \, \text{收敛} \\
@@ -230,8 +230,53 @@ $$
 $$
 \int_{a}^{b} f(x) \mathrm{d}x
 = \lim_{t \to a^+} \int_{t}^{b} f(x) \mathrm{d}x 
-= F(b) - \lim_{t \to a^+} f(t)
+= F(b) - \lim_{t \to a^+} F(t)
 $$
+
+**例8**：设$a \lt b$，对于反常积分$\displaystyle \int_{a}^{b} \frac{\mathrm{d}x}{(x - a)^q}$，试证明：（“$q$积分”）
+
+1. 若$0 \lt q \lt 1$，则此反常积分收敛；
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
+    = \int_{0}^{b - a} u^{-q} \mathrm{d}u, u = x - a \\
+    = \lim_{t \to 0^+} \int_{t}^{b - a} u^{-q} \mathrm{d}u
+    = \frac{1}{1 - q} \lim_{t \to 0^+} \left[ (b - a)^{1 - q} - t^{1 - q} \right] \\
+    = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
+    = \frac{(b - a)^{1 - q}}{1 - q} \\
+    \end{gather}
+    $$
+    此时此瑕积分的值为一个常数，显然此时其为收敛
+
+    :::
+
+2. 若$q \geq 1$，则此反常积分发散；
+
+    ::: details Answer
+
+    让我们直接快进到极限环节：（当$q \neq 1$时）
+    $$
+    \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
+    = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
+    $$
+    考虑其中的极限：
+    $$
+    \lim_{t \to 0^+} t^{1 - q} = \lim_{t \to 0^+} \frac{1}{t^{q - 1}} = +\infty ,\, (q - 1 \gt 0)
+    $$
+    显然此时这个瑕积分是发散的；继续考虑当$q = 1$时的情况：
+    $$
+    \begin{gather}
+    \int_{a}^{b} \frac{1}{x - a} \mathrm{d}x
+    = \lim_{t \to 0^+} \int_{t}^{b - a} \frac{1}{u} \mathrm{d}u, u = x - a \\
+    = \lim_{t \to 0^+} \left[ \ln (b - a) - \ln t \right]
+    = \ln (b - a) - \lim_{t \to 0^+} \ln t = +\infty \\
+    \end{gather}
+    $$
+    显然此时这个瑕积分也是发散的，所以综合两种情况可以知道：当$q \geq 1$时，$\displaystyle \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x$是发散的
+
+    :::
 
 ### 2.3 瑕积分的敛散性的判定
 
@@ -246,49 +291,112 @@ $$
 1. 若$\displaystyle \int_{a}^{b} g(x) \mathrm{d}x$收敛，则$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$也收敛（“大敛则小敛”）
 2. 若$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$发散，则$\displaystyle \int_{a}^{b} g(x) \mathrm{d}x$也发散（“小散则大散”）
 
-**比较判别法的极限形式**：
+**比较判别法的极限形式**：设$g(x) = \dfrac{1}{(x - a)^q}$，则：
+$$
+\lim_{x \to a^+} \frac{f(x)}{g(x)} = \lim_{x \to a^+} x^p f(x) = l
+\Rightarrow
+\begin{cases}
+0 \leq l \lt +\infty,& 0 \lt q \lt 1 \Rightarrow \displaystyle \int_{a}^{b} f(x) \mathrm{d}x \, \text{收敛} \\
+0 \lt l \leq +\infty,& q \geq 1 \Rightarrow \displaystyle \int_{a}^{b} f(x) \mathrm{d}x \, \text{发散} \\
+\end{cases}
+$$
+::: tip Tip
 
-- **例8**：设$a \lt b$，对于反常积分$\displaystyle \int_{a}^{b} \frac{\mathrm{d}x}{(x - a)^q}$，试证明：
+- 当$x = b$为瑕点时：
 
-    1. 若$0 \lt q \lt 1$，则此反常积分收敛；
+    设函数$f(x)$在$\left[ a, b \right)$上连续，且$x = b$为$f(x)$的瑕点，设$F'(x) = f(x)$，则有：
+    $$
+    \int_{a}^{b} f(x) \mathrm{d}x = \lim_{t \to b^-} \int_{a}^{t} f(x) \mathrm{d}x
+    = \lim_{t \to b^-} F(t) - F(a)
+    $$
+    显然若$\displaystyle \lim_{t \to b^-} F(x)$存在则$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$收敛，否则发散
+
+- 当$x = c$为瑕点时：
+
+    设函数$f(x)$在$\left[ a, c \right)$和$\left( c, b \right]$上连续，且$x = c$为$f(x)$的瑕点，设$F'(x) = f(x)$，则有：
+    $$
+    \begin{gather}
+    \int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{c} f(x) \mathrm{d}x + \int_{c}^{b} f(x) \mathrm{d}x \\
+    = \lim_{t \to c^-} \int_{a}^{t} f(x) \mathrm{d}x + \lim_{t \to c^+} \int_{c}^{b} f(x) \mathrm{d}x \\
+    = \lim_{t \to c^-} F(t) - F(a) + F(b) - \lim_{t \to c^+} F(t) \\
+    \end{gather}
+    $$
+    显然若$\displaystyle \lim_{t \to c^-} F(x)$和$\displaystyle \lim_{t \to c^+} F(x)$均存在则$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$收敛，否则发散
+
+- 
+
+:::
+
+- **例9**：试判断$\displaystyle \int_{0}^{1} \ln x \mathrm{d}x$的敛散性
+
+    ::: details Answer
+
+    设$g(x) = x^{-\frac{1}{2}}$，则有：
+    $$
+    \lim_{x \to 0^+} \frac{\ln x}{x^{-\frac{1}{2}}} 
+    = \lim_{x \to 0^+} \frac{x^{-1}}{-\frac{1}{2} x^{-\frac{3}{2}}}
+    = -2 \lim_{x \to 0^+} x^{\frac{1}{2}} = 0
+    $$
+    即可根据比较判别法的极限形式判断出$\displaystyle \int_{0}^{1} \ln x \mathrm{d}x$是发散的
+
+    :::
+
+- **例10**：计算下列反常积分：
+
+    1. $\displaystyle \int_{\frac{1}{2}}^{\frac{3}{2}} \frac{\mathrm{d}x}{\sqrt{\left| x - x^2 \right|}}$.
 
         ::: details Answer
+
+        考虑这个方程：
+        $$
+        x - x^2 = 0 \Rightarrow x_1 = 0, x_2 = 1
+        $$
+        即：
         $$
         \begin{gather}
-        \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
-        = \int_{0}^{b - a} u^{-q} \mathrm{d}u, u = x - a \\
-        = \lim_{t \to 0^+} \int_{t}^{b - a} u^{-q} \mathrm{d}u
-        = \frac{1}{1 - q} \lim_{t \to 0^+} \left[ (b - a)^{1 - q} - t^{1 - q} \right] \\
-        = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
-        = \frac{(b - a)^{1 - q}}{1 - q} \\
+        \forall x \in \left( -\infty, 0 \right) \rightarrow x(1 - x) \lt 0 \\
+        \forall x \in \left[ 0, 1 \right] \rightarrow x(1 - x) \geq 0 \\
+        \forall x \in \left( 1, +\infty \right) \rightarrow x(1 - x) \lt 0 \\
         \end{gather}
         $$
-        此时此瑕积分的值为一个常数，显然此时其为收敛
-
+        于是可以写出被积函数$f(x)$的表达式：
+        $$
+        f(x) =
+        \begin{cases}
+        \dfrac{1}{\sqrt{x^2 - x}}, & x \lt 0 \\
+        \dfrac{1}{\sqrt{x - x^2}}, & 0 \lt x \lt 1 \\
+        \dfrac{1}{\sqrt{x^2 - x}}, & x \gt 0 \\
+        \end{cases}
+        $$
+        又因为：
+        $$
+        \lim_{x \to 0} f(x) = \lim_{x \to 1} f(x) = \infty
+        $$
+        所以$x = 0$和$x = 1$是$f(x)$的瑕点，据此我们可以将这个反常积分进行拆分：
+        $$
+        \begin{gather}
+        \int_{\frac{1}{2}}^{\frac{3}{2}} f(x)
+        = \int_{\frac{1}{2}}^{1} \frac{\mathrm{d}x}{\sqrt{x - x^2}} + \int_{1}^{\frac{3}{2}} \frac{\mathrm{d}x}{\sqrt{x^2 - x}} \\
+        = \lim_{t \to 1^-} \int_{\frac{1}{2}}^{t} \frac{\mathrm{d}x}{\sqrt{x - x^2}} + \lim_{t \to 1^+} \int_{t}^{\frac{3}{2}} \frac{\mathrm{d}x}{\sqrt{x^2 - x}} \\
+        = \lim_{t \to 1^-} \int_{\frac{1}{2}}^{t} \frac{\mathrm{d}(x - \frac{1}{2})}{\sqrt{(\frac{1}{2})^2 - (x - \frac{1}{2})^2}} + \lim_{t \to 1^+} \int_{t}^{\frac{3}{2}} \frac{\mathrm{d}(x - \frac{1}{2})}{\sqrt{(x - \frac{1}{2})^2 - (\frac{1}{2})^2}} \\
+        = \lim_{t \to 1^-} \int_{0}^{t - \frac{1}{2}} \frac{\mathrm{d}u}{\sqrt{(\frac{1}{2})^2 - u^2}} + \lim_{t \to 1^+} \int_{t - \frac{1}{2}}^{1} \frac{\mathrm{d}u}{\sqrt{u^2 - (\frac{1}{2})^2}}, u = x - \frac{1}{2} \\
+        = \lim_{t \to 1^-} \left[ \arcsin (2u) \right]_{0}^{t - \frac{1}{2}} + \lim_{t \to 1^+} \left[ \ln \left| u + \sqrt{u^2 - \frac{1}{4}} \right| \right]_{t - \frac{1}{2}}^{1} \\
+        = \frac{\pi}{2} + \ln \frac{2 + \sqrt{3}}{2} - \lim_{t \to 1^+} \ln \left| t - \frac{1}{2} + \sqrt{(t - \frac{1}{2})^2 - \frac{1}{4}} \right| \\
+        = \frac{\pi}{2} + \ln \frac{2 + \sqrt{3}}{2} - \ln \frac{1}{2}
+        = \frac{\pi}{2} + \ln (2 + \sqrt{3}) \\
+        \end{gather}
+        $$
         :::
 
-    2. 若$q \geq 1$，则此反常积分发散；
+    2. $\displaystyle \int_{0}^{+\infty} \frac{\mathrm{d}x}{(1 + x) \sqrt{x}}$.
 
         ::: details Answer
-
-        让我们直接快进到极限环节：（当$q \neq 1$时）
-        $$
-        \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x
-        = \frac{(b - a)^{1 - q}}{1 - q} - \frac{1}{1 - q} \lim_{t \to 0^+} t^{1 - q}
-        $$
-        考虑其中的极限：
-        $$
-        \lim_{t \to 0^+} t^{1 - q} = \lim_{t \to 0^+} \frac{1}{t^{q - 1}} = +\infty ,\, (q - 1 \gt 0)
-        $$
-        显然此时这个瑕积分是发散的；继续考虑当$q = 1$时的情况：
         $$
         \begin{gather}
-        \int_{a}^{b} \frac{1}{x - a} \mathrm{d}x
-        = \lim_{t \to 0^+} \int_{t}^{b - a} \frac{1}{u} \mathrm{d}u, u = x - a \\
-        = \lim_{t \to 0^+} \left[ \ln (b - a) - \ln t \right]
-        = \ln (b - a) - \lim_{t \to 0^+} \ln t = +\infty \\
+        \int_{0}^{+\infty} \frac{\mathrm{d}x}{(1 + x) \sqrt{x}}
+        = 2 \int_{0}^{+\infty} \frac{1}{1 + u^2} \mathrm{d}u, u = \sqrt{x} \\
+        = 2 \left[ \arctan u \right]_{0}^{+\infty}
+        = 2 \lim_{u \to +\infty} \arctan u - 2 \arctan 0 = \pi \\
         \end{gather}
         $$
-        显然此时这个瑕积分也是发散的，所以综合两种情况可以知道：当$q \geq 1$时，$\displaystyle \int_{a}^{b} \frac{1}{(x - a)^q} \mathrm{d}x$是发散的
-
         :::
