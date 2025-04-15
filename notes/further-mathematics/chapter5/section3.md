@@ -267,3 +267,90 @@ $$
     \end{gather}
     $$
     :::
+
+### 3.2 立体的体积
+
+已知立体，设该立体在过点$x = a$、$x = b$且垂直于$x$轴的两个平面之间，以$S(x)$表示过点$x$且垂直于$x$轴的截面面积，则该立体的体积为：
+$$
+V = \int_{a}^{b} S(x) \mathrm{d}x
+$$
+
+- **例7**：计算底面是半径为$R$的圆、且垂直于底面上一条固定直径的所有截面都是等边三角形的立体体积
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    V = 2 \int_{0}^{R} \frac{1}{2} \cdot 2 \sqrt{R^2 - x^2} \cdot \sqrt{3} \sqrt{R^2 - x^2} \mathrm{d}x \\
+    = 2 \sqrt{3} \int_{0}^{R} (R^2 - x^2) \mathrm{d}x
+    = 2 \sqrt{3} R^2 \int_{0}^{R} \mathrm{d}x - 2 \sqrt{3} \int_{0}^{R} x^2 \mathrm{d}x \\
+    = 2 \sqrt{3} R^3 - \frac{2}{3} \sqrt{3} R^3 = \frac{4 \sqrt{3}}{3} R^3 \\
+    \end{gather}
+    $$
+    :::
+
+### 3.3 旋转体的侧面积
+
+由曲线$y = f(x)$与直线$y = 0$、$x = a$、$x = b$所围成的平面图形绕$x$轴旋转一周，生成的旋转体的侧面积为：
+$$
+S_x = 2 \pi \int_{a}^{b} \left| f(x) \right| \sqrt{1 + \left[ f'(x) \right]^2} \mathrm{d}x
+$$
+::: details Proof
+
+将区间$\left[ a, b \right]$平均分为$n$份，则有：
+
+1. 每一份的宽度为：$w = \dfrac{b - a}{n}$
+2. 每一份的起点为：$s_i = a + (i - 1) w$
+3. 每一份的终点为：$e_i = s_i + w = a + iw$
+4. 每一份的起点$(s_i, f(s_i))$和终点$(e_i, f(e_i))$之间的距离可以近似为：$\sqrt{(e_i - s_i)^2 + \left[ f(e_i) - f(s_i) \right]^2}$
+
+则可将此旋转体的侧面积表示为：
+$$
+\begin{gather}
+S = \lim_{n \to \infty} \sum_{i = 1}^{n} 2\pi \left| f(s_i) \right| \sqrt{(e_i - s_i)^2 + \left[ f(e_i) - f(s_i) \right]^2} \\
+= 2\pi \lim_{n \to \infty} \sum_{i = 1}^{n} \left| f(s_i) \right| \sqrt{w^2 + \left[ f(e_i) - f(s_i) \right]^2} \\
+\end{gather}
+$$
+
+根据拉格朗日中值定理可知：
+$$
+\exists \xi_i \in (s_i, e_i) \rightarrow f(e_i) - f(s_i) = f'(\xi_i) (e_i - s_i)
+$$
+于是可以进一步写成：
+$$
+\begin{gather}
+S = 2\pi \lim_{n \to \infty} \sum_{i = 1}^{n} \left| f(s_i) \right| \sqrt{w^2 + \left[ f'(\xi_i) (e_i - s_i) \right]^2} \\
+= 2\pi \lim_{n \to \infty} \sum_{i = 1}^{n} \left| f(s_i) \right| \sqrt{w^2 + w^2 \left[ f'(\xi_i) \right]^2} \\
+= 2\pi \lim_{n \to \infty} \sum_{i = 1}^{n} w \left| f(s_i) \right| \sqrt{1 + \left[ f'(\xi_i) \right]^2} \\
+\end{gather}
+$$
+而当$n \to \infty$时，$w \to 0$，而$e_i - s_i = w$、$\xi_i \in (e_i, s_i)$，则$\xi_i \to s_i$，于是有：
+$$
+\begin{gather}
+S = 2\pi \lim_{n \to \infty} \sum_{i = 1}^{n} w \left| f(s_i) \right| \sqrt{1 + \left[ f'(s_i) \right]^2} \\
+= 2\pi \int_{a}^{b} \left| f(x) \right| \sqrt{1 + \left[ f'(x) \right]^2} \\
+\end{gather}
+$$
+:::
+
+由连续曲线$x = \varphi(y)$与直线$x = 0$、$y = c$、$y = d$（$c \lt d$）所围成的平面图形绕$y$轴旋转一周，形成的旋转体的侧面积为：
+$$
+S_y = 2\pi \int_{c}^{d} \left| \varphi(y) \right| \sqrt{1 + \left[ \varphi'(y) \right]^2} \mathrm{d}x
+$$
+
+- **例8**：求曲线$y = 2 \sqrt{x} \, (0 \leq x \leq 3)$绕$x$轴旋转一周所得曲面的面积
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    S_x = 2\pi \int_{0}^{3} \left| 2\sqrt{x} \right| \sqrt{1 + \left[ (2\sqrt{x})' \right]^2} \mathrm{d}x \\
+    = 4\pi \int_{0}^{3} \sqrt{x(1 + x^{-1})} \mathrm{d}x
+    = 4\pi \int_{0}^{3} (x + 1)^{\frac{1}{2}} \mathrm{d}(x + 1) \\
+    = 4\pi \left[ \frac{2}{3} (x + 1)^{\frac{3}{2}} \right]_{0}^{3}
+    = \frac{8}{3}\pi (\sqrt{(3 + 1)^3} - \sqrt{(0 + 1)^3}) \\
+    = \frac{8}{3}\pi (\sqrt{64} - \sqrt{1})
+    = \frac{8}{3}\pi \cdot 7 = \frac{56}{3}\pi \\
+    \end{gather}
+    $$
+    :::
+
+## II. 平面曲线的弧长
