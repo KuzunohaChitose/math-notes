@@ -354,3 +354,38 @@ $$
     :::
 
 ## II. 平面曲线的弧长
+
+> 对于曲线$y = f(x)$，其弧微分为：
+> $$
+> \mathrm{d}s = \sqrt{(\mathrm{d}x)^2 + (\mathrm{d}y)^2} = \sqrt{(\mathrm{d}x)^2 + \left[ \mathrm{d}x f'(x) \right]^2} = \sqrt{1 + \left[ f'(x) \right]^2} \mathrm{d}x
+> $$
+
+1. 曲线$y = f(x)$在$a \leq x \leq b$时的弧段的弧长为：
+    $$
+    s = \int_{a}^{b} \sqrt{1 + \left[ f'(x) \right]^2} \mathrm{d}x
+    $$
+
+2. 曲线$\{ x = x(t), y = y(t)$在$\alpha \leq t \leq \beta$时的弧段的弧长为：
+    $$
+    s = \int_{\alpha}^{\beta} \sqrt{\left[ x'(t) \right]^2 + \left[ y'(t) \right]^2} \mathrm{d}x
+    $$
+
+3. 曲线$\rho = \rho(\theta)$在$\alpha \leq \theta \leq \beta$时的弧段的弧长为：
+    $$
+    s = \int_{\alpha}^{\beta} \sqrt{\rho^2(\theta) + \left[ \rho'(\theta) \right]^2} \mathrm{d}\theta
+    $$
+
+- **例9**：求曲线$y = \displaystyle \int_{0}^{x} \tan t \mathrm{d}t (0 \leq x \leq \frac{\pi}{4})$的弧长
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    y' = (\int_{0}^{x} \tan t \mathrm{d}t)' = \tan x \\
+    s = \int_{0}^{\frac{\pi}{4}} \sqrt{1 + (y')^2} \mathrm{d}x \\
+    = \int_{0}^{\frac{\pi}{4}} \sqrt{1 + \tan^2 x} \mathrm{d}x
+    = \int_{0}^{\frac{\pi}{4}} \sec x \mathrm{d}x \\
+    = \ln \left| \sec \frac{\pi}{4} + \tan \frac{\pi}{4} \right| - \ln \left| \sec 0 + \tan 0 \right| \\
+    = \ln (1 + \sqrt{2}) - 0 = \ln (1 + \sqrt{2}) \\
+    \end{gather}
+    $$
+    :::
