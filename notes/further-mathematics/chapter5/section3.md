@@ -353,7 +353,7 @@ $$
     $$
     :::
 
-## II. 平面曲线的弧长
+## IV. 平面曲线的弧长
 
 > 对于曲线$y = f(x)$，其弧微分为：
 > $$
@@ -389,3 +389,33 @@ $$
     \end{gather}
     $$
     :::
+
+## V. 函数的平均值
+
+设$y = f(x)$是$\left[ a, b \right]$上的连续函数，则$f(x)$在$\left[ a, b \right]$上的平均值定义为：
+$$
+\bar{y} = \frac{1}{b - a} \int_{a}^{b} f(x) \mathrm{d}x
+$$
+
+- **例10**：求函数$y = \sqrt{1 - \sin x}$在区间$\left[ 0, \pi \right]$上的平均值
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    \bar{y} = \frac{1}{\pi} \int_{0}^{\pi} \sqrt{1 - \sin x} \mathrm{d}x \\
+    = \frac{1}{\pi} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{1 - \sin (t + \frac{\pi}{2})} \mathrm{d}t, x = t + \frac{\pi}{2} \\
+    = \frac{1}{\pi} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{1 - \cos t} \mathrm{d}t
+    = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 - \cos t} \mathrm{d}t \\
+    = \frac{2}{\pi} \int_{1}^{0} \sqrt{1 - u} \mathrm{d}(\arccos u), t = \arccos u \\
+    = -\frac{2}{\pi} \int_{1}^{0} \frac{\sqrt{1 - u}}{\sqrt{1 - u^2}} \mathrm{d}u
+    = -\frac{2}{\pi} \int_{1}^{0} (u + 1)^{-\frac{1}{2}} \mathrm{d}(u + 1) \\
+    = -\frac{4}{\pi} \left[ \sqrt{u + 1 } \right]_{1}^{0}
+    = -\frac{4}{\pi} (\sqrt{0 + 1} - \sqrt{1 + 1}) \\
+    = -\frac{4 (1 - \sqrt{2})}{\pi}
+    = \frac{4 (\sqrt{2} - 1)}{\pi} \\
+    \end{gather}
+    $$
+    :::
+
+## VI. 简单物理量的表示和计算
+
