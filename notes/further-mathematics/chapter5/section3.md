@@ -455,7 +455,7 @@ $$
 
 > 平面上两个质点之间的引力公式：
 > $$
-> F = G \cdot \frac{m_1 \cdot m_2}{r^2}
+> F = G \cdot \frac{m_1 \cdot m_2}{r^2} \\
 > $$
 > 其中$G$为引力系数、$m_1$和$m_2$分别为两个质点的质量、$r$为两个质点之间的距离，此力$F$沿两点连线方向
 
@@ -463,6 +463,27 @@ $$
 
     ::: details Answer
 
-    假设这根细直棒处于平面直角坐标系的$x$轴上，且其中点位于零点，则质点$M$位于$(0, a)$，
-
+    假设这根细直棒处于平面直角坐标系的$x$轴上，且其中点位于零点，质点$M$位于$(0, a)$，则有：
+    $$
+    \forall \left[ x, x + \mathrm{d}x \right] \in \left[ -\frac{l}{2}, \frac{l}{2} \right] 
+    \Rightarrow \mathrm{d}F = G \frac{m \mu}{a^2 + x^2} \mathrm{d}x
+    $$
+    而对于每一个$\mathrm{d}F$，可以拆成沿水平方向的$\mathrm{d}F_{x}$和沿垂直方向的$\mathrm{d}F_y$两个力，由于此细棒关于$y$轴对称，则沿水平方向的力$\mathrm{d}F_{x}$会互相抵消，则只需计算沿垂直方向的力$\mathrm{d}F_y$即可，于是有：
+    $$
+    \begin{gather}
+    F = 2 \int_{0}^{\frac{l}{2}} G \frac{m \mu}{a^2 + x^2} \cdot \frac{a}{\sqrt{x^2 + a^2}} \mathrm{d}x 
+    = 2 G m \mu a \int_{0}^{\frac{l}{2}} (a^2 + x^2)^{-\frac{3}{2}} \mathrm{d}x \\
+    = 2 G m \mu a^{-1} \left[ \frac{x}{\sqrt{a^2 + x^2}} \right]_{0}^{\frac{l}{2}}
+    = 2 G m \mu a^{-1} \frac{\frac{l}{2}}{\sqrt{a^2 + (\frac{l}{2})^2}}
+    = \frac{2 G m \mu l}{a \sqrt{4a^2 + l^2}} \\
+    \\
+    \int \frac{1}{(\sqrt{a^2 + x^2})^3} \mathrm{d}x \\
+    = \int \frac{1}{(\sqrt{a^2 + a^2 \tan^2 t})^3} \mathrm{d}(a \tan t), x = a \tan t \\
+    = \frac{1}{a^2} \int \frac{1}{(\sqrt{1 + \tan^2 t})^3} \cdot \sec^2 t \mathrm{d}t
+    = \frac{1}{a^2} \int \frac{\sec^2 t}{\sec^3 t} \mathrm{d}t \\
+    = \frac{1}{a^2} \int \cos t \mathrm{d}t
+    = \frac{\sin t}{a^2} + C
+    = \frac{x}{a^2 \sqrt{a^2 + x^2}} + C \\
+    \end{gather}
+    $$
     :::
