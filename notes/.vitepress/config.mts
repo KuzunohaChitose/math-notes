@@ -1,9 +1,9 @@
-import {defineConfig} from "vitepress";
-import {withMermaid} from "vitepress-plugin-mermaid";
+import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
-import {text} from "function-plot/dist/graph-types";
+import { text } from "function-plot/dist/graph-types";
 
 const tags = [
     "mjx-container",
@@ -141,8 +141,7 @@ export default withMermaid({
                 },
                 block: {
                     ruler: {
-                        after(...args) {
-                        },
+                        after(...args) {},
                     },
                 },
                 renderer: {
@@ -300,7 +299,20 @@ export default withMermaid({
             {
                 text: "第六章 常微分方程",
                 collapsed: true,
-                items: [],
+                items: [
+                    {
+                        text: "第一节 常微分方程的基本概念",
+                        link: "/further-mathematics/chapter6/section1",
+                    },
+                    {
+                        text: "第二节 一阶常微分方程",
+                        link: "/further-mathematics/chapter6/section2",
+                    },
+                    {
+                        text: "第三节 可降阶的高阶微分方程",
+                        link: "/further-mathematics/chapter6/section3",
+                    },
+                ],
             },
             {
                 text: "第七章 多元函数微分学",
@@ -319,9 +331,9 @@ export default withMermaid({
             },
         ],
         socialLinks: [
-            {icon: "github", link: "https://github.com"},
-            {icon: "twitter", link: "https://twitter.com"},
-            {icon: "youtube", link: "https://youtube.com"},
+            { icon: "github", link: "https://github.com" },
+            { icon: "twitter", link: "https://twitter.com" },
+            { icon: "youtube", link: "https://youtube.com" },
         ],
     },
 });
