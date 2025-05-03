@@ -1,9 +1,7 @@
-import { defineConfig } from "vitepress";
 import { withMermaid } from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
-import { text } from "function-plot/dist/graph-types";
 
 const tags = [
     "mjx-container",
@@ -141,7 +139,7 @@ export default withMermaid({
                 },
                 block: {
                     ruler: {
-                        after(...args) {},
+                        after(..._) {},
                     },
                 },
                 renderer: {
@@ -312,6 +310,10 @@ export default withMermaid({
                         text: "第三节 可降阶的高阶微分方程",
                         link: "/further-mathematics/chapter6/section3",
                     },
+                    {
+                        text: "第四节 高阶线性微分方程",
+                        link: "/further-mathematics/chapter6/section4",
+                    }
                 ],
             },
             {
