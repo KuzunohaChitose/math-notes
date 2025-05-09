@@ -293,8 +293,150 @@ $$
     \end{gather}
     $$
     :::
+    
+- **例4**：在下列微分方程中，以$y = C_1 e^x + C_2 \cos 2x + C_3 \sin 2x$为通解的是：
+
+  - A：$y''' + y'' - 4y' - 4y = 0$
+  - B：$y''' + y'' + 4y' + 4y = 0$
+  - C：$y''' - y'' - 4y' + 4y = 0$
+  - D：$y''' - y'' + 4y' - 4y = 0$
+  
+  ::: details Answer
+  $$
+  \begin{gather}
+  \lambda_1 = 1, \lambda_2 = 2i, \lambda_3 = -2i \\
+  \Rightarrow (\lambda - 1) \left[ \lambda^2 - (\pm 2i)^2 \right] = 0 \\
+  \Rightarrow (\lambda - 1)(\lambda^2 + 4) = 0 \\
+  \Rightarrow \lambda^3 + 4\lambda - \lambda^2 - 4 = 0 \\
+  \Rightarrow y''' - y'' + 4y' - 4y = 0 \\
+  \end{gather}
+  $$
+  :::
+
+## III. 二阶常系数非齐次线性微分方程
+
+其形式为：
+$$
+y'' + py' + qy = f(x)
+$$
+写出它的特征方程：
+$$
+\lambda^2 + p\lambda + q = 0
+$$
+求出方程的两个根$\lambda_1, \lambda_2$，然后根据$f(x)$不同形式得到特解：
+
+1. $\displaystyle f(x) = e^{\lambda x} P_n(x)$，$P_n(x)$为关于$x$的$n$次多项式
+
+    对于特征方程$\lambda^2 + p\lambda + q = 0$
+
+    - 若$\lambda$不是特征方程的根：
+        $$
+        y^*(x) = R_n(x) e^{\lambda x}
+        $$
+
+    - 若$\lambda$是特征方程的单根：
+        $$
+        y^*(x) = x R_n(x) e^{\lambda x}
+        $$
+
+    - 若$\lambda$是特征方程的二重根：
+        $$
+        y^*(x) = x^2 R_n(x) e^{\lambda x}
+        $$
+
+    ::: tip Tip
+
+    其中$R_n(x)$是一个与$P_n(x)$同阶的待定系数多项式，设其为：
+    $$
+    P_n(x) = A_0 + A_1 x + A_2 x^2 + \dots + A_n x^n
+    $$
+    :::
+
+2. $\displaystyle e^{\alpha x} \left[ P_l(x) \cos \beta x + Q_n(x) \sin \beta x \right]$
+
+    - 若$\lambda_{1,2} = \alpha \pm \beta i$是特征方程的根：
+        $$
+        y^*(x) = e^{\alpha x} \left[ R_m^{(1)}(x) \cos \beta x + R_m^{(2)}(x) \sin \beta x \right]
+        $$
+
+    - 若$\lambda_{1,2} = \alpha \pm \beta i$不是特征方程的根：
+        $$
+        y^*(x) = x e^{\alpha x} \left[ R_m^{(1)}(x) \cos \beta x + R_m^{(2)}(x) \sin \beta x \right]
+        $$
+
+    ::: tip Tip
+
+    其中$m = \max \{ l, n \}$，$R_m^{(1)}(x)$和$R_m^{(2)}(x)$是关于$x$的$m$次多项式，分别设其为：
+    $$
+    R_m^{(1)}(x) = A_0 + A_1 x + A_2 x^2 + \dots + A_m x^m
+    $$
+    以及：
+    $$
+    R_m^{(2)}(x) = B_0 + B_1 x + B_2 x^2 + \dots + B_m x^m
+    $$
+    :::
+
+最后再将此特解与对应的齐次微分方程$y'' + py' + qy = 0$的通解相加即可得到通解
+
+- **例5**：求下列微分方程的特解：
+
+    1. $\displaystyle y'' - 2y' - 3y = 3x + 1$
+
+        ::: details Answer
+
+        首先根据$f(x)$的形式以及特征方程的根求出特解的形式：
+        $$
+        \begin{gather}
+        \lambda^2 - 2\lambda - 3 = 0
+        \Rightarrow \lambda_{1, 2} = -1, 3 \\
+        \Rightarrow y^* = x R_1(x) = x (A_0 + A_1 x) \\
+        \end{gather}
+        $$
+        然后将$y^* = A_0 x + A_1 x^2$代入原微分方程：
+        $$
+        \begin{gather}
+        2A_1 - 2(A_0 + 2A_1 x) - 3(A_0x + A_1 x^2) = 3x + 1 \\
+        \Rightarrow A_1 (2 - 4x - 3x^2) - A_0 (2 + 3x) = 3x + 1 \\
+        \end{gather}
+        $$
+        当$2 + 3x = 0$时，将$x = -\dfrac{2}{3}$代入方程，可解得：
+        $$
+        A_1 = -\frac{3}{10}
+        $$
+        再将$x = 0$、$A_1 = -\dfrac{3}{10}$代入方程，解得：
+        $$
+        A_0 = -\frac{4}{5}
+        $$
+        于是最终可求得通解为：
+        $$
+        y^* = -\frac{4}{5} x - \frac{3}{10} x^2
+        $$
+        :::
+
+    2. $\displaystyle y'' - y' = 2e^x$
+
+        ::: details Answer
+
+        首先根据$f(x)$的形式以及特征方程的根求出特解的形式：
+        $$
+        \begin{gather}
+        \lambda^2 - \lambda = 0 \Rightarrow \lambda_{1,2} = 0, 1 \\
+        \Rightarrow y^* = x e^x R_0(x) = A_0 x e^x  \\
+        \end{gather}
+        $$
+        然后将$y^* = A_0 x e^x$代入原微分方程以求得特解：
+        $$
+        A_0 + A_0 e^x + A_0 x e^x - A_0 e^x - A_0 x e^x = 2e^x \\
+        \Rightarrow A_0 = 2e^x|_{x = 0} = 2
+        \Rightarrow y^* = 2 x e^x \\
+        $$
+        :::
+
+    3. $\displaystyle y'' - 4y' + 3y = xe^x$
+
+    4. $\displaystyle y'' - y = e^x \cos 2x$
 
 ---
 
-[^1]:线性无关：$y_1(x)$除以$y_2(x)$并非恒等于一个常数$C$
+[^1]:线性无关：$y_1(x)$​除以$y_2(x)$​并非恒等于一个常数$C$​
 [^2]:欧拉公式：$e^{ix} = \cos x + i \sin x$
