@@ -389,34 +389,37 @@ $$
         \begin{gather}
         \lambda^2 - 2\lambda - 3 = 0
         \Rightarrow \lambda_{1, 2} = -1, 3 \\
-        \Rightarrow y^* = x R_1(x) = x (A_0 + A_1 x) \\
+        \Rightarrow y^* = R_1(x) = A_0 + A_1 x \\
         \end{gather}
         $$
-        然后将$y^* = A_0 x + A_1 x^2$代入原微分方程：
+        然后将$y^* = A_0 + A_1 x$代入原微分方程：
         $$
-        \begin{gather}
-        2A_1 - 2(A_0 + 2A_1 x) - 3(A_0x + A_1 x^2) = 3x + 1 \\
-        \Rightarrow A_1 (2 - 4x - 3x^2) - A_0 (2 + 3x) = 3x + 1 \\
-        \end{gather}
+        -2 A_1 - 3 A_0 - 3 A_1 x = 3x + 1
         $$
-        当$2 + 3x = 0$时，将$x = -\dfrac{2}{3}$代入方程，可解得：
+        可知：
         $$
-        A_1 = -\frac{3}{10}
+        \begin{cases}
+        -3 A_1 = 3 \\
+        -2 A_1 - 3 A_0 = 1 \\
+        \end{cases}
         $$
-        再将$x = 0$、$A_1 = -\dfrac{3}{10}$代入方程，解得：
+        于是：
         $$
-        A_0 = -\frac{4}{5}
+        \begin{cases}
+        A_0 = \dfrac{1}{3} \\
+        A_1 = -1 \\
+        \end{cases}
         $$
-        于是最终可求得通解为：
+        所以最终可得特解为：
         $$
-        y^* = -\frac{4}{5} x - \frac{3}{10} x^2
+        y^* = -x + \frac{1}{3}
         $$
         :::
-
+    
     2. $\displaystyle y'' - y' = 2e^x$
-
+    
         ::: details Answer
-
+    
         首先根据$f(x)$的形式以及特征方程的根求出特解的形式：
         $$
         \begin{gather}
@@ -426,15 +429,100 @@ $$
         $$
         然后将$y^* = A_0 x e^x$代入原微分方程以求得特解：
         $$
-        A_0 + A_0 e^x + A_0 x e^x - A_0 e^x - A_0 x e^x = 2e^x \\
-        \Rightarrow A_0 = 2e^x|_{x = 0} = 2
-        \Rightarrow y^* = 2 x e^x \\
+        \begin{gather}
+        (y^*)' = A_0 e^x + A_0 x e^x,
+        (y^*)'' = 2 A_0 e^x + A_0 x e^x \\
+        2 A_0 e^x + A_0 x e^x - A_0 e^x - A_0 x e^x = 2e^x \\
+        A_0 e^x = 2e^x \Rightarrow A_0 = 2
+        \Rightarrow y^* = 2xe^x \\
+        \end{gather}
         $$
         :::
-
+    
     3. $\displaystyle y'' - 4y' + 3y = xe^x$
-
+    
+        ::: details Answer
+    
+        首先根据$f(x)$的形式以及特征方程的根求出特解的形式：
+        $$
+        \begin{gather}
+        \lambda^2 - 4\lambda + 3 = 0
+        \Rightarrow \lambda_{1,2} = 1, 3 \\
+        \Rightarrow y^* = x R_1(x) e^x = x e^x (A_0 + A_1 x) \\
+        \end{gather}
+        $$
+        然后将$y^* = A_0 x e^x + A_1 x^2 e^x$代入原微分方程：
+        $$
+        \begin{gather}
+        (y^*)' = A_0 (e^x + xe^x) + A_1 (2xe^x + x^2e^x) \\
+        (y^*)'' = A_0 (2e^x + xe^x) + A_1(2e^x + 4xe^x + x^2e^x) \\
+        A_0 (2e^x + xe^x) + A_1(2e^x + 4xe^x + x^2e^x) - A_0 (4e^x + 4xe^x) - A_1 (8xe^x + 4x^2e^x) + 3A_0 xe^x + 3A_1 x^2 e^x = xe^x \\
+        A_0 (2e^x + xe^x - 4e^x - 4xe^x + 3xe^x) + A_1 (2e^x + 4xe^x + x^2e^x - 8xe^x - 4x^2e^x + 3x^2e^x) = xe^x \\
+        -2 A_0 + 2 A_1 - 4 A_1 x = x \\
+        \end{gather}
+        $$
+        可知：
+        $$
+        \begin{cases}
+        -4 A_1 = 1 \\
+        2 A_1 - 2 A_0 = 0 \\
+        \end{cases}
+        $$
+        于是：
+        $$
+        \begin{cases}
+        A_0 = -\dfrac{1}{4} \\
+        A_1 = -\dfrac{1}{4} \\
+        \end{cases}
+        $$
+        所以最终可得特解为：
+        $$
+        y^* = -\frac{1}{4} xe^x (1 + x) \\
+        $$
+        :::
+    
     4. $\displaystyle y'' - y = e^x \cos 2x$
+    
+        ::: details Answer
+    
+        首先根据$f(x)$的形式以及特征方程的根求出特解的形式：
+        $$
+        \begin{gather}
+        \lambda^2 - 1 = 0 \Rightarrow \lambda_{1,2} = \pm 1 \\
+        \Rightarrow y^* = e^x \left[ A \cos 2x + B \sin 2x \right] \\
+        \end{gather}
+        $$
+        然后将$y^* = e^x \left[ A \cos 2x + B \sin 2x \right]$代入原微分方程：
+        $$
+        \begin{gather}
+        y^* = A e^x \cos 2x + B e^x \sin 2x \\
+        (y^*)' = e^x \left[ (A + 2B) \cos 2x + (B - 2A) \sin 2x \right] \\
+        (y^*)'' = e^x \left[ (4B - 3A) \cos 2x - (4A + 3B) \sin 2x \right] \\
+        e^x \left[ (4B - 3A) \cos 2x - (4A + 3B) \sin 2x \right] - A e^x \cos 2x - B e^x \sin 2x = e^x \cos 2x \\
+        (4B - 3A) \cos 2x - (4A + 3B) \sin 2x - A \cos 2x - B \sin 2x = \cos 2x \\
+        (4B - 4A) \cos 2x - (4A + 4B) \sin 2x = \cos 2x \\
+        \end{gather}
+        $$
+        可知：
+        $$
+        \begin{cases}
+        4B - 4A = 1 \\
+        4A + 4B = 0 \\
+        \end{cases}
+        $$
+        于是：
+        $$
+        \begin{cases}
+        B = \dfrac{1}{8} \\
+        A = -\dfrac{1}{8} \\
+        \end{cases}
+        $$
+        所以最终可得特解为：
+        $$
+        y^* = \frac{1}{8} e^x (\sin 2x - \cos 2x) \\
+        $$
+        
+        :::
 
 ---
 
