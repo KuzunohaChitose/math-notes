@@ -352,7 +352,7 @@ $$
     $$
     :::
 
-2. $\displaystyle e^{\alpha x} \left[ P_l(x) \cos \beta x + Q_n(x) \sin \beta x \right]$
+2. $\displaystyle f(x) = e^{\alpha x} \left[ P_l(x) \cos \beta x + Q_n(x) \sin \beta x \right]$，$P_l(x)$和$Q_n(x)$分别是关于$x$的$l$次和$n$次多项式
 
     - 若$\lambda_{1,2} = \alpha \pm \beta i$是特征方程的根：
         $$
@@ -524,7 +524,247 @@ $$
         
         :::
 
----
+- **例6**：求微分方程$y'' + y = x^2 + 1 + \sin x$的通解
+
+    ::: details Answer
+
+    > 初步来看，这个微分方程的$f(x)$部分不好处理，所以我们可以将其拆成两个函数的和再分别求出特解，于是两个特解相加便可得到原微分方程的特解，最后再求出齐次形式下的通解，便可得到最终结果
+
+    首先写出其特征方程并求根：
+    $$
+    \lambda^2 + 1 = 0
+    \Rightarrow \lambda_{1,2} = \pm i
+    $$
+
+    - 当$f(x) = x^2 + 1$时的特解：
+
+        根据$f(x)$的形式，设特解为：
+        $$
+        \begin{gather}
+        y^*_1 = A_0 + A_1 x + A_2 x^2 \\
+        (y^*_1)' = A_1 + 2 A_2 x \\
+        (y^*_1)'' = 2 A_2 \\
+        \end{gather}
+        $$
+        代入可得：
+        $$
+        2 A_2 + A_0 + A_1 x + A_2 x^2 = x^2 + 1
+        $$
+        解得：
+        $$
+        \begin{cases}
+        A_0 = -1 \\
+        A_1 = 0 \\
+        A_2 = 1 \\
+        \end{cases}
+        $$
+        于是可以得到特解为：
+        $$
+        y^*_1 = x^2 - 1
+        $$
+
+    - 当$f(x) = \sin x$时的特解：
+
+        根据$f(x)$的形式，设特解为：
+        $$
+        \begin{gather}
+        y^*_2 = Ax \cos x + Bx \sin x \\
+        (y^*_2)' = (B - Ax) \sin x + (A + Bx) \cos x \\
+        (y^*_2)'' = (-2A - Bx) \sin x + (2B - Ax) \cos x \\
+        \end{gather}
+        $$
+        代入可得：
+        $$
+        (-2A - Bx) \sin x + (2B - Ax) \cos x + Ax \cos x + Bx \sin x = \sin x \\
+        $$
+        解得：
+        $$
+        \begin{cases}
+        A = -\dfrac{1}{2} \\
+        B = 0 \\
+        \end{cases}
+        $$
+        于是可以得到特解为：
+        $$
+        y^*_2 = -\frac{1}{2} x \cos x \\
+        $$
+
+    - 当$f(x) = 0$时的通解：
+
+        根据特征方程的根，可以得到通解为：
+        $$
+        Y(x) = C_1 \cos x + C_2 \sin x \\
+        $$
+
+    所以将三个解相加，即可得到原方程的通解：
+    $$
+    y = C_1 \cos x + C_2 \sin x + x^2 - 1 - \frac{1}{2} x \cos x
+    $$
+    :::
+
+- **例6**：求解二阶微分方程$y'' + 2y = \sin 3x$当满足初始条件$y(0) = 1$、$y'(0) = -1$时的解
+
+    ::: details Answer
+
+    首先写出特征方程并求出其根：
+    $$
+    \lambda^2 + 2 = 0 \Rightarrow \lambda_{1,2} = \pm \sqrt{2} i
+    $$
+    于是设其特解为：
+    $$
+    \begin{gather}
+    y^* = A \cos 3x + B \sin 3x \\
+    (y^*)' = -3A \sin 3x + 3B \cos 3x \\
+    (y^*)'' = -9A \cos 3x - 9B \sin 3x \\
+    \end{gather}
+    $$
+    代入原方程可得：
+    $$
+    -9A \cos 3x - 9B \sin 3x + 2A \cos 3x + 2B \sin 3x = \sin 3x
+    $$
+    解得：
+    $$
+    \begin{cases}
+    A = 0 \\
+    B = -\dfrac{1}{7} \\
+    \end{cases}
+    $$
+    于是可求得特解为：
+    $$
+    y^*(x) = -\frac{1}{7} \sin 3x
+    $$
+    然后再根据根的形式得到齐次的通解：
+    $$
+    Y(x) = C_1 \cos \sqrt{2}x + C_2 \sin \sqrt{2}x
+    $$
+    将两个解相加即可得到原微分方程的通解：
+    $$
+    \begin{gather}
+    y(x) = C_1 \cos \sqrt{2}x + C_2 \sin \sqrt{2}x - \frac{1}{7} \sin 3x \\
+    y'(x) = -C_1 \sqrt{2} \sin \sqrt{2}x + C_2 \sqrt{2} \cos \sqrt{2}x - \frac{3}{7} \cos 3x \\
+    \end{gather}
+    $$
+    再将两个初始条件代入可得到方程组：
+    $$
+    \begin{cases}
+    C_1 \cos 0 + C_2 \sin 0 - \dfrac{1}{7} \sin 0 = 1 \\
+    -C_1 \sqrt{2} \sin 0 + C_2 \sqrt{2} \cos 0 - \dfrac{3}{7} \cos 0 = -1 \\
+    \end{cases}
+    $$
+    解得：
+    $$
+    \begin{cases}
+    C_1 = 1 \\
+    C_2 = -\dfrac{2\sqrt{2}}{7} \\
+    \end{cases}
+    $$
+    所以最终可求得满足初始条件的解为：
+    $$
+    \cos \sqrt{2}x - \dfrac{2\sqrt{2}}{7} \sin \sqrt{2}x - \frac{1}{7} \sin 3x
+    $$
+    :::
+
+## IV. 欧拉方程
+
+形如：
+$$
+x^n y^{(n)} + p_1 x^{n - 1} y^{(n - 1)} + \dots + p_{n - 1} x y' + p_n y = f(x)
+$$
+
+的微分方程，称之为欧拉方程；作变换$x = e^t$，将自变量从$x$换成$t$，并采用记号$D$表示对$t$的求导运算，则有：
+$$
+x^n y^{(n)} = D(D - 1) \dots (D - n + 1)y
+$$
+将其代入欧拉方程便可得到一个以$t$为自变量的常系数线性微分方程，求出其解后再把$t = \ln x$回代，即可得到原方程的解
+
+::: details Proof
+
+设：
+$$
+x = e^t, t = \ln x, D^k y = \frac{\mathrm{d}^k y}{\mathrm{d} t^k}
+$$
+则：
+$$
+\begin{gather}
+y' = \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}t}{\mathrm{d}x} \cdot \frac{\mathrm{d}y}{\mathrm{d}t} = e^{-t} Dy \\
+y'' = \frac{\mathrm{d}}{\mathrm{d}x} (e^{-t} Dy) = \frac{\mathrm{d}t}{\mathrm{d}x} \cdot \frac{\mathrm{d}}{\mathrm{d}t} (e^{-t} Dy) \\
+= e^{-2t} (D^2y - Dy) 
+= e^{-2t} D(D - 1)y \\
+y''' = \frac{\mathrm{d}}{\mathrm{d}x} \left[ e^{-2t} (D^2y - Dy) \right] \\
+= \frac{\mathrm{d}t}{\mathrm{d}x} \cdot \frac{\mathrm{d}}{\mathrm{d}t} \left[ e^{-2t} (D^2y - Dy) \right] \\
+= e^{-3t} (D^3y - 3 D^2y + 2 Dy) \\
+= e^{-3t} D(D - 1)(D - 2)y \\
+\end{gather}
+$$
+其中：
+$$
+\begin{gather}
+x y' = Dy \\
+x^2 y'' = D(D - 1)y \\
+x^3 y''' = D(D - 1)(D - 2)y \\
+\end{gather}
+$$
+由此可以得到结论：
+$$
+x^k y^{(k)} = y \cdot \prod_{i = 0}^{k - 1} (D - i)
+$$
+:::
+
+- **例7**：求欧拉方程$x^2 y'' + 3x y' + 2y = 5 \sin \ln x$的通解
+
+    ::: details Answer
+
+    设$x = e^t$，于是有：
+    $$
+    \frac{\mathrm{d}^2y}{\mathrm{d}t^2} + 2 \frac{\mathrm{d}y}{\mathrm{d}t} + 2y = 5 \sin t \\
+    $$
+    这是一个二阶常系数非齐次线性微分方程，找出其特征方程并求根：
+    $$
+    \lambda^2 + 2\lambda + 2 = 0 \Rightarrow \lambda_{1,2} = -1 \pm i
+    $$
+    于是其对应的齐次微分方程的通解为：
+    $$
+    Y(t) = e^{-t} \left[ C_1 \cos t + C_2 \sin t \right]
+    $$
+    设其特解为：
+    $$
+    \begin{gather}
+    y^*(t) = A \cos t + B \sin t \\
+    (y^*)' = -A \sin t + B \cos t \\
+    (y^*)'' = -A \cos t - B \sin t \\
+    \end{gather}
+    $$
+    将其代入可得：
+    $$
+    (B - 2A) \sin t + (2B + A) \cos t = 5 \sin t
+    $$
+    于是有：
+    $$
+    \begin{cases}
+    B - 2A = 5 \\
+    2B + A = 0 \\
+    \end{cases}
+    $$
+    解得：
+    $$
+    \begin{cases}
+    A = -2 \\
+    B = 1 \\
+    \end{cases}
+    $$
+    则可得到特解为：
+    $$
+    y^*(t) = -2 \cos t + \sin t
+    $$
+    相加即可得到通解为：
+    $$
+    y(t) = e^{-t} \left[ C_1 \cos t + C_2 \sin t \right] - 2 \cos t + \sin t
+    $$
+    最后将$t = \ln x$回代即可得到此欧拉方程的通解：
+    $$
+    y(x) = \frac{1}{x} (C_1 \cos \ln x + C_2 \sin \ln x) - 2 \cos \ln x + \sin \ln x
+    $$
+    :::
 
 [^1]:线性无关：$y_1(x)$​除以$y_2(x)$​并非恒等于一个常数$C$​
 [^2]:欧拉公式：$e^{ix} = \cos x + i \sin x$
