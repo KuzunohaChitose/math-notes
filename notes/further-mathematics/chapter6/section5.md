@@ -37,7 +37,7 @@ $$
 3. 初始条件：系统初始时刻的状态所提供的条件，称之为初始条件
 4. 特解：确定了通解中的任意常数的值后的解，称之为特解
 
-## II. 一阶常系数线性微分方程
+## II. 一阶常系数线性差分方程
 
 形如：
 $$
@@ -45,9 +45,9 @@ y_{x + 1} - a y_x = f(x)
 $$
 的方程，称之为一阶常系数线性微分方程；
 
-当$f(x) = 0$时，称其为齐次的，其通解为$y_x = A a^x$；
+当$f(x) = 0$时，称其为齐次的，其通解为$y_x = C a^x$；
 
-当$f(x) \neq 0$时，称其为非齐次的，其通解为$y_x = A a^x + y_x^*$，根据$f(x)$的形式，$y_x^*$可依照下表写出：
+当$f(x) \neq 0$时，称其为非齐次的，其通解为$y_x = C a^x + y_x^*$，根据$f(x)$的形式，$y_x^*$可依照下表写出：
 
 |      $f(x)$的形式      |        $y_{x + 1} - a y_x = f(x)$的特解$y_x^*$        |
 | :--------------------: | :---------------------------------------------------: |
@@ -57,6 +57,86 @@ $$
 | $P_m(x) \cos \alpha x$ | $y_x^* = Q_m(x) \sin \alpha x + R_m(x) \cos \alpha x$ |
 
 - **例1**：求差分方程$y_{x + 1} - 2y_x = 2^x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = x 2^x A_0
+    $$
+    然后代入原差分方程可得：
+    $$
+    \begin{gather}
+    A_0 (x + 1) 2^{x + 1} - A_0 2 x 2^x = 2^x \\
+    A_0 (x 2^{x + 1} + 2^{x + 1} - x 2^{x + 1}) = 2^x \\
+    A_0 2^{x + 1} = 2^x \Rightarrow A_0 = \frac{1}{2} \\
+    \end{gather}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C 2^x + \frac{1}{2} x 2^x
+    $$
+    :::
+
 - **例2**：求差分方程$y_{x + 1} - y_x = x2^x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = 2^x (A_0 + A_1 x)
+    $$
+    然后代入原差分方程可得：
+    $$
+    \begin{gather}
+    2^{x + 1} \left[ A_0 + A_1 (x + 1) \right] - 2^x (A_0 + A_1 x) = x 2^x \\
+    2 \left[ A_0 + A_1 (x + 1) \right] - (A_0 + A_1 x) = x \\
+    2 A_0 + 2 A_1 x + 2 A_1 - A_0 - A_1 x = x \\
+    A_1 x + A_0 + 2 A_1 = x
+    \Rightarrow A_0 = -2, A_1 = 1 \\
+    \end{gather}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C + 2^x (x - 2)
+    $$
+    :::
+
 - **例3**：求差分方程$y_{x + 1} - y_x = 3^x \sin \dfrac{\pi}{2} x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = 3^x (A \cos \frac{\pi}{2} x + B \sin \frac{\pi}{2} x)
+    $$
+    
+    然后代入原差分方程 可得：
+    $$
+    \begin{gather}
+    3^{x + 1} \left[ A \cos \frac{\pi}{2} (x + 1) + B \sin \frac{\pi}{2} (x + 1) \right] - 3^{x} (A \cos \frac{\pi}{2} x + B \sin \frac{\pi}{2} x) = 3^x \sin \frac{\pi}{2} x \\
+    3 A \cos \frac{\pi}{2} (x + 1) + 3 B \sin \frac{\pi}{2} (x + 1) - A \cos \frac{\pi}{2} x - B \sin \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    -3 A \sin \frac{\pi}{2} x + 3 B \cos \frac{\pi}{2} x - A \cos \frac{\pi}{2} x - B \sin \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    (-3A - B) \sin \frac{\pi}{2} x + (3B - A) \cos \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    \end{gather}
+    $$
+    于是有：
+    $$
+    \begin{cases}
+    -3A - B = 1 \\
+    3B - A = 0 \\
+    \end{cases}
+    $$
+    解得：
+    $$
+    \begin{cases}
+    B = -\dfrac{1}{10} \\
+    A = -\dfrac{3}{10} \\
+    \end{cases}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C - \frac{1}{10} 3^x (3 \cos \frac{\pi}{2} x + \sin \frac{\pi}{2} x)
+    $$
+    :::
 
