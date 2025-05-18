@@ -1,4 +1,4 @@
-import { withMermaid } from "vitepress-plugin-mermaid";
+import {withMermaid} from "vitepress-plugin-mermaid";
 import mdFootnote from "markdown-it-footnote";
 import mdMathJax3 from "markdown-it-mathjax3";
 import mdkatex from "markdown-it-katex";
@@ -139,7 +139,8 @@ export default withMermaid({
                 },
                 block: {
                     ruler: {
-                        after(..._) {},
+                        after(..._) {
+                        },
                     },
                 },
                 renderer: {
@@ -313,13 +314,22 @@ export default withMermaid({
                     {
                         text: "第四节 高阶线性微分方程",
                         link: "/further-mathematics/chapter6/section4",
-                    }
+                    },
+                    {
+                        text: "第五节 差分方程",
+                        link: "/further-mathematics/chapter6/section5",
+                    },
                 ],
             },
             {
                 text: "第七章 多元函数微分学",
                 collapsed: true,
-                items: [],
+                items: [
+                    {
+                        text: "第一节 多元函数的基本概念",
+                        link: "/further-mathematics/chapter7/section1",
+                    },
+                ],
             },
             {
                 text: "第八章 二重积分",
@@ -333,9 +343,9 @@ export default withMermaid({
             },
         ],
         socialLinks: [
-            { icon: "github", link: "https://github.com" },
-            { icon: "twitter", link: "https://twitter.com" },
-            { icon: "youtube", link: "https://youtube.com" },
+            {icon: "github", link: "https://github.com"},
+            {icon: "twitter", link: "https://twitter.com"},
+            {icon: "youtube", link: "https://youtube.com"},
         ],
     },
 });
