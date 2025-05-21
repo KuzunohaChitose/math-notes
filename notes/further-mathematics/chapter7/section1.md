@@ -37,9 +37,9 @@ $$
 
 ### 3.1 二重极限
 
-设函数$f(x, y)$在点$(x_0, y_0)$的某去心邻域内有定义，若$\forall \epsilon \gt 0$，$\exists \delta \gt 0$，使得当$0 \lt \sqrt{(x - x_0)^2 + (y - y_0)^2} \lt \delta$时，有$| f(x, y) - A | \lt \epsilon$，则称$A$为函数$f(x, y)$当$(x, y) \to (x_0, y_0)$时的极限，记作：
+设函数$f(x, y)$在点$(x_0, y_0)$的某去心邻域内有定义，则：
 $$
-\lim_{(x, y) \to (x_0, y_0)} f(x, y) = A
+\lim_{(x, y) \to (x_0, y_0)} f(x, y) = A \Leftrightarrow \forall \epsilon \gt 0, \exists \delta \gt 0: \forall (x, y) \in \mathring{U}((x_0, y_0), \delta) \Rightarrow \left| f(x, y) - A \right| \lt \epsilon
 $$
 ::: tip Tip
 
@@ -163,10 +163,53 @@ $$
     2. $\displaystyle \lim_{(x, y) \to (0, 2)} \frac{\sin (xy)}{x}.$
 
         ::: details Answer
-
+        $$
+        \begin{gather}
+        \lim_{(x, y) \to (0, 2)} \frac{\sin (xy)}{x} \\
+        = \lim_{(x, y) \to (0, 2)} \frac{\sin (xy)}{xy} y \\
+        = 1 \cdot \lim_{y \to 2} y = 2 \\
+        \end{gather}
+        $$
+        :::
+    
+    3. $\displaystyle \lim_{(x, y) \to (0, 0)} \frac{\sin (xy)}{x}.$
+    
+        ::: details Answer
+    
+        注意，此处无法使用上一题的方法，因为分母乘以$y$会导致$y \neq 0$，这会少一条路径，所以考虑如下不等式：
+        $$
+        |\sin (xy)| \leq |xy|
+        $$
+        由此可得：
+        $$
+        0 \leq |\frac{\sin (xy)}{x}| \leq |\frac{xy}{x}| = |y|
+        $$
+        而其中：
+        $$
+        \lim_{(x, y) \to (0, 0)} 0 = \lim_{(x, y) \to (0, 0)} |y| = 0
+        $$
+        所以：
+        $$
+        \lim_{(x, y) \to (0, 0)} |\frac{\sin(xy)}{x}| = \lim_{(x, y) \to (0, 0)} \frac{\sin(xy)}{x} = 0 \\
+        $$
+        
         :::
 
 ## IV. 二元函数的连续性
 
+### 4.1 二元函数连续性的定义
 
+设函数$f(x, y)$在点$P_0(x_0, y_0)$的某邻域内有定义，若：
+$$
+\lim_{(x, y) \to (x_0, y_0)} f(x, y) = f(x_0, y_0)
+$$
+则称函数$f(x, y)$在点$P_0$处连续
+
+### 4.2 二元函数连续性的性质
+
+**四则运算性质**：
+
+**最值定理**：
+
+**介值定理**：
 
