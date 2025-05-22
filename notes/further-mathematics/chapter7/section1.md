@@ -235,17 +235,13 @@ $$
 
 1. 有界性与最值定理：
     $$
-    \exists L \gt 0, \text{使得} \forall (x, y) \in D, \text{有} |f(x, y)| \leq L \\
-    \exists P_M(x_0, y_0) \in D, \text{使得} \forall (x, y) \in D, \text{有} f(x, y) \leq f(P_M) \\
-    \exists P_m(x_1, y_1) \in D, \text{使得} \forall (x, y) \in D, \text{有} f(x, y) \geq f(P_m) \\
+    \exists (x_m, y_m) \in D, \exists (x_M, y_M) \in D, \text{使得} \forall (x, y) \in D, f(x_m, y_m) \leq f(x, y) \leq f(x_M, y_M)
     $$
-
+    
 2. 介值定理：
     $$
-    \forall f(P_m) \leq \xi \leq f(P_M), \exists (x_0, y_0) \in D, \text{使得} f(x_0, y_0) = \xi
+    \forall f(x_m, y_m) \leq c \leq f(x_M, y_M), \exists (\xi, \eta) \in D, \text{使得} f(\xi, \eta) = c
     $$
-
-3. 
 
 - **例3**：讨论此函数在$(0, 0)$处的连续性：
     $$
@@ -257,7 +253,38 @@ $$
     $$
     ::: details Answer
 
-    
-
+    注意这个极限：
+    $$
+    \lim_{(x, y) \to (0, 0)} (x^2 + y^2) \sin (x^2 + y^2)^{-\frac{1}{2}}
+    $$
+    其中：
+    $$
+    x^2 + y^2 \to 0
+    $$
+    而：
+    $$
+    \sin (x^2 + y^2)^{-\frac{1}{2}}
+    $$
+    则是有界量，因此这个极限整体为：
+    $$
+    \lim_{(x, y) \to (0, 0)} (x^2 + y^2) \sin (x^2 + y^2)^{-\frac{1}{2}} = f(0, 0) = 0
+    $$
+    所以$f(x, y)$在点$(0, 0)$处连续
     :::
-
+    
+- **例4**：讨论此函数在$(0, 0)$处的连续性：
+    $$
+    f(x, y) =
+    \begin{cases}
+    \dfrac{x^2 y^2}{x^2 y^2 + (x - y)^2}, & (x, y) \neq (0, 0) \\
+    0, & (x, y) = (0, 0) \\
+    \end{cases}
+    $$
+    ::: details Answer
+    $$
+    \lim_{(x, y) \to (0, 0)} f(x, x) = \lim_{x \to 0} \frac{x^4}{x^4} = 1 \\
+    \lim_{(x, y) \to (0, 0)} f(x, 0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{0 + x^2} = 0 \\
+    \lim_{(x, y) \to (0, 0)} f(x, x) \neq \lim_{(x, y) \to (0, 0)} f(x, 0) \\
+    \Rightarrow \not \exists L, \lim_{(x, y) \to (0, 0)} \frac{x^2 y^2}{x^2 y^2 + (x - y)^2} = L \\
+    $$
+    :::
