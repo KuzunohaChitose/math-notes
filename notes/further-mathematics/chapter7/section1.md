@@ -205,11 +205,59 @@ $$
 $$
 则称函数$f(x, y)$在点$P_0$处连续
 
+::: tip
+
+设：
+$$
+\begin{gather}
+z = f(x, y) \\
+\Delta x = x - x_0,
+\Delta y = y - y_0 \\
+\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0) \\
+\Delta_x z = f(x_0 + \Delta x, y_0) - f(x_0, y_0) \\
+\Delta_y z = f(x_0, y_0 + \Delta y) - f(x_0, y_0) \\
+\end{gather}
+$$
+则有：
+$$
+\begin{gather}
+\lim_{(x, y) \to (x_0, y_0)} f(x, y) = f(x_0, y_0) \Rightarrow \\
+\lim_{(x, y) \to (x_0, y_0)} \left[ f(x, y) - f(x_0, y_0) \right] \\
+= \lim_{(\Delta x, \Delta y) \to (0, 0)} \left[ f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0) \right] \\
+= \lim_{(\Delta x, \Delta y) \to (0, 0)} \Delta z = 0 \\
+\end{gather}
+$$
+:::
+
 ### 4.2 二元函数连续性的性质
 
-**四则运算性质**：
+若函数$f(x, y)$的在有界闭区域$D$上连续，则：
 
-**最值定理**：
+1. 有界性与最值定理：
+    $$
+    \exists L \gt 0, \text{使得} \forall (x, y) \in D, \text{有} |f(x, y)| \leq L \\
+    \exists P_M(x_0, y_0) \in D, \text{使得} \forall (x, y) \in D, \text{有} f(x, y) \leq f(P_M) \\
+    \exists P_m(x_1, y_1) \in D, \text{使得} \forall (x, y) \in D, \text{有} f(x, y) \geq f(P_m) \\
+    $$
 
-**介值定理**：
+2. 介值定理：
+    $$
+    \forall f(P_m) \leq \xi \leq f(P_M), \exists (x_0, y_0) \in D, \text{使得} f(x_0, y_0) = \xi
+    $$
+
+3. 
+
+- **例3**：讨论此函数在$(0, 0)$处的连续性：
+    $$
+    f(x, y) =
+    \begin{cases}
+    (x^2 + y^2) \sin (x^2 + y^2)^{-\frac{1}{2}}, & (x, y) \neq (0, 0) \\
+    0, & (x, y) = (0, 0) \\
+    \end{cases}
+    $$
+    ::: details Answer
+
+    
+
+    :::
 
