@@ -329,6 +329,10 @@ export default withMermaid({
                         text: "第一节 多元函数的基本概念",
                         link: "/further-mathematics/chapter7/section1",
                     },
+                    {
+                        text: "第二节 偏导数与全微分",
+                        link: "/further-mathematics/chapter7/section2",
+                    },
                 ],
             },
             {
