@@ -183,3 +183,28 @@ $$
     \end{gather}
     $$
     :::
+    
+- **例6**：验证函数$z = \ln \sqrt{x^2 + y^2}$满足方程$\dfrac{\partial^2 z}{\partial x^2} + \dfrac{\partial^2 z}{\partial y^2} = 0$.
+
+    ::: details Answer
+    $$
+    \begin{gather}
+    \frac{\partial^2 z}{\partial x^2} 
+    = \frac{\partial}{\partial x} (\frac{\partial z}{\partial x})
+    = \frac{\partial}{\partial x} \left[ (x^2 + y^2)^{-\frac{1}{2}} \cdot \frac{1}{2} (x^2 + y^2)^{-\frac{1}{2}} \cdot 2x \right] \\
+    = \frac{\partial}{\partial x} \left[ x (x^2 + y^2)^{-1} \right]
+    = (x^2 + y^2)^{-1} - 2x^2 (x^2 + y^2)^{-2} \\
+    \frac{\partial^2 z}{\partial y^2} 
+    = \frac{\partial}{\partial y} (\frac{\partial z}{\partial x})
+    = \frac{\partial}{\partial y} \left[ (x^2 + y^2)^{-\frac{1}{2}} \cdot \frac{1}{2} (x^2 + y^2)^{-\frac{1}{2}} \cdot 2y \right] \\
+    = \frac{\partial}{\partial x} \left[ y (x^2 + y^2)^{-1} \right]
+    = (x^2 + y^2)^{-1} - 2y^2 (x^2 + y^2)^{-2} \\
+    \Rightarrow \frac{\partial^2 z}{\partial x^2} + \frac{\partial^2 z}{\partial y^2}
+    = 2 (x^2 + y^2)^{-1} - 2 (x^2 + y^2) (x^2 + y^2)^{-2} \\
+    = 2 (x^2 + y^2)^{-1} - 2 (x^2 + y^2)^{-1} = 0 \\
+    \end{gather}
+    $$
+    :::
+
+## II. 全微分
+
