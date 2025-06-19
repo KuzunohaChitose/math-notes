@@ -333,6 +333,10 @@ export default withMermaid({
                         text: "第二节 偏导数与全微分",
                         link: "/further-mathematics/chapter7/section2",
                     },
+                    {
+                        text: "第三节 偏导数的求导法则",
+                        link: "/further-mathematics/chapter7/section3"
+                    }
                 ],
             },
             {

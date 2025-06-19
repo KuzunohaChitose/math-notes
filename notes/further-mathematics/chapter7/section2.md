@@ -71,9 +71,10 @@ $$
 - **例2**：设$f(x, y) = xy + x^2 + y^3$，求$f_x'(0, 1)$、$f_x'(1, 0)$、$f_y'(0, 2)$、$f_y'(2, 0)$.
 
     ::: details Answer
-    
+
     定义法：
     $$
+    \begin{gather}
     f_x'(0, 1) = \lim_{\Delta x \to 0} \frac{f(\Delta x, 1) - f(0, 1)}{\Delta x} \\
     = \lim_{\Delta x \to 0} \frac{\Delta x + \Delta x^2 + 1 - 0 - 0 - 1}{\Delta x} \\
     = \lim_{\Delta x \to 0} (1 + \Delta x) = \boxed{1} \\
@@ -89,6 +90,7 @@ $$
     f_y'(2, 0) = \lim_{\Delta y \to 0} \frac{f(2, \Delta y) - f(2, 0)}{\Delta y} \\
     = \lim_{\Delta y \to 0} \frac{2 \Delta y + 4 + \Delta y^3 - 0 - 4 - 0}{\Delta y} \\
     = \lim_{\Delta y \to 0} \frac{2 \Delta y + \Delta y^3}{\Delta y} = \boxed{2} \\
+    \end{gather}
     $$
     偏导函数法：
     $$
@@ -99,7 +101,7 @@ $$
     f_x'(1, 0) = 0 + 2 = 2 \\
     \end{cases}
     $$
-    
+
     $$
     f_y'(x, y) = x + 3y^2
     \Rightarrow
@@ -108,16 +110,18 @@ $$
     f_y'(2, 0) = 2 + 0 = 2 \\
     \end{cases}
     $$
-    
+
     :::
 
 - **例3**：设$f(x, y) = \sqrt{x^2 + y^4}$，试判断$f(x, y)$在$(0, 0)$处是否连续、偏导数是否存在？
 
     ::: details Answer
     $$
+    \begin{gather}
     \lim_{(x, y) \to (0, 0)} \sqrt{x^2 + y^4} = f(0, 0) = 0 \\
-    f_x'(0, 0) = \lim_{\Delta x \to 0} \frac{\sqrt{\Delta x^2} - 0}{\Delta x} = \text{Undefined} \\
+    \not \exists L, f_x'(0, 0) = \lim_{\Delta x \to 0} \frac{\sqrt{\Delta x^2} - 0}{\Delta x} = L \\
     f_y'(0, 0) = \lim_{\Delta y \to 0} \frac{\sqrt{\Delta y^4} - 0}{\Delta y} = 0 \\
+    \end{gather}
     $$
     :::
 
@@ -132,10 +136,11 @@ $$
     试判断$f(x, y)$在点$(0, 0)$处是否连续、偏导数是否存在？
     ::: details Answer
     $$
-    f(0, 0) \neq \lim_{(x, y) \to (0, 0)} \frac{xy}{x^2 + y^2} 
-    = \text{Undefined} \\
+    \begin{gather}
+    f(0, 0) = 0, \not \exists L, \lim_{(x, y) \to (0, 0)} \frac{xy}{x^2 + y^2} = L\\
     f_x'(0, 0) = \lim_{\Delta x \to 0} \frac{f(\Delta x, 0) - f(0, 0)}{\Delta x} = \lim_{\Delta x \to 0} \frac{\frac{0}{\Delta x^2} - 0}{\Delta x} = 0 \\
     f_y'(0, 0) = \lim_{\Delta y \to 0} \frac{f(0, \Delta y) - f(0, 0)}{\Delta y} = \lim_{\Delta y \to 0} \frac{\frac{0}{\Delta y^2} - 0}{\Delta y} = 0 \\
+    \end{gather}
     $$
     :::
 
@@ -208,3 +213,237 @@ $$
 
 ## II. 全微分
 
+### 2.1 全微分的定义
+
+设$z = f(x, y)$在$U(x_0, y_0)$上有定义，且$(x_0 + \Delta x, y_0 + \Delta y) \in U(x_0, y_0)$，若：
+$$
+\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0) = A \Delta x + B \Delta y + \omicron(\rho),
+\rho = \sqrt{(\Delta x)^2 + (\Delta y)^2}
+$$
+则称$f(x, y)$在点$(x_0, y_0)$处可微，且线性主部$A \Delta x + B \Delta y$称为$f(x, y)$在点$(x_0, y_0)$处的全微分，记作：
+$$
+\left. \mathrm{d} z \right|_{(x_0, y_0)} = A \Delta x + B \Delta y
+$$
+
+### 2.2 可微的条件
+
+#### 2.2.1 可微的必要条件
+
+1. 若$f(x, y)$在点$(x_0, y_0)$处可微，则它必然也在点$(x_0, y_0)$处连续
+
+    ::: details Proof
+
+    因为$f(x, y)$在点$(x_0, y_0)$处可微，所以：
+    $$
+    \Delta z = A \Delta x + B \Delta y + \omicron(\rho), \rho = \sqrt{(\Delta x)^2 + (\Delta y)^2}
+    $$
+    对两边同时取极限可得：
+    $$
+    \lim_{(\Delta x, \Delta y) \to (0, 0)} \Delta z 
+    = \lim_{(\Delta x, \Delta y) \to (0, 0)} \left[ A \Delta x + B \Delta y + \omicron(\rho) \right]
+    = 0
+    $$
+    然后进行换元：
+    $$
+    \lim_{(\Delta x, \Delta y) \to (0, 0)} \Delta z = \lim_{(x, y) \to (x_0, y_0)} f(x, y) - f(x_0, y_0) = 0
+    $$
+    所以最终可得：
+    $$
+    \lim_{(x, y) \to (x_0, y_0)} f(x, y) = f(x_0, y_0)
+    $$
+    :::
+
+2. 若$f(x, y)$在点$(x_0, y_0)$处可微，则$A = f_x'(x_0, y_0)$、$B = f_y'(x_0, y_0)$
+
+    ::: details Proof
+
+    因为$f(x, y)$在点$(x_0, y_0)$处可微，所以：
+    $$
+    \Delta z = A \Delta x + B \Delta y + \omicron(\rho), \rho = \sqrt{(\Delta x)^2 + (\Delta y)^2}
+    $$
+    当$\Delta y = 0$时可得：
+    $$
+    \Delta z = f(x_0 + \Delta x, y_0) - f(x_0, y_0) = A \Delta x + \omicron(\left| \Delta x \right|)
+    $$
+    同时除以$\Delta x$并取极限可得：
+    $$
+    \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x, y_0) - f(x_0, y_0)}{\Delta x} 
+    = \lim_{\Delta x \to 0} \frac{A \Delta x + \omicron(\left| \Delta x \right|)}{\Delta x} = A
+    $$
+    于是同理可得：
+    $$
+    A = f_x'(x_0, y_0), B = f_y'(x_0, y_0)
+    $$
+    :::
+
+::: tip Tip
+
+1. 若$f(x, y)$可微，则$\mathrm{d}z = f_x'(x, y) \mathrm{d}x + f_y'(x, y) \mathrm{d}y$
+2. 若$f_x'$与$f_y'$均存在，则$f_x' \mathrm{d}x + f_y' \mathrm{d}y$未必是函数的全微分
+
+:::
+
+#### 2.2.2 可微的充分条件
+
+若$f_x'(x, y)$、$f_y'(x, y)$在点$(x_0, y_0)$处连续，则$f(x, y)$在点$(x_0, y_0)$处可微
+
+#### 2.2.3 可微的充要条件
+
+$$
+\begin{gather}
+f(x, y) \text{在点} (x_0,y_0) \text{处可微} \\
+\Leftrightarrow \Delta z = f_x'(x_0, y_0) \Delta x + f_y'(x_0, y_0) \Delta y + \omicron(\rho) \\
+\Leftrightarrow \Delta z - f_x'(x_0, y_0) \Delta x - f_y'(x_0, y_0) \Delta y = \omicron(\rho) \\
+\Leftrightarrow \lim_{\rho \to 0} \frac{\Delta z - f_x'(x_0, y_0) \Delta x - f_y'(x_0, y_0) \Delta y}{\rho}
+= \lim_{\rho \to 0} \frac{\omicron(\rho)}{\rho} = 0 \\
+\Leftrightarrow \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{\Delta z - f_x'(x_0, y_0) \Delta x - f_y'(x_0, y_0) \Delta y}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} = 0 \\
+\end{gather}
+$$
+
+::: tip Tip
+
+使用场景：特殊函数在特殊点处可微性的判定
+
+:::
+
+### 2.3 多元函数连续、偏导存在、可微之间的关系
+
+```mermaid
+flowchart LR
+  PC(偏导数连续) --> DM(可微)
+  DM --> CT(函数连续)
+  DM --> PE(偏导数存在)
+
+  CT -. "未必" .-> DM
+  PE -. "未必" .-> DM
+  DM -. "未必" .-> PC
+```
+
+- **例7**：设函数：
+    $$
+    f(x, y) =
+    \begin{cases}
+    \dfrac{xy}{\sqrt{x^2 + y^2}}, & x^2 + y^2 \neq 0 \\
+    0, & x^2 + y^2 = 0 \\
+    \end{cases}
+    $$
+    则在点$(0, 0)$处函数$f(x, y)$满足：
+
+    - A：不连续
+    - B：连续但偏导数不存在
+    - C：连续且偏导数存在但不可微
+    - D：可微
+
+    ::: details Answer
+
+    - 连续性的判定：
+
+        因为存在以下不等式：
+        $$
+        \begin{gather}
+        -\frac{x^2 + y^2}{2} \leq |xy| \leq \frac{x^2 + y^2}{2} \\
+        \Rightarrow -\frac{x^2 + y^2}{2 \sqrt{x^2 + y^2}} \leq \left| \frac{xy}{\sqrt{x^2 + y^2}} \right| \leq \frac{x^2 + y^2}{2 \sqrt{x^2 + y^2}} \\
+        \Rightarrow -\frac{\sqrt{x^2 + y^2}}{2} \leq \left| \frac{xy}{\sqrt{x^2 + y^2}} \right| \leq \frac{\sqrt{x^2 + y^2}}{2} \\
+        \end{gather}
+        $$
+        所以：
+        $$
+        \begin{gather}
+        \lim_{(x, y) \to (0, 0)} -\frac{\sqrt{x^2 + y^2}}{2} = \lim_{(x, y) \to (0, 0)} \frac{\sqrt{x^2 + y^2}}{2} = 0 \\
+        \Rightarrow \lim_{(x, y) \to (0, 0)} \left| \frac{xy}{\sqrt{x^2 + y^2}} \right| = 0 \\
+        \end{gather}
+        $$
+        又因为：
+        $$
+        -|xy| \leq xy \leq |xy| 
+        \Rightarrow -\left| \frac{xy}{\sqrt{x^2 + y^2}} \right| \leq \frac{xy}{\sqrt{x^2 + y^2}} \leq \left| \frac{xy}{\sqrt{x^2 + y^2}} \right|
+        $$
+        所以最终可得：
+        $$
+        \begin{gather}
+        \lim_{(x, y) \to (0, 0)} \left| \frac{xy}{\sqrt{x^2 + y^2}} \right| = \lim_{(x, y) \to (0, 0)} -\left| \frac{xy}{\sqrt{x^2 + y^2}} \right| = 0 \\
+        \Rightarrow \lim_{(x, y) \to (0, 0)} \frac{xy}{\sqrt{x^2 + y^2}} = f(0, 0) = 0 \\
+        \end{gather}
+        $$
+        
+    - 偏导数存在性的判定：
+        $$
+        \begin{gather}
+        f_x'(0, 0) = \lim_{\Delta x \to 0} \frac{f(0 + \Delta x, 0) - f(0, 0)}{\Delta x} = 0 \\
+        f_y'(0, 0) = \lim_{\Delta y \to 0} \frac{f(0, 0 + \Delta y) - f(0, 0)}{\Delta y} = 0 \\
+        \end{gather}
+        $$
+        因此，两个偏导数皆存在
+    
+    - 可微性的判定：
+    
+        使用可微的充要条件：
+        $$
+        \begin{gather}
+        \not \exists L, \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{\Delta z - f_x'(0, 0) \Delta x - f_y'(0, 0) \Delta y}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+        = \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{f(\Delta x, \Delta y)}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+        = \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{xy}{(\Delta x)^2 + (\Delta y)^2} = L \\
+        \end{gather}
+        $$
+        显然并不可微
+    
+    所以最终选C
+    
+    :::
+    
+- **例8**：设函数：
+    $$
+    f(x, y) =
+    \begin{cases}
+    (x^2 + y^2) \sin \dfrac{1}{\sqrt{x^2 + y^2}}, & (x, y) \neq (0, 0) \\
+    0, & (x, y) = (0, 0) \\
+    \end{cases}
+    $$
+    讨论$f(x, y)$在点$(0, 0)$处的可微性
+
+    ::: details Answer
+
+    首先求出两个偏导数的值：
+    $$
+    \begin{gather}
+    f_x'(0, 0) = \lim_{\Delta x \to 0} \frac{f(\Delta x, 0) - f(0, 0)}{\Delta x} \\
+    = \lim_{\Delta x \to 0} \frac{(\Delta x)^2 \sin \dfrac{1}{|x|}}{\Delta x} = 0 \\
+    f_y'(0, 0) = \lim_{\Delta y \to 0} \frac{f(0, \Delta y) - f(0, 0)}{\Delta y} \\
+    = \lim_{\Delta y \to 0} \frac{(\Delta y)^2 \sin \dfrac{1}{|\Delta y|}}{\Delta y} = 0 \\
+    \end{gather}
+    $$
+    然后考虑可微的充要条件：
+    $$
+    \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{\Delta z - f_x'(0, 0) \Delta x - f_y'(0, 0) \Delta y}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+    = \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{f(\Delta x, \Delta y) - f(0, 0)}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+    = \lim_{(\Delta x, \Delta y) \to (0, 0)} \frac{\left[ (\Delta x)^2 + (\Delta y)^2 \right] \sin \dfrac{1}{\sqrt{(\Delta x)^2 + (\Delta y)^2}}}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+    = \lim_{(\Delta x, \Delta y) \to (0, 0)} \sqrt{(\Delta x)^2 + (\Delta y)^2} \sin \dfrac{1}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \\
+    $$
+    对于这个极限，考虑以下不等式：
+    $$
+    r = \sqrt{(\Delta x)^2 + (\Delta y)^2}, -1 \leq \sin \frac{1}{r} \leq r \Rightarrow -r \leq r \sin \frac{1}{r} \leq r
+    $$
+    又因为：
+    $$
+    \lim_{(\Delta x, \Delta y) \to (0, 0)} -r = \lim_{(\Delta x, \Delta y) \to (0, 0)} r = 0
+    $$
+    所以根据夹逼准则可得：
+    $$
+    \lim_{(\Delta x, \Delta y) \to (0, 0)} r \sin \frac{1}{r} = 0
+    $$
+    因此$f(x, y)$在点$(0, 0)$处可微
+    
+    :::
+    
+- **例10**：已知二元函数$f(x, y)$一阶偏导数连续，若函数$z = f(x, y)$满足$\dfrac{\partial^2 z}{\partial x \partial y} = x + y$，且$f(x, 0) = x$、$f(0, y) = y^2$，求$f(x, y)$.
+
+    ::: details Answer
+    $$
+    f_x'(x, y) = \int f_{xy}''(x, y) \mathrm{d}y = xy + \frac{1}{2} y^2 + C(x), S'(x) = C(x) \\
+    f(x, y) = \int f_x'(x, y) \mathrm{d}x = \frac{1}{2} x^2 y + \frac{1}{2} xy^2 + S(x) + D(y) \\
+    f(x, 0) = S(x) + D(0) = x \Rightarrow S(x) = x - D(0) \\
+    f(0, y) = S(0) + D(y) = y^2 \Rightarrow D(y) = y^2 - S(0) \\
+    f(0, 0) = S(0) + D(0) = 0 \Rightarrow -S(0) - D(0) = 0 \\
+    \Rightarrow f(x, y) = \frac{1}{2} x^2 y + \frac{1}{2} x y^2 + x + y^2 \\
+    $$
+    :::
