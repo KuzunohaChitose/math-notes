@@ -1,5 +1,11 @@
 # 第二节 偏导数与全微分
 
+::: details Tables of Content
+
+[[toc]]
+
+:::
+
 ## I. 偏导数
 
 ### 1.1 偏导数的定义

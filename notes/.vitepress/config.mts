@@ -192,164 +192,211 @@ export default withMermaid({
                 link: "/",
             },
             {
-                text: "Intro",
-                link: "/quick-start",
+                text: "Advanced Mathematics",
+                link: "/advanced-mathematics/chapter1/section1",
+                activeMatch: "/advanced-mathematics/"
             },
+            {
+                text: "Linear Algebra",
+                link: "/linear-algebra/chapter1/section1",
+                activeMatch: "/linear-algebra/"
+            }
         ],
-        sidebar: [
-            {
-                text: "第一章 函数、极限与连续",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 函数",
-                        link: "/further-mathematics/chapter1/section1",
-                    },
-                    {
-                        text: "第二节 极限",
-                        link: "/further-mathematics/chapter1/section2",
-                    },
-                    {
-                        text: "第三节 连续",
-                        link: "/further-mathematics/chapter1/section3",
-                    },
-                ],
-            },
-            {
-                text: "第二章 导数与微分",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 导数的概念",
-                        link: "/further-mathematics/chapter2/section1",
-                    },
-                    {
-                        text: "第二节 导数的计算",
-                        link: "/further-mathematics/chapter2/section2",
-                    },
-                    {
-                        text: "第三节 高阶导数",
-                        link: "/further-mathematics/chapter2/section3",
-                    },
-                    {
-                        text: "第四节 函数的微分",
-                        link: "/further-mathematics/chapter2/section4",
-                    },
-                ],
-            },
-            {
-                text: "第三章 微分中值定理与导数的应用",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 微分中值定理",
-                        link: "/further-mathematics/chapter3/section1",
-                    },
-                    {
-                        text: "第而节 洛必达法则",
-                        link: "/further-mathematics/chapter3/section2",
-                    },
-                    {
-                        text: "第三节 函数的单调性与极值",
-                        link: "/further-mathematics/chapter3/section3",
-                    },
-                    {
-                        text: "第四节 曲线的凹凸性与拐点",
-                        link: "/further-mathematics/chapter3/section4",
-                    },
-                ],
-            },
-            {
-                text: "第四章 不定积分",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 不定积分的概念与性质",
-                        link: "/further-mathematics/chapter4/section1",
-                    },
-                    {
-                        text: "第二节 不定积分的基本积分法",
-                        link: "/further-mathematics/chapter4/section2",
-                    },
-                    {
-                        text: "第三节 几种特殊类型函数的积分",
-                        link: "/further-mathematics/chapter4/section3",
-                    },
-                ],
-            },
-            {
-                text: "第五章 定积分及其应用",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 定积分",
-                        link: "/further-mathematics/chapter5/section1",
-                    },
-                    {
-                        text: "第二节 反常积分",
-                        link: "/further-mathematics/chapter5/section2",
-                    },
-                    {
-                        text: "第三节 定积分的应用",
-                        link: "/further-mathematics/chapter5/section3",
-                    },
-                ],
-            },
-            {
-                text: "第六章 常微分方程",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 常微分方程的基本概念",
-                        link: "/further-mathematics/chapter6/section1",
-                    },
-                    {
-                        text: "第二节 一阶常微分方程",
-                        link: "/further-mathematics/chapter6/section2",
-                    },
-                    {
-                        text: "第三节 可降阶的高阶微分方程",
-                        link: "/further-mathematics/chapter6/section3",
-                    },
-                    {
-                        text: "第四节 高阶线性微分方程",
-                        link: "/further-mathematics/chapter6/section4",
-                    },
-                    {
-                        text: "第五节 差分方程",
-                        link: "/further-mathematics/chapter6/section5",
-                    },
-                ],
-            },
-            {
-                text: "第七章 多元函数微分学",
-                collapsed: true,
-                items: [
-                    {
-                        text: "第一节 多元函数的基本概念",
-                        link: "/further-mathematics/chapter7/section1",
-                    },
-                    {
-                        text: "第二节 偏导数与全微分",
-                        link: "/further-mathematics/chapter7/section2",
-                    },
-                    {
-                        text: "第三节 偏导数的求导法则",
-                        link: "/further-mathematics/chapter7/section3"
-                    }
-                ],
-            },
-            {
-                text: "第八章 二重积分",
-                collapsed: true,
-                items: [],
-            },
-            {
-                text: "第九章 无穷级数",
-                collapsed: true,
-                items: [],
-            },
-        ],
+        sidebar: {
+            "/advanced-mathematics/": [
+                {
+                    text: "第一章 函数、极限与连续",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 函数",
+                            link: "/advanced-mathematics/chapter1/section1",
+                        },
+                        {
+                            text: "第二节 极限",
+                            link: "/advanced-mathematics/chapter1/section2",
+                        },
+                        {
+                            text: "第三节 连续",
+                            link: "/advanced-mathematics/chapter1/section3",
+                        },
+                    ],
+                },
+                {
+                    text: "第二章 导数与微分",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 导数的概念",
+                            link: "/advanced-mathematics/chapter2/section1",
+                        },
+                        {
+                            text: "第二节 导数的计算",
+                            link: "/advanced-mathematics/chapter2/section2",
+                        },
+                        {
+                            text: "第三节 高阶导数",
+                            link: "/advanced-mathematics/chapter2/section3",
+                        },
+                        {
+                            text: "第四节 函数的微分",
+                            link: "/advanced-mathematics/chapter2/section4",
+                        },
+                    ],
+                },
+                {
+                    text: "第三章 微分中值定理与导数的应用",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 微分中值定理",
+                            link: "/advanced-mathematics/chapter3/section1",
+                        },
+                        {
+                            text: "第而节 洛必达法则",
+                            link: "/advanced-mathematics/chapter3/section2",
+                        },
+                        {
+                            text: "第三节 函数的单调性与极值",
+                            link: "/advanced-mathematics/chapter3/section3",
+                        },
+                        {
+                            text: "第四节 曲线的凹凸性与拐点",
+                            link: "/advanced-mathematics/chapter3/section4",
+                        },
+                    ],
+                },
+                {
+                    text: "第四章 不定积分",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 不定积分的概念与性质",
+                            link: "/advanced-mathematics/chapter4/section1",
+                        },
+                        {
+                            text: "第二节 不定积分的基本积分法",
+                            link: "/advanced-mathematics/chapter4/section2",
+                        },
+                        {
+                            text: "第三节 几种特殊类型函数的积分",
+                            link: "/advanced-mathematics/chapter4/section3",
+                        },
+                    ],
+                },
+                {
+                    text: "第五章 定积分及其应用",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 定积分",
+                            link: "/advanced-mathematics/chapter5/section1",
+                        },
+                        {
+                            text: "第二节 反常积分",
+                            link: "/advanced-mathematics/chapter5/section2",
+                        },
+                        {
+                            text: "第三节 定积分的应用",
+                            link: "/advanced-mathematics/chapter5/section3",
+                        },
+                    ],
+                },
+                {
+                    text: "第六章 常微分方程",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 常微分方程的基本概念",
+                            link: "/advanced-mathematics/chapter6/section1",
+                        },
+                        {
+                            text: "第二节 一阶常微分方程",
+                            link: "/advanced-mathematics/chapter6/section2",
+                        },
+                        {
+                            text: "第三节 可降阶的高阶微分方程",
+                            link: "/advanced-mathematics/chapter6/section3",
+                        },
+                        {
+                            text: "第四节 高阶线性微分方程",
+                            link: "/advanced-mathematics/chapter6/section4",
+                        },
+                        {
+                            text: "第五节 差分方程",
+                            link: "/advanced-mathematics/chapter6/section5",
+                        },
+                    ],
+                },
+                {
+                    text: "第七章 多元函数微分学",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 多元函数的基本概念",
+                            link: "/advanced-mathematics/chapter7/section1",
+                        },
+                        {
+                            text: "第二节 偏导数与全微分",
+                            link: "/advanced-mathematics/chapter7/section2",
+                        },
+                        {
+                            text: "第三节 偏导数的求导法则",
+                            link: "/advanced-mathematics/chapter7/section3"
+                        },
+                        {
+                            text: "第四节 多元函数的极值及其求法",
+                            link: "/advanced-mathematics/chapter7/section4"
+                        }
+                    ],
+                },
+                {
+                    text: "第八章 二重积分",
+                    collapsed: true,
+                    items: [],
+                },
+            ],
+            "/linear-algebra/": [
+                {
+                    text: "第一章 行列式",
+                    collapsed: true,
+                    items: [
+                        {
+                            text: "第一节 行列式的定义",
+                            link: "/linear-algebra/chapter1/section1",
+                        },
+                        {
+                            text: "第二节 行列式的展开",
+                            link: "/linear-algebra/chapter1/section2",
+                        },
+                        {
+                            text: "第三节 克拉默法则",
+                            link: "/linear-algebra/chapter1/section3",
+                        }
+                    ]
+                },
+                {
+                    text: "第二章 矩阵",
+                    collapsed: true,
+                },
+                {
+                    text: "第三章 向量",
+                    collapsed: true,
+                },
+                {
+                    text: "第四章 线性方程组",
+                    collapsed: true,
+                },
+                {
+                    text: "第五章 矩阵的特征值和特征向量",
+                    collapsed: true,
+                },
+                {
+                    text: "第六章 二次型",
+                    collapsed: true,
+                }
+            ]
+        },
         socialLinks: [
             {icon: "github", link: "https://github.com"},
             {icon: "twitter", link: "https://twitter.com"},

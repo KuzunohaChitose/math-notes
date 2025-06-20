@@ -3,16 +3,19 @@
 layout: home
 navbar: false
 hero:
-    name: "Math Notes"
-    text: "Some knowledge of further mathematics."
-    actions:
-        - theme: brand
-          text: Getting Start
-          link: /quick-start
-        - theme: alt
-          text: Play Music
-          link: "javascript:void(0)"
-          id: player
+  name: "Math Notes"
+  text: "高等数学与线性代数的学习笔记"
+  actions:
+    - theme: brand
+      text: Advanced Mathematics
+      link: /advanced-mathematics/chapter1/section1
+    - theme: brand
+      text: Linear Algebra
+      link: /linear-algebra/chapter1/section1
+    - theme: alt
+      text: Play Music
+      link: "javascript:void(0)"
+      id: player
 ---
 
 <script setup>
