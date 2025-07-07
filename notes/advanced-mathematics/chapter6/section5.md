@@ -1,0 +1,142 @@
+# 第五节 差分方程
+
+::: details Tables of Content
+
+[[toc]]
+
+:::
+
+## I. 差分方程的基本概念
+
+**差分**：将函数$y = f(x)$简记为$y_x$，$x$取遍非负整数时的函数值构成一个数列：
+$$
+y_0, y_1, y_2, \dots, y_n, \dots
+$$
+称
+$$
+\Delta y_x = y_{x + 1} - y_x
+$$
+为$y_x$的一阶差分；称：
+$$
+\Delta^2 y_x = \Delta(\Delta y_x) = \Delta y_{x + 1} - \Delta y_x = y_{x + 2} - 2 y_{x + 1} + y_x
+$$
+为$y_x$的二阶差分，依此类推可定义出二阶以上的高阶差分
+
+**差分方程**：形如：
+$$
+f(x, y_x, y_{x + 1}, \dots) = 0
+$$
+的方程，称为差分方程
+
+**差分方程的阶**：方程中未知函数附标的最大值与最小值的差数称为差分方程的阶
+
+**差分方程的解**：
+
+1. 解：若一个函数代入差分方程，使得方程两边恒等，则称此函数为差分方程的解
+2. 通解：若差分方程的解中所含的相互独立的任意常数的个数与差分方程的阶数相同，则称此解为差分方程的通解
+3. 初始条件：系统初始时刻的状态所提供的条件，称之为初始条件
+4. 特解：确定了通解中的任意常数的值后的解，称之为特解
+
+## II. 一阶常系数线性差分方程
+
+形如：
+$$
+y_{x + 1} - a y_x = f(x)
+$$
+的方程，称之为一阶常系数线性微分方程；
+
+当$f(x) = 0$时，称其为齐次的，其通解为$y_x = C a^x$；
+
+当$f(x) \neq 0$时，称其为非齐次的，其通解为$y_x = C a^x + y_x^*$，根据$f(x)$的形式，$y_x^*$可依照下表写出：
+
+|      $f(x)$的形式      |        $y_{x + 1} - a y_x = f(x)$的特解$y_x^*$        |
+| :--------------------: | :---------------------------------------------------: |
+|      $b^x P_m(x)$      |         当$a \neq b$时，$y_x^* = b^x Q_m(x)$          |
+|      $b^x P_m(x)$      |          当$a = b$时，$y_x^* = xb^x Q_m(x)$           |
+| $P_m(x) \sin \alpha x$ | $y_x^* = Q_m(x) \sin \alpha x + R_m(x) \cos \alpha x$ |
+| $P_m(x) \cos \alpha x$ | $y_x^* = Q_m(x) \sin \alpha x + R_m(x) \cos \alpha x$ |
+
+- **例1**：求差分方程$y_{x + 1} - 2y_x = 2^x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = x 2^x A_0
+    $$
+    然后代入原差分方程可得：
+    $$
+    \begin{gather}
+    A_0 (x + 1) 2^{x + 1} - A_0 2 x 2^x = 2^x \\
+    A_0 (x 2^{x + 1} + 2^{x + 1} - x 2^{x + 1}) = 2^x \\
+    A_0 2^{x + 1} = 2^x \Rightarrow A_0 = \frac{1}{2} \\
+    \end{gather}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C 2^x + \frac{1}{2} x 2^x
+    $$
+    :::
+
+- **例2**：求差分方程$y_{x + 1} - y_x = x2^x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = 2^x (A_0 + A_1 x)
+    $$
+    然后代入原差分方程可得：
+    $$
+    \begin{gather}
+    2^{x + 1} \left[ A_0 + A_1 (x + 1) \right] - 2^x (A_0 + A_1 x) = x 2^x \\
+    2 \left[ A_0 + A_1 (x + 1) \right] - (A_0 + A_1 x) = x \\
+    2 A_0 + 2 A_1 x + 2 A_1 - A_0 - A_1 x = x \\
+    A_1 x + A_0 + 2 A_1 = x
+    \Rightarrow A_0 = -2, A_1 = 1 \\
+    \end{gather}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C + 2^x (x - 2)
+    $$
+    :::
+
+- **例3**：求差分方程$y_{x + 1} - y_x = 3^x \sin \dfrac{\pi}{2} x$的通解
+
+    ::: details Answer
+
+    根据右侧$f(x)$的形式，可以将特解设为：
+    $$
+    y_x^* = 3^x (A \cos \frac{\pi}{2} x + B \sin \frac{\pi}{2} x)
+    $$
+    
+    然后代入原差分方程 可得：
+    $$
+    \begin{gather}
+    3^{x + 1} \left[ A \cos \frac{\pi}{2} (x + 1) + B \sin \frac{\pi}{2} (x + 1) \right] - 3^{x} (A \cos \frac{\pi}{2} x + B \sin \frac{\pi}{2} x) = 3^x \sin \frac{\pi}{2} x \\
+    3 A \cos \frac{\pi}{2} (x + 1) + 3 B \sin \frac{\pi}{2} (x + 1) - A \cos \frac{\pi}{2} x - B \sin \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    -3 A \sin \frac{\pi}{2} x + 3 B \cos \frac{\pi}{2} x - A \cos \frac{\pi}{2} x - B \sin \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    (-3A - B) \sin \frac{\pi}{2} x + (3B - A) \cos \frac{\pi}{2} x = \sin \frac{\pi}{2} x \\
+    \end{gather}
+    $$
+    于是有：
+    $$
+    \begin{cases}
+    -3A - B = 1 \\
+    3B - A = 0 \\
+    \end{cases}
+    $$
+    解得：
+    $$
+    \begin{cases}
+    B = -\dfrac{1}{10} \\
+    A = -\dfrac{3}{10} \\
+    \end{cases}
+    $$
+    于是可以得到通解为：
+    $$
+    y_x = C - \frac{1}{10} 3^x (3 \cos \frac{\pi}{2} x + \sin \frac{\pi}{2} x)
+    $$
+    :::
+
