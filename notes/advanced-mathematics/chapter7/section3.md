@@ -94,7 +94,7 @@ $$
 
 ## III. 隐函数的存在定理
 
-### 3.1 当仅有一个二元方程时
+### 3.1 一个二元方程的情况
 
 对于方程$F(x, y) = 0$，若满足以下三条：
 
@@ -122,7 +122,7 @@ $$
     $$
     :::
 
-### 3.2 当仅有一个三元方程时
+### 3.2 一个三元方程的情况
 
 对于方程$F(x, y, z) = 0$，若满足以下三条：
 
@@ -160,5 +160,99 @@ $$
     F_y'(0, 1, 1) = \left. (x - z/y) \right|_{(x, y, z) = (0, 1, 1)} = -1 \neq 0 \\
     F_z'(0, 1, 1) = \left. (-\ln y + x e^{xz}) \right|_{(x, y, z) = (0, 1, 1)} = 0 \\
     \end{gather}
+    $$
+    :::
+
+### 3.3 两个四元方程的情况
+
+设函数$F(x, y, u, v)$和$G(x, y, u, v)$在点$P(x_0, y_0, u_0, v_0)$的某一邻域内具有对各个变量的连续偏导数，又：
+$$
+F(x_0, y_0, u_0, v_0) = G(x_0, y_0, u_0, v_0) = 0
+$$
+且：
+$$
+J = \frac{\partial(F, G)}{\partial(u, v)} =
+\begin{vmatrix}
+\dfrac{\partial F}{\partial u} & \dfrac{\partial F}{\partial v} \\
+\dfrac{\partial G}{\partial u} & \dfrac{\partial G}{\partial v} \\
+\end{vmatrix}
+$$
+在点$P(x_0, y_0, u_0, v_0)$处不等于零，则方程组：
+$$
+\begin{cases}
+F(x, y, u, v) = 0 \\
+G(x, y, u, v) = 0 \\
+\end{cases}
+$$
+在点$P(x_0, y_0, u_0, v_0)$的某一邻域内恒能唯一确定一组连续且具有连续偏导数的函数：
+$$
+u = u(x, y), v = v(x, y)
+$$
+且它们满足条件：
+$$
+u_0 = u(x_0, y_0), v_0 = v(x_0, y_0)
+$$
+并有：
+$$
+\frac{\partial u}{\partial x} = -\frac{1}{J} \cdot \frac{\partial (F, G)}{\partial (x, v)} = -\frac{\begin{vmatrix}F_x' & F_v' \\ G_x' & G_v'\end{vmatrix}}{\begin{vmatrix}F_u' & F_v' \\ G_u' & G_v'\end{vmatrix}}
+$$
+
+$$
+\frac{\partial v}{\partial x} = -\frac{1}{J} \cdot \frac{\partial (F, G)}{\partial (u, x)} = -\frac{\begin{vmatrix}F_u' & F_x' \\ G_u' & G_x'\end{vmatrix}}{\begin{vmatrix}F_u' & F_v' \\ G_u' & G_v'\end{vmatrix}}
+$$
+
+$$
+\frac{\partial u}{\partial y} = -\frac{1}{J} \cdot \frac{\partial (F, G)}{\partial (y, v)} = -\frac{\begin{vmatrix}F_y' & F_v' \\ G_y' & G_v'\end{vmatrix}}{\begin{vmatrix}F_u' & F_v' \\ G_u' & G_v'\end{vmatrix}}
+$$
+
+$$
+\frac{\partial v}{\partial y} = -\frac{1}{J} \cdot \frac{\partial (F, G)}{\partial (u, y)} = -\frac{\begin{vmatrix}F_u' & F_y' \\ G_u' & G_y'\end{vmatrix}}{\begin{vmatrix}F_u' & F_v' \\ G_u' & G_v'\end{vmatrix}}
+$$
+
+- **例7**：设：
+    $$
+    \begin{cases}
+    x^2 + y^2 - uv = 0 \\
+    xy - u^2 + v^2 = 0 \\
+    \end{cases}
+    $$
+    求$\dfrac{\partial u}{\partial x}$、$\dfrac{\partial v}{\partial x}$.
+
+    ::: details Answer
+
+    设函数：
+    $$
+    \begin{cases}
+    F(x) = x^2 + y^2 - uv \\
+    G(x) = xy - u^2 + v^2 \\
+    \end{cases}
+    $$
+    则有方程组：
+    $$
+    \begin{cases}
+    F(x) = x^2 + y^2 - uv = 0 \\
+    G(x) = xy - u^2 + v^2 = 0 \\
+    \end{cases}
+    $$
+    对方程两边分别关于$x$求偏导可得：
+    $$
+    \begin{cases}
+    F_x' + F_u' \cdot \dfrac{\partial u}{\partial x} + F_v' \cdot \dfrac{\partial v}{\partial x} = 0 \\
+    G_x' + G_u' \cdot \dfrac{\partial u}{\partial x} + G_v' \cdot \dfrac{\partial v}{\partial x} = 0 \\
+    \end{cases}
+    $$
+    解得：
+    $$
+    \begin{cases}
+    \displaystyle \frac{\partial u}{\partial x} = \frac{G_x' F_v' - F_x' G_v'}{F_u' G_v' - G_u' F_v'} \\
+    \displaystyle \frac{\partial v}{\partial x} = \frac{G_x' F_u' - F_x' G_u'}{F_v' G_u' - G_v' F_u'} \\
+    \end{cases}
+    $$
+    即：
+    $$
+    \begin{cases}
+    \displaystyle \frac{\partial u}{\partial x} = \frac{4vx + uy}{2v^2 + 2u^2} \\
+    \displaystyle \frac{\partial v}{\partial x} = \frac{4ux - vy}{2u^2 + 2v^2} \\
+    \end{cases}
     $$
     :::

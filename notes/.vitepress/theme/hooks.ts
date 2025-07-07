@@ -1,5 +1,4 @@
-import { PageData, useData } from "vitepress";
-import { Ref, onMounted, onUnmounted, reactive, ref, watch } from "vue";
+import {onMounted, onUnmounted, reactive, ref} from "vue";
 
 export const useScreenSize = () => {
     const size = reactive({
@@ -24,13 +23,19 @@ export const useScreenSize = () => {
     return size;
 };
 
-export const useAsumiIndex = (page: Ref<PageData>) => {
+export const useAsumiIndex = () => {
     const index = ref(1);
+    const _ = ref(-1);
 
-    watch(page, (a, b) => {
-        if (a.filePath === b.filePath) return;
-        if (index.value >= 5) index.value = 1;
-        else index.value++;
+    onMounted(() => {
+        _.value = setInterval(() => {
+            if (index.value >= 5) index.value = 1;
+            else index.value++;
+        }, 10000);
+    });
+
+    onUnmounted(() => {
+        clearInterval(_.value);
     });
 
     return index;

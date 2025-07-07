@@ -21,12 +21,9 @@ hero:
 <script setup>
 import VideoBackground from "../src/components/VideoBackground.vue";
 import { onMounted } from "vue";
-import mdKatex from "markdown-it-katex";
 
 onMounted(() => {
-  console.log(mdKatex);
-  console.log(2);
-  document.querySelectorAll("a.VPButton")[1].addEventListener("click", (event) => {
+  document.querySelectorAll("a.VPButton")[2].addEventListener("click", (event) => {
     event.preventDefault();
     const audio = document.querySelector("#msc");
     if (audio.paused) audio.play();
