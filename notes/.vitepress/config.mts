@@ -353,7 +353,16 @@ export default withMermaid({
                 {
                     text: "第八章 二重积分",
                     collapsed: true,
-                    items: [],
+                    items: [
+                        {
+                            text: "第一节 二重积分的概念与性质",
+                            link: "/advanced-mathematics/chapter8/section1"
+                        },
+                        {
+                            text: "第二节 二重积分的计算方法",
+                            link: "/advanced-mathematics/chapter8/section2",
+                        },
+                    ],
                 },
             ],
             "/linear-algebra/": [
